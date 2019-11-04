@@ -7,28 +7,38 @@ Fusion Docuementation - 2.3
 ======================================
 
 .. toctree::
-  :maxdepth: 1
-  :caption: Components:
+  :maxdepth: 3
+  :caption: API:
 
-  components/output
-  components/feature
-  components/layout
-  components/chain
-  components/event-handling
-
+  api/api-output
+  api/api-feature
+  api/api-layout
+  api/api-chain
+  api/api-custom-fields
+  api/api-consumer
+  api/api-context
+  api/api-content
+  api/api-static
+  api/api-content-source
+  api/api-plugins
+  api/api-local-development-mock
+  api/api-site-properties
+  api/api-fusion-http
 
 .. toctree::
-  :maxdepth: 2
-  :caption: Data:
+  :maxdepth: 3
+  :caption: Best Practices:
 
-  data/content-source
-  data/environment
-  data/consumer-hoc
-  data/fetching-content
-  data/configuring-content
-  data/content-filtering
-  data/site-properties
+  best_practices/bp
 
+.. toctree::
+  :maxdepth: 3
+  :caption: Hooks:
+
+  hooks/hooks-configuring-content
+  hooks/hooks-fetching-content
+  hooks/hooks-event-handling
+  hooks/hooks
 
 .. toctree::
   :maxdepth: 2
@@ -48,38 +58,28 @@ Fusion Docuementation - 2.3
 
 
 .. toctree::
-  :maxdepth: 3
-  :caption: Best Practices:
+  :maxdepth: 2
+  :caption: Data:
 
-  best_practices/bp
-
-
-
-.. toctree::
-  :maxdepth: 3
-  :caption: Hooks:
-
-  hooks/hooks-configuring-content
-  hooks/hooks-fetching-content
-  hooks/hooks-event-handling
-  hooks/hooks
-
+  data/content-source
+  data/environment
+  data/consumer-hoc
+  data/fetching-content
+  data/configuring-content
+  data/content-filtering
+  data/site-properties
 
 .. toctree::
-  :maxdepth: 3
-  :caption: API:
+  :maxdepth: 1
+  :caption: Components:
 
-  api/api-output
-  api/api-feature
-  api/api-layout
-  api/api-chain
-  api/api-custom-fields
-  api/api-consumer
-  api/api-context
-  api/api-content
-  api/api-static
-  api/api-content-source
-  api/api-plugins
-  api/api-local-development-mock
-  api/api-site-properties
-  api/api-fusion-http
+  components/output
+  components/feature
+  components/layout
+  components/chain
+  components/event-handling
+
+
+
+
+
