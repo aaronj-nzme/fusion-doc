@@ -1,0 +1,666 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Fusion Docuementation - 2.3 &mdash; Fusion-Doc 1.0.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Creating and Using Output Types" href="output.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="#" class="icon icon-home"> Fusion-Doc
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Components:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="output.html">Creating and Using Output Types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="feature.html">Creating a Feature Component</a></li>
+<li class="toctree-l1"><a class="reference internal" href="layout.html">Creating a Layout Component</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chain.html">Creating a Chain Component</a></li>
+<li class="toctree-l1"><a class="reference internal" href="event-handling.html">Event Handling and Interaction</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Data:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="content-source.html">Defining a Content Source</a></li>
+<li class="toctree-l1"><a class="reference internal" href="environment.html">Using Environment Variables and “Secrets”</a></li>
+<li class="toctree-l1"><a class="reference internal" href="consumer-hoc.html">Using the Consumer Higher-Order Function</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fetching-content.html">Fetching Content</a></li>
+<li class="toctree-l1"><a class="reference internal" href="configuring-content.html">Dynamically Configuring Content</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content-filtering.html">Content Filtering in Fusion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="site-properties.html">Using Site Properties</a></li>
+</ul>
+<p class="caption"><span class="caption-text">General:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Folder.html">Examining the Feature Pack</a></li>
+<li class="toctree-l1"><a class="reference internal" href="style.html">Adding Styling to Components</a></li>
+<li class="toctree-l1"><a class="reference internal" href="custom-fields.html">Adding Custom Fields to Components</a></li>
+<li class="toctree-l1"><a class="reference internal" href="display-properties.html">Working with Display Properties</a></li>
+<li class="toctree-l1"><a class="reference internal" href="isomorphic-server-spa.html">Isomorphic vs. Server vs. SPA rendering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="messga-between-components.html">Messaging Between Components</a></li>
+<li class="toctree-l1"><a class="reference internal" href="custom-error-page.html">Using Custom Error Pages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="return-non-html-content-type.html">Creating a Web API Returning a Non-HTML Content Type</a></li>
+<li class="toctree-l1"><a class="reference internal" href="service-work.html">Using Service Workers with Fusion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="local-webpack-states-file.html">Locally Generated Webpack Stats File</a></li>
+<li class="toctree-l1"><a class="reference internal" href="static-features-outside-of-fusion.html">Including Static Features Outside of Fusion</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Best Practices:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="bp.html">Best Practices</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Hooks:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="hooks-configuring-content.html">Dynamically Configuring Content</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hooks-fetching-content.html">Fetching Content</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hooks-event-handling.html">Event Handling and Interaction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hooks.html">React Hooks</a></li>
+</ul>
+<p class="caption"><span class="caption-text">API:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="api-output.html">Output Type API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-feature.html">Feature API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-layout.html">Layout API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-chain.html">Chain API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-custom-fields.html">Custom Fields API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-consumer.html">Consumer API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-context.html">Context Component API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-content.html">Content Component API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-static.html">Static Component API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-content-source.html">Content Source API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-plugins.html">Plugins API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-local-development-mock.html">Local Mocks API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-site-properties.html">Site Properties API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-fusion-http.html">Fusion HTTP API</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="#">Fusion-Doc</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="#">Docs</a> &raquo;</li>
+        
+      <li>Fusion Docuementation - 2.3</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="fusion-docuementation-2-3">
+<h1>Fusion Docuementation - 2.3<a class="headerlink" href="#fusion-docuementation-2-3" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+<p class="caption"><span class="caption-text">Components:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="output.html">Creating and Using Output Types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="feature.html">Creating a Feature Component</a></li>
+<li class="toctree-l1"><a class="reference internal" href="layout.html">Creating a Layout Component</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chain.html">Creating a Chain Component</a></li>
+<li class="toctree-l1"><a class="reference internal" href="event-handling.html">Event Handling and Interaction</a></li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<p class="caption"><span class="caption-text">Data:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="content-source.html">Defining a Content Source</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="content-source.html#defining-a-content-source-in-javascript">Defining a Content Source in JavaScript</a></li>
+<li class="toctree-l2"><a class="reference internal" href="content-source.html#defining-a-content-source-in-json">Defining a Content Source in JSON</a></li>
+<li class="toctree-l2"><a class="reference internal" href="content-source.html#using-content-base">Using CONTENT_BASE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="content-source.html#content-caching-server-side">Content Caching (Server Side)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="environment.html">Using Environment Variables and “Secrets”</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="environment.html#local-vs-production-environments">Local vs. production environments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="environment.html#creating-and-using-environment-variables">Creating and using environment variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="environment.html#restrictions">Restrictions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="consumer-hoc.html">Using the Consumer Higher-Order Function</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="consumer-hoc.html#setting-up-a-resolver">Setting up a resolver</a></li>
+<li class="toctree-l2"><a class="reference internal" href="consumer-hoc.html#what-is-the-consumer-function">What is the Consumer function?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="consumer-hoc.html#adapting-our-feature">Adapting our Feature</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="fetching-content.html">Fetching Content</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="fetching-content.html#using-global-content-vs-fetched-content">Using “global” content vs. fetched content</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fetching-content.html#fetching-content-and-setting-state">Fetching content and setting state</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fetching-content.html#adding-pagination">Adding pagination</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="configuring-content.html">Dynamically Configuring Content</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="configuring-content.html#setting-the-contentconfig-custom-field-proptype">Setting the contentConfig Custom Field PropType</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuring-content.html#using-the-contentconfig-values-from-pagebuilder-admin">Using the contentConfig values from PageBuilder Admin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuring-content.html#multiple-content-sources">Multiple content sources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuring-content.html#wrapping-up">Wrapping up</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="content-filtering.html">Content Filtering in Fusion</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="content-filtering.html#feature-level-content-filtering">Feature-level content filtering</a></li>
+<li class="toctree-l2"><a class="reference internal" href="content-filtering.html#content-source-level-content-filtering">Content source-level content filtering</a></li>
+<li class="toctree-l2"><a class="reference internal" href="content-filtering.html#order-of-operations-what-happens-in-what-order-where-does-it-happen">Order of operations (What happens in what order? Where does it happen?)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="site-properties.html">Using Site Properties</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="site-properties.html#site-properties-vs-environment-variables">Site properties vs. environment variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="site-properties.html#global-values">Global values</a></li>
+<li class="toctree-l2"><a class="reference internal" href="site-properties.html#site-specific-values">Site specific values</a></li>
+<li class="toctree-l2"><a class="reference internal" href="site-properties.html#using-properties">Using properties</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<p class="caption"><span class="caption-text">General:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Folder.html">Examining the Feature Pack</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Folder.html#guidelines">Guidelines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Folder.html#directory-structure">Directory structure</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="style.html">Adding Styling to Components</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="style.html#using-static-tags">Using static  tags</a></li>
+<li class="toctree-l2"><a class="reference internal" href="style.html#importing-into-components">Importing into components</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="custom-fields.html">Adding Custom Fields to Components</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="custom-fields.html#what-are-custom-fields">What are Custom Fields?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="custom-fields.html#custom-fields-as-proptypes">Custom Fields as PropTypes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="custom-fields.html#inline-editing">Inline Editing</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="display-properties.html">Working with Display Properties</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="display-properties.html#what-are-display-properties">What are display properties?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="display-properties.html#defining-in-the-output-type">Defining in the Output Type</a></li>
+<li class="toctree-l2"><a class="reference internal" href="display-properties.html#using-display-properties-in-a-component">Using display properties in a component</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="isomorphic-server-spa.html">Isomorphic vs. Server vs. SPA rendering</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="isomorphic-server-spa.html#rendering-isomorphically-universally">Rendering isomorphically/universally</a></li>
+<li class="toctree-l2"><a class="reference internal" href="isomorphic-server-spa.html#rendering-server-side-only">Rendering server-side only</a></li>
+<li class="toctree-l2"><a class="reference internal" href="isomorphic-server-spa.html#rendering-client-side-only">Rendering client-side only</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="messga-between-components.html">Messaging Between Components</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="messga-between-components.html#the-problem-with-state">The problem with state</a></li>
+<li class="toctree-l2"><a class="reference internal" href="messga-between-components.html#how-to-message">How to message</a></li>
+<li class="toctree-l2"><a class="reference internal" href="messga-between-components.html#removing-listeners">Removing listeners</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="custom-error-page.html">Using Custom Error Pages</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="custom-error-page.html#implementation">Implementation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="custom-error-page.html#example">Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="custom-error-page.html#common-status-codes">Common status codes</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="return-non-html-content-type.html">Creating a Web API Returning a Non-HTML Content Type</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="return-non-html-content-type.html#goals">Goals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="return-non-html-content-type.html#design">Design</a></li>
+<li class="toctree-l2"><a class="reference internal" href="return-non-html-content-type.html#creating-a-generic-json-output-type">Creating a generic JSON output type</a></li>
+<li class="toctree-l2"><a class="reference internal" href="return-non-html-content-type.html#creating-a-generic-api-layout">Creating a generic api layout</a></li>
+<li class="toctree-l2"><a class="reference internal" href="return-non-html-content-type.html#creating-a-chain-to-return-array-type-data">Creating a chain to return array type data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="return-non-html-content-type.html#creating-a-content-source-to-fetch-section-data">Creating a content source to fetch section data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="return-non-html-content-type.html#creating-a-content-source-to-fetch-stories-by-section">Creating a content source to fetch stories by section</a></li>
+<li class="toctree-l2"><a class="reference internal" href="return-non-html-content-type.html#creating-a-feature-to-combine-section-data-and-stories">Creating a feature to combine section data and stories</a></li>
+<li class="toctree-l2"><a class="reference internal" href="return-non-html-content-type.html#creating-corresponding-components-for-default-output-for-visual-preview">Creating corresponding components for default output for visual preview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="return-non-html-content-type.html#creating-corresponding-components-for-xml-output-type">Creating corresponding components for XML output type</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="service-work.html">Using Service Workers with Fusion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="local-webpack-states-file.html">Locally Generated Webpack Stats File</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="local-webpack-states-file.html#finding-the-stats-json-file">Finding the stats JSON file</a></li>
+<li class="toctree-l2"><a class="reference internal" href="local-webpack-states-file.html#analysis">Analysis</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="static-features-outside-of-fusion.html">Including Static Features Outside of Fusion</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="static-features-outside-of-fusion.html#create-an-output-type">Create an Output Type</a></li>
+<li class="toctree-l2"><a class="reference internal" href="static-features-outside-of-fusion.html#replace-relative-links-in-css">Replace relative links in CSS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="static-features-outside-of-fusion.html#replace-relative-links-in-html">Replace relative links in HTML</a></li>
+<li class="toctree-l2"><a class="reference internal" href="static-features-outside-of-fusion.html#configure-the-fragment-in-pagebuilder">Configure the fragment in PageBuilder</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<p class="caption"><span class="caption-text">Best Practices:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="bp.html">Best Practices</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="bp.html#server-side-rendered-vs-isomorphic-vs-client-side-rendered">Server-side rendered vs. Isomorphic vs. Client-side rendered</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bp.html#notes-on-content-source-schemas-in-fusion">Notes on content source schemas in Fusion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bp.html#amp">AMP</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="bp.html#javascript">JavaScript</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bp.html#css">CSS</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="bp.html#react-hooks">React Hooks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bp.html#image-resizing-with-thumbor">Image resizing with Thumbor</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="bp.html#server-side-image-url-formatting">Server-side image URL formatting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bp.html#preventing-thumbor-code-from-being-delivered-to-client">Preventing Thumbor code from being delivered to client</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="bp.html#date-time-management-consider-not-using-moment-js">Date/Time management (Consider not using Moment.js)</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<p class="caption"><span class="caption-text">Hooks:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="hooks-configuring-content.html">Dynamically Configuring Content</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="hooks-configuring-content.html#setting-the-contentconfig-custom-field-proptype">Setting the contentConfig Custom Field PropType</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hooks-configuring-content.html#using-the-contentconfig-values-from-pagebuilder-admin">Using the contentConfig values from PageBuilder Admin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hooks-configuring-content.html#multiple-content-sources">Multiple content sources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hooks-configuring-content.html#wrapping-up">Wrapping up</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="hooks-fetching-content.html">Fetching Content</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="hooks-fetching-content.html#using-global-content-vs-fetched-content">Using “global” content vs. fetched content</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hooks-fetching-content.html#fetching-content-and-setting-state">Fetching content and setting state</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hooks-fetching-content.html#adding-pagination">Adding pagination</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="hooks-event-handling.html">Event Handling and Interaction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="hooks-event-handling.html#responding-to-events">Responding to events</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="hooks-event-handling.html#adding-some-state">Adding some state</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hooks-event-handling.html#adding-a-toggle-method">Adding a toggle method</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hooks-event-handling.html#displaying-the-data">Displaying the data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hooks-event-handling.html#the-whole-thing">The whole thing</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="hooks.html">React Hooks</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="hooks.html#usecomponentcontext">useComponentContext</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hooks.html#useappcontext">useAppContext</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hooks.html#usefusioncontext-added-on-fusion-2-2">useFusionContext (added on Fusion 2.2)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hooks.html#usecontent">useContent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hooks.html#useeditablecontent">useEditableContent</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<p class="caption"><span class="caption-text">API:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="api-output.html">Output Type API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api-output.html#implementation">Implementation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api-output.html#naming">Naming</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api-output.html#example">Example</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api-output.html#props">Props</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api-output.html#children-array">children - (Array)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api-output.html#metavalue-function">metaValue() - (Function)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api-output.html#prop-components">Prop Components</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api-output.html#props-csslinks-component">props.CssLinks - (Component)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api-output.html#props-fusion-component">props.Fusion - (Component)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api-output.html#props-libs-component">props.Libs - (Component)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api-output.html#props-metatag-component">props.MetaTag - (Component)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api-output.html#props-resource-component">props.Resource - (Component)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api-output.html#props-styles-component">props.Styles - (Component)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api-output.html#static-values">Static Values</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api-output.html#contenttype-string">contentType - (String)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api-output.html#displayproptypes-object">displayPropTypes - (Object)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api-output.html#fallback-boolean-or-array-of-strings">fallback - (Boolean or Array of Strings)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api-output.html#transform-object">transform - (Object)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api-feature.html">Feature API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api-feature.html#implementation">Implementation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api-feature.html#naming">Naming</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api-feature.html#example">Example</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api-feature.html#props">Props</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api-feature.html#displayproperties-object">displayProperties (Object)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api-feature.html#static-values">Static Values</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api-feature.html#label-object-or-string">label (Object or String)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api-feature.html#custom-fields">Custom Fields</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api-layout.html">Layout API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api-layout.html#implementation">Implementation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api-layout.html#naming">Naming</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api-layout.html#example">Example</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api-layout.html#props">Props</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api-layout.html#children-array">children - (Array)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api-layout.html#childprops-array">childProps - (Array)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api-layout.html#instance-methods">Instance Methods</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api-layout.html#sections-function">sections() - (Function)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api-chain.html">Chain API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api-chain.html#implementation">Implementation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api-chain.html#naming">Naming</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api-chain.html#example">Example</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api-chain.html#props">Props</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api-chain.html#children-array">children - (Array)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api-chain.html#childprops-array">childProps - (Array)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api-chain.html#static-values">Static Values</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api-chain.html#label-object-or-string">label (Object or String)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api-chain.html#custom-fields">Custom Fields</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api-custom-fields.html">Custom Fields API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api-custom-fields.html#types">Types</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api-custom-fields.html#bool">bool</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api-custom-fields.html#contentconfig">contentConfig()</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api-custom-fields.html#date">date</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api-custom-fields.html#datetime">dateTime</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api-custom-fields.html#disabled">disabled</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api-custom-fields.html#email">email</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api-custom-fields.html#json">json</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api-custom-fields.html#kvp">kvp</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api-custom-fields.html#label">label</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api-custom-fields.html#list">list</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api-custom-fields.html#number">number</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api-custom-fields.html#oneof">oneOf()</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api-custom-fields.html#richtext">richtext</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api-custom-fields.html#string">string</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api-custom-fields.html#url">url</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api-custom-fields.html#global-options">Global Options</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api-custom-fields.html#isrequired">isRequired</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api-custom-fields.html#tag">tag()</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api-consumer.html">Consumer API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api-consumer.html#implementation">Implementation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api-consumer.html#example">Example</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api-consumer.html#props">Props</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api-consumer.html#editablecontent-function">editableContent() (Function)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api-consumer.html#instance-methods">Instance Methods</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api-consumer.html#addeventlistener-function">addEventListener() - (Function)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api-consumer.html#dispatchevent-function">dispatchEvent() - (Function)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api-consumer.html#fetchcontent-function">fetchContent() - (Function)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api-consumer.html#getcontent-function">getContent() - (Function)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api-consumer.html#removeeventlistener-function">removeEventListener() - (Function)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api-context.html">Context Component API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api-context.html#implementation">Implementation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api-context.html#context-component">Context Component</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api-context.html#appcontext-and-componentcontext-components">AppContext and ComponentContext Components</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api-context.html#hocs">HOCs</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api-context.html#props">Props</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api-context.html#app-context">App Context</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api-context.html#component-context">Component Context</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api-context.html#pass-through-props">Pass-through Props</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api-context.html#id32">Example</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api-content.html">Content Component API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api-content.html#implementation">Implementation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api-content.html#example">Example</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api-content.html#options">Options</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api-content.html#global">global</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api-content.html#async">async</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api-static.html">Static Component API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api-static.html#implementation">Implementation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api-static.html#props">Props</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api-static.html#id-string">id (String)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api-static.html#htmlonly-boolean">htmlOnly (Boolean)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api-content-source.html">Content Source API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api-content-source.html#implementation">Implementation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api-content-source.html#naming">Naming</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api-content-source.html#javascript-definition">JavaScript Definition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api-content-source.html#json-definition">JSON Definition</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api-plugins.html">Plugins API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api-plugins.html#implementation">Implementation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api-plugins.html#naming">Naming</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api-plugins.html#example">Example</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api-plugins.html#required-methods">Required Methods</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api-plugins.html#window-initializeplugin-function">window.initializePlugin() (Function)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api-plugins.html#options">Options</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api-plugins.html#window-pluginoptions-object">window.pluginOptions (Object)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api-local-development-mock.html">Local Mocks API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api-local-development-mock.html#service-workers">Service Workers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api-local-development-mock.html#moving-to-production">Moving to Production</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api-site-properties.html">Site Properties API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api-site-properties.html#definition">Definition</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api-site-properties.html#global-properties">Global Properties</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api-site-properties.html#site-specific-properties">Site-Specific Properties</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api-site-properties.html#use">Use</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api-fusion-http.html">Fusion HTTP API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api-fusion-http.html#content">Content</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api-fusion-http.html#rendering">Rendering</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api-fusion-http.html#resolver">Resolver</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api-fusion-http.html#assets">Assets</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api-fusion-http.html#resources">Resources</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api-fusion-http.html#scripts">Scripts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api-fusion-http.html#styles">Styles</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="output.html" class="btn btn-neutral float-right" title="Creating and Using Output Types" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Guess Me
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

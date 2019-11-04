@@ -1,0 +1,404 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Plugins API &mdash; Fusion-Doc 1.0.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Local Mocks API" href="api-local-development-mock.html" />
+    <link rel="prev" title="Content Source API" href="api-content-source.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Fusion-Doc
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Components:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="output.html">Creating and Using Output Types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="feature.html">Creating a Feature Component</a></li>
+<li class="toctree-l1"><a class="reference internal" href="layout.html">Creating a Layout Component</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chain.html">Creating a Chain Component</a></li>
+<li class="toctree-l1"><a class="reference internal" href="event-handling.html">Event Handling and Interaction</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Data:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="content-source.html">Defining a Content Source</a></li>
+<li class="toctree-l1"><a class="reference internal" href="environment.html">Using Environment Variables and “Secrets”</a></li>
+<li class="toctree-l1"><a class="reference internal" href="consumer-hoc.html">Using the Consumer Higher-Order Function</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fetching-content.html">Fetching Content</a></li>
+<li class="toctree-l1"><a class="reference internal" href="configuring-content.html">Dynamically Configuring Content</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content-filtering.html">Content Filtering in Fusion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="site-properties.html">Using Site Properties</a></li>
+</ul>
+<p class="caption"><span class="caption-text">General:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Folder.html">Examining the Feature Pack</a></li>
+<li class="toctree-l1"><a class="reference internal" href="style.html">Adding Styling to Components</a></li>
+<li class="toctree-l1"><a class="reference internal" href="custom-fields.html">Adding Custom Fields to Components</a></li>
+<li class="toctree-l1"><a class="reference internal" href="display-properties.html">Working with Display Properties</a></li>
+<li class="toctree-l1"><a class="reference internal" href="isomorphic-server-spa.html">Isomorphic vs. Server vs. SPA rendering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="messga-between-components.html">Messaging Between Components</a></li>
+<li class="toctree-l1"><a class="reference internal" href="custom-error-page.html">Using Custom Error Pages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="return-non-html-content-type.html">Creating a Web API Returning a Non-HTML Content Type</a></li>
+<li class="toctree-l1"><a class="reference internal" href="service-work.html">Using Service Workers with Fusion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="local-webpack-states-file.html">Locally Generated Webpack Stats File</a></li>
+<li class="toctree-l1"><a class="reference internal" href="static-features-outside-of-fusion.html">Including Static Features Outside of Fusion</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Best Practices:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="bp.html">Best Practices</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Hooks:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="hooks-configuring-content.html">Dynamically Configuring Content</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hooks-fetching-content.html">Fetching Content</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hooks-event-handling.html">Event Handling and Interaction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hooks.html">React Hooks</a></li>
+</ul>
+<p class="caption"><span class="caption-text">API:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="api-output.html">Output Type API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-feature.html">Feature API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-layout.html">Layout API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-chain.html">Chain API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-custom-fields.html">Custom Fields API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-consumer.html">Consumer API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-context.html">Context Component API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-content.html">Content Component API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-static.html">Static Component API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-content-source.html">Content Source API</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Plugins API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#implementation">Implementation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#naming">Naming</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#example">Example</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#required-methods">Required Methods</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#window-initializeplugin-function">window.initializePlugin() (Function)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#description">Description</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#arguments">Arguments</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id1">Example</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#options">Options</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#window-pluginoptions-object">window.pluginOptions (Object)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id2">Description</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#keys">Keys</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id3">Example</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api-local-development-mock.html">Local Mocks API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-site-properties.html">Site Properties API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-fusion-http.html">Fusion HTTP API</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Fusion-Doc</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Plugins API</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/api-plugins.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="plugins-api">
+<h1>Plugins API<a class="headerlink" href="#plugins-api" title="Permalink to this headline">¶</a></h1>
+<p>Plugins offer the ability for Feature Pack developers to add a specialized user interface for setting custom field values. Plugins can help editors set complex values when the default behavior of a custom field input isn’t enough. Good examples of plugins could include a color picker for selecting hexadecimal color values, a WYSIWYG editor for creating HTML snippets, or a calculator for… calculating.</p>
+<div class="section" id="implementation">
+<h2>Implementation<a class="headerlink" href="#implementation" title="Permalink to this headline">¶</a></h2>
+<p>Plugins in Fusion are implemented as HTML web pages that get included as iframes in the PageBuilder editor. Each HTML document must include a JavaScript method named <code class="docutils literal notranslate"><span class="pre">initializePlugin</span></code> set on the global <code class="docutils literal notranslate"><span class="pre">window</span></code> object. This method is responsible for setting the initial state of the plugin UI, and will be invoked by PageBuilder when a user opens the proper custom field’s plugin.</p>
+<div class="section" id="naming">
+<h3>Naming<a class="headerlink" href="#naming" title="Permalink to this headline">¶</a></h3>
+<p>A Plugin is expected to be stored and named in the following format:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">/resources/plugins/{pluginName}/index.html</span></code></li>
+</ul>
+<blockquote>
+<div>The <code class="docutils literal notranslate"><span class="pre">{pluginName}</span></code> portion of the filepath must correspond exactly to the name of the plugin that is passed as the <code class="docutils literal notranslate"><span class="pre">formPlugin</span></code> value for the custom field.</div></blockquote>
+<p>Plugins can also have additional files and folders inside of their respective <code class="docutils literal notranslate"><span class="pre">pluginName</span></code> directories. This may include JavaScript, CSS or other resource dependencies of the plugin.</p>
+<p>It is common for plugins to require a build process in order to compile higher-level JavaScript into websafe (ES5) JavaScript. In this case, it is recommended that the <em>source code</em> for the plugin be stored and named in the following format:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">/plugins/{pluginName}/*</span></code></li>
+</ul>
+<blockquote>
+<div>The <code class="docutils literal notranslate"><span class="pre">*</span></code> portion of the filepath represents any source files needed to generate the plugin’s compiled code (including HTML).</div></blockquote>
+<p>The source code should contain some build process (typically a webpack config file) that builds a compiled version of the plugin’s code into the corresponding <code class="docutils literal notranslate"><span class="pre">/resources/plugins/{pluginName}</span></code> directory.</p>
+</div>
+<div class="section" id="example">
+<h3>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>/*  /resources/plugins/color-picker/index.html  */
+
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+  &lt;meta charset=&quot;utf-8&quot; /&gt;
+  &lt;title&gt;Plugin&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;div class=&quot;color&quot; data-color=&quot;red&quot;&gt;&lt;/div&gt;
+  &lt;div class=&quot;color&quot; data-color=&quot;white&quot;&gt;&lt;/div&gt;
+  &lt;div class=&quot;color&quot; data-color=&quot;blue&quot;&gt;&lt;/div&gt;
+
+  &lt;button id=&quot;save&quot;&gt;Save&lt;/button&gt;
+  &lt;button id=&quot;close&quot;&gt;Close&lt;/button&gt;
+
+  &lt;script&gt;
+    window.initializePlugin = function({ field, initVal, onClose, onSave }) {
+      let selectedColor = initVal || &#39;&#39;
+
+      document.querySelectorAll(&#39;.color&#39;).forEach(el =&gt; {
+        el.addEventListener(&#39;click&#39;, () =&gt; {
+          selectedColor = el.getAttribute(&#39;data-color&#39;)
+        })
+      })
+
+      document.getElementById(&#39;save&#39;).addEventListener(&#39;click&#39;, () =&gt; {
+        onSave(selectedColor)
+      })
+
+      document.getElementById(&#39;close&#39;).addEventListener(&#39;click&#39;, onClose)
+    }
+  &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="required-methods">
+<h2>Required Methods<a class="headerlink" href="#required-methods" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="window-initializeplugin-function">
+<h3>window.initializePlugin() (Function)<a class="headerlink" href="#window-initializeplugin-function" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="description">
+<h4>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h4>
+<p>The <code class="docutils literal notranslate"><span class="pre">initializePlugin</span></code> method is required in order for a plugin to be able to interface with PageBuilder by receiving an initial value of the plugin or data about the custom field it is set on, or for the plugin to save a value or close itself. This method must be defined on the global <code class="docutils literal notranslate"><span class="pre">window</span></code> object of the HTML document.</p>
+</div>
+<div class="section" id="arguments">
+<h4>Arguments<a class="headerlink" href="#arguments" title="Permalink to this headline">¶</a></h4>
+<p><code class="docutils literal notranslate"><span class="pre">initializePlugin(pluginData)</span></code></p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">pluginData</span></code> (<em>Object</em>): An object containing the data passed by PaegBuilder to the plugin<ul>
+<li><code class="docutils literal notranslate"><span class="pre">pluginData.field</span></code> (<em>Object</em>): Data about the custom field this plugin is attached to</li>
+<li><code class="docutils literal notranslate"><span class="pre">pluginData.initVal</span></code> (<em>?</em>): The initial value of the custom field</li>
+<li><code class="docutils literal notranslate"><span class="pre">pluginData.onClose()</span></code> (<em>Function</em>): A callback function to be invoked by the plugin when it should be closed</li>
+<li><code class="docutils literal notranslate"><span class="pre">pluginData.onSave(value)</span></code> (<em>Function</em>): A callback function to be invoked by the plugin when a value should be saved. The sole argument to be passed is the value to be saved.</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="id1">
+<h4>Example<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h4>
+<p>See “Implementation” section example above.</p>
+</div>
+</div>
+</div>
+<div class="section" id="options">
+<h2>Options<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="window-pluginoptions-object">
+<h3>window.pluginOptions (Object)<a class="headerlink" href="#window-pluginoptions-object" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id2">
+<h4>Description<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h4>
+<p>The <code class="docutils literal notranslate"><span class="pre">pluginOptions</span></code> object can be used to set the height and width of the plugin window. It must be set on the global <code class="docutils literal notranslate"><span class="pre">window</span></code> object, similar to the <code class="docutils literal notranslate"><span class="pre">initializePlugin</span></code> method.</p>
+</div>
+<div class="section" id="keys">
+<h4>Keys<a class="headerlink" href="#keys" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">pluginOptions.height</span></code> (<em>String</em>): The CSS value of the desired height of the plugin window.</li>
+<li><code class="docutils literal notranslate"><span class="pre">pluginOptions.width</span></code> (<em>String</em>): The CSS value of the desired width of the plugin window.</li>
+</ul>
+</div>
+<div class="section" id="id3">
+<h4>Example<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">/*</span>  <span class="o">/</span><span class="n">resources</span><span class="o">/</span><span class="n">plugins</span><span class="o">/</span><span class="n">color</span><span class="o">-</span><span class="n">picker</span><span class="o">/</span><span class="n">index</span><span class="o">.</span><span class="n">html</span>  <span class="o">*/</span>
+<span class="o">...</span>
+<span class="o">&lt;</span><span class="n">script</span><span class="o">&gt;</span>
+  <span class="n">window</span><span class="o">.</span><span class="n">pluginOptions</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="n">height</span><span class="p">:</span> <span class="s1">&#39;300px&#39;</span><span class="p">,</span>
+    <span class="n">width</span><span class="p">:</span> <span class="s1">&#39;400px&#39;</span>
+  <span class="p">}</span>
+  <span class="o">...</span>
+<span class="o">&lt;/</span><span class="n">script</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="api-local-development-mock.html" class="btn btn-neutral float-right" title="Local Mocks API" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="api-content-source.html" class="btn btn-neutral float-left" title="Content Source API" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Guess Me
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

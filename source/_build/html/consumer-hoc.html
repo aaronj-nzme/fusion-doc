@@ -1,0 +1,343 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Using the Consumer Higher-Order Function &mdash; Fusion-Doc 1.0.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Fetching Content" href="fetching-content.html" />
+    <link rel="prev" title="Using Environment Variables and “Secrets”" href="environment.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Fusion-Doc
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Components:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="output.html">Creating and Using Output Types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="feature.html">Creating a Feature Component</a></li>
+<li class="toctree-l1"><a class="reference internal" href="layout.html">Creating a Layout Component</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chain.html">Creating a Chain Component</a></li>
+<li class="toctree-l1"><a class="reference internal" href="event-handling.html">Event Handling and Interaction</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Data:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="content-source.html">Defining a Content Source</a></li>
+<li class="toctree-l1"><a class="reference internal" href="environment.html">Using Environment Variables and “Secrets”</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Using the Consumer Higher-Order Function</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#setting-up-a-resolver">Setting up a resolver</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#what-is-the-consumer-function">What is the Consumer function?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#adapting-our-feature">Adapting our Feature</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="fetching-content.html">Fetching Content</a></li>
+<li class="toctree-l1"><a class="reference internal" href="configuring-content.html">Dynamically Configuring Content</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content-filtering.html">Content Filtering in Fusion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="site-properties.html">Using Site Properties</a></li>
+</ul>
+<p class="caption"><span class="caption-text">General:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Folder.html">Examining the Feature Pack</a></li>
+<li class="toctree-l1"><a class="reference internal" href="style.html">Adding Styling to Components</a></li>
+<li class="toctree-l1"><a class="reference internal" href="custom-fields.html">Adding Custom Fields to Components</a></li>
+<li class="toctree-l1"><a class="reference internal" href="display-properties.html">Working with Display Properties</a></li>
+<li class="toctree-l1"><a class="reference internal" href="isomorphic-server-spa.html">Isomorphic vs. Server vs. SPA rendering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="messga-between-components.html">Messaging Between Components</a></li>
+<li class="toctree-l1"><a class="reference internal" href="custom-error-page.html">Using Custom Error Pages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="return-non-html-content-type.html">Creating a Web API Returning a Non-HTML Content Type</a></li>
+<li class="toctree-l1"><a class="reference internal" href="service-work.html">Using Service Workers with Fusion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="local-webpack-states-file.html">Locally Generated Webpack Stats File</a></li>
+<li class="toctree-l1"><a class="reference internal" href="static-features-outside-of-fusion.html">Including Static Features Outside of Fusion</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Best Practices:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="bp.html">Best Practices</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Hooks:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="hooks-configuring-content.html">Dynamically Configuring Content</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hooks-fetching-content.html">Fetching Content</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hooks-event-handling.html">Event Handling and Interaction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hooks.html">React Hooks</a></li>
+</ul>
+<p class="caption"><span class="caption-text">API:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="api-output.html">Output Type API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-feature.html">Feature API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-layout.html">Layout API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-chain.html">Chain API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-custom-fields.html">Custom Fields API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-consumer.html">Consumer API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-context.html">Context Component API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-content.html">Content Component API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-static.html">Static Component API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-content-source.html">Content Source API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-plugins.html">Plugins API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-local-development-mock.html">Local Mocks API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-site-properties.html">Site Properties API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-fusion-http.html">Fusion HTTP API</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Fusion-Doc</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Using the Consumer Higher-Order Function</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/consumer-hoc.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="using-the-consumer-higher-order-function">
+<h1>Using the Consumer Higher-Order Function<a class="headerlink" href="#using-the-consumer-higher-order-function" title="Permalink to this headline">¶</a></h1>
+<p>We created our first Feature and added it to the page - the only problem was, the content inside our component was hardcoded so it would always show the details for a single movie, Jurassic Park. Obviously the point of the component is to dynamically show movie details for <em>any</em> movie, based on the user’s request. This guide will walk through how to fix our components to use dynamic data provided by Fusion instead of static data.</p>
+<div class="section" id="setting-up-a-resolver">
+<h2>Setting up a resolver<a class="headerlink" href="#setting-up-a-resolver" title="Permalink to this headline">¶</a></h2>
+<p>A page in Pagebuilder is just that - it’s just a statically served site that presents itself as how we have defined it on the Editor. While each feature on the page might fetch its own data for rendering and presenting the data, it isn’t really suitable for receiving dynamic “global” content across the features.</p>
+<p>For this purpose, we can leverage the use of templates and resolvers.</p>
+<p>On the Template tab of the Pagebuilder page, you can create new templates. Let’s create a new one and just name this <code class="docutils literal notranslate"><span class="pre">movies</span></code>. Once it’s created, click on its name to go to the editor. Once at the editor, let’s set this page up as you did on your first page you’ve created on the editor. On the Layout of your choice, add Movie Detail feature and let it show Jurassic Park. Afterwards, we will need to save this template - click on the <code class="docutils literal notranslate"><span class="pre">preview</span> <span class="pre">commit</span></code> in the Workflow section and then <code class="docutils literal notranslate"><span class="pre">Stage</span> <span class="pre">and</span> <span class="pre">Commit</span></code>.</p>
+<p>Right now, this template will be blank and not do anything by itself. Don’t fret! Now we will be using resolvers to populate this template with global content.</p>
+<p>Let’s go to the <code class="docutils literal notranslate"><span class="pre">Developer</span> <span class="pre">Tools</span></code> tab back in the Pagebuilder page, and <code class="docutils literal notranslate"><span class="pre">Resolvers</span></code> tab under it. Click on <code class="docutils literal notranslate"><span class="pre">new</span> <span class="pre">resolver</span></code> button to create your new resolver by filling out the fields as such:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Name</span><span class="p">:</span> <span class="n">movie</span><span class="o">-</span><span class="n">find</span>
+<span class="n">Pattern</span><span class="p">:</span> <span class="o">^/</span><span class="n">movies</span><span class="o">/</span><span class="p">([</span>\<span class="n">w</span>\<span class="o">-</span><span class="p">]</span><span class="o">+</span><span class="p">)</span>
+<span class="n">Priority</span><span class="p">:</span> <span class="mi">1</span>
+<span class="n">Template</span><span class="p">:</span> <span class="n">movies</span>
+<span class="n">Content</span> <span class="n">Source</span><span class="p">:</span> <span class="n">movie</span><span class="o">-</span><span class="n">find</span>
+<span class="o">-</span> <span class="n">MovieTitle</span><span class="p">:</span> <span class="n">From</span> <span class="n">Pattern</span><span class="p">:</span> <span class="mi">1</span>
+</pre></div>
+</div>
+<p>Let’s go more in-depth about what this does. As you might have noticed, the resolver relies on regex for matching the provided pattern. Essentially, this allows any URI in your page to be matched with the given pattern and be rendered by the designated template with the data provided by the Content Source. For example, if you have a URI <code class="docutils literal notranslate"><span class="pre">http://localhost/pf/movies/jurassic_park</span></code>, the above resolver will match with the <code class="docutils literal notranslate"><span class="pre">movies/jurassic_park</span></code> with the given Pattern <code class="docutils literal notranslate"><span class="pre">^/movies/([\w\-]+)</span></code>, and pass <code class="docutils literal notranslate"><span class="pre">jurassic_park</span></code> as the MovieTitle for the <code class="docutils literal notranslate"><span class="pre">movie-find</span></code> Content Source. the <code class="docutils literal notranslate"><span class="pre">movie-find</span></code> source will then use the MovieTitle param to fetch the data for the page as a global content.</p>
+<p>Now that our resolver is fetching “global” content for us, let’s see how we can use it in our component.</p>
+</div>
+<div class="section" id="what-is-the-consumer-function">
+<h2>What is the Consumer function?<a class="headerlink" href="#what-is-the-consumer-function" title="Permalink to this headline">¶</a></h2>
+<p>In Fusion, the Consumer higher-order function is what provides us dynamic data about the site and page the user requested, the outputType and layouts (if any) that are being used, any “global” content on the page, and more. Under the hood, <code class="docutils literal notranslate"><span class="pre">Consumer</span></code> is a higher-order function that wraps your components with <code class="docutils literal notranslate"><span class="pre">props</span></code> and instance methods that it can use to perform logic and render content.</p>
+<p>It’s not required for all features to be wrapped with <code class="docutils literal notranslate"><span class="pre">Consumer</span></code> if they don’t require the data the Consumer provides - however, most of the time you’ll need to since it’s rare to have entirely static Feature components.</p>
+</div>
+<div class="section" id="adapting-our-feature">
+<h2>Adapting our Feature<a class="headerlink" href="#adapting-our-feature" title="Permalink to this headline">¶</a></h2>
+<p>In this example, we want to access the title, director, list of actors, and more info associated with the movie the user requested. Now that we’ve fetched that content in our resolver, it should be available as <code class="docutils literal notranslate"><span class="pre">this.props.globalContent</span></code> provided by the Consumer. Let’s wrap our component with the <code class="docutils literal notranslate"><span class="pre">Consumer</span></code> decorator and see what changes:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>/*  /components/features/movies/movie-detail.jsx  */
+
+import Consumer from &#39;fusion:consumer&#39;
+import React, { Component } from &#39;react&#39;
+
+@Consumer
+class MovieDetail extends Component {
+
+  {/* The `constructor` and `togglePlot` methods remain unchanged */}
+  ...
+
+  render () {
+
+    {/* The `isPlotShown` and `plotButton` constants remain unchanged */}
+    ...
+
+    {/* Here, we extract the data we want from `this.props.globalContent`, which we &quot;short circuit&quot; default to an empty object, just in case it doesn&#39;t exist */}
+    const { Actors, Director, Plot, Poster, Rated, Title, Writer, Year } = this.props.globalContent || {}
+
+    {/* Replace the static values with their dynamic equivalents, first checking if each necessary value exists */}
+    return (
+      &lt;div className=&#39;movie-detail col-sm-12 col-md-8&#39;&gt;
+        {Title &amp;&amp; &lt;h1&gt;{Title}&lt;/h1&gt;}
+        {Director &amp;&amp; &lt;p&gt;&lt;strong&gt;Director:&lt;/strong&gt; {Director}&lt;/p&gt;}
+        {Actors &amp;&amp; &lt;p&gt;&lt;strong&gt;Actors:&lt;/strong&gt; {Actors}&lt;/p&gt;}
+        {Plot &amp;&amp; &lt;p&gt;&lt;strong&gt;Plot:&lt;/strong&gt; {isPlotShown &amp;&amp; Plot} {plotButton}&lt;/p&gt;}
+        {Rated &amp;&amp; &lt;p&gt;&lt;strong&gt;Rated:&lt;/strong&gt; {Rated}&lt;/p&gt;}
+        {Writer &amp;&amp; &lt;p&gt;&lt;strong&gt;Writer:&lt;/strong&gt; {Writer}&lt;/p&gt;}
+        {Year &amp;&amp; &lt;p&gt;&lt;strong&gt;Year:&lt;/strong&gt; {Year}&lt;/p&gt;}
+        {Poster &amp;&amp; Title &amp;&amp; &lt;img src={Poster} alt={`Poster for ${Title}`} /&gt;}
+      &lt;/div&gt;
+    )
+  }
+}
+
+export default MovieDetail
+</pre></div>
+</div>
+<p>A few things have changed about our component:</p>
+<ul class="simple">
+<li>We’re now importing the <code class="docutils literal notranslate"><span class="pre">Consumer</span></code> object from <code class="docutils literal notranslate"><span class="pre">fusion:consumer</span></code> at the top of the file</li>
+<li>On the line above our class definition we’ve added the <code class="docutils literal notranslate"><span class="pre">Consumer</span></code> <a class="reference external" href="https://www.sitepoint.com/javascript-decorators-what-they-are/">decorator</a></li>
+<li>Inside our <code class="docutils literal notranslate"><span class="pre">render</span></code> method we’re extracting the pieces of data we need from <code class="docutils literal notranslate"><span class="pre">this.props.globalContent</span></code> as constants.</li>
+<li>We then check whether each piece of data exists, and if so render the appropriate piece of markup.</li>
+</ul>
+<p>Now we have our component <em>and</em> content source defined, and our resolver fetching content on page load - the last part is to add the Feature to a template and see it in action.</p>
+<p>And just like that, our component is rendering content dynamically! Go ahead and publish the page and try requesting the URL defined in our resolver with different movie names to see it fetch different content.</p>
+<blockquote>
+<div><p><strong>NOTE</strong></p>
+<p>It’s possible to wrap a <a class="reference external" href="https://reactjs.org/docs/components-and-props.html#functional-and-class-components">functional component</a> in the <code class="docutils literal notranslate"><span class="pre">Consumer</span></code> higher-order function and still get props passed as in the class-based syntax - however, only the class-based syntax allows you to use <code class="docutils literal notranslate"><span class="pre">Consumer</span></code>’s instance methods.</p>
+</div></blockquote>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="fetching-content.html" class="btn btn-neutral float-right" title="Fetching Content" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="environment.html" class="btn btn-neutral float-left" title="Using Environment Variables and “Secrets”" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Guess Me
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

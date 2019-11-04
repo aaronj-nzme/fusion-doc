@@ -1,0 +1,316 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Using Environment Variables and “Secrets” &mdash; Fusion-Doc 1.0.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Using the Consumer Higher-Order Function" href="consumer-hoc.html" />
+    <link rel="prev" title="Defining a Content Source" href="content-source.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Fusion-Doc
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Components:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="output.html">Creating and Using Output Types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="feature.html">Creating a Feature Component</a></li>
+<li class="toctree-l1"><a class="reference internal" href="layout.html">Creating a Layout Component</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chain.html">Creating a Chain Component</a></li>
+<li class="toctree-l1"><a class="reference internal" href="event-handling.html">Event Handling and Interaction</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Data:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="content-source.html">Defining a Content Source</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Using Environment Variables and “Secrets”</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#local-vs-production-environments">Local vs. production environments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#creating-and-using-environment-variables">Creating and using environment variables</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#encrypting-your-secrets">Encrypting your secrets</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#restrictions">Restrictions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="consumer-hoc.html">Using the Consumer Higher-Order Function</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fetching-content.html">Fetching Content</a></li>
+<li class="toctree-l1"><a class="reference internal" href="configuring-content.html">Dynamically Configuring Content</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content-filtering.html">Content Filtering in Fusion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="site-properties.html">Using Site Properties</a></li>
+</ul>
+<p class="caption"><span class="caption-text">General:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Folder.html">Examining the Feature Pack</a></li>
+<li class="toctree-l1"><a class="reference internal" href="style.html">Adding Styling to Components</a></li>
+<li class="toctree-l1"><a class="reference internal" href="custom-fields.html">Adding Custom Fields to Components</a></li>
+<li class="toctree-l1"><a class="reference internal" href="display-properties.html">Working with Display Properties</a></li>
+<li class="toctree-l1"><a class="reference internal" href="isomorphic-server-spa.html">Isomorphic vs. Server vs. SPA rendering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="messga-between-components.html">Messaging Between Components</a></li>
+<li class="toctree-l1"><a class="reference internal" href="custom-error-page.html">Using Custom Error Pages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="return-non-html-content-type.html">Creating a Web API Returning a Non-HTML Content Type</a></li>
+<li class="toctree-l1"><a class="reference internal" href="service-work.html">Using Service Workers with Fusion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="local-webpack-states-file.html">Locally Generated Webpack Stats File</a></li>
+<li class="toctree-l1"><a class="reference internal" href="static-features-outside-of-fusion.html">Including Static Features Outside of Fusion</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Best Practices:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="bp.html">Best Practices</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Hooks:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="hooks-configuring-content.html">Dynamically Configuring Content</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hooks-fetching-content.html">Fetching Content</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hooks-event-handling.html">Event Handling and Interaction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hooks.html">React Hooks</a></li>
+</ul>
+<p class="caption"><span class="caption-text">API:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="api-output.html">Output Type API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-feature.html">Feature API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-layout.html">Layout API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-chain.html">Chain API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-custom-fields.html">Custom Fields API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-consumer.html">Consumer API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-context.html">Context Component API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-content.html">Content Component API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-static.html">Static Component API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-content-source.html">Content Source API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-plugins.html">Plugins API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-local-development-mock.html">Local Mocks API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-site-properties.html">Site Properties API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-fusion-http.html">Fusion HTTP API</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Fusion-Doc</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Using Environment Variables and “Secrets”</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/environment.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="using-environment-variables-and-secrets">
+<h1>Using Environment Variables and “Secrets”<a class="headerlink" href="#using-environment-variables-and-secrets" title="Permalink to this headline">¶</a></h1>
+<p>Environment variables are exactly what they sound like: variables that are set per environment. They are typically used for things like credentials or domains that may change from local to staging to production environments. In Fusion, environment variables are defined in a <code class="docutils literal notranslate"><span class="pre">.env</span></code> file for the local environment, and in the <code class="docutils literal notranslate"><span class="pre">/environment/</span></code> directory for other environments.</p>
+<div class="section" id="local-vs-production-environments">
+<h2>Local vs. production environments<a class="headerlink" href="#local-vs-production-environments" title="Permalink to this headline">¶</a></h2>
+<p>As mentioned previously, Fusion allows you to set environment variables differently depending on what environment you’re in.</p>
+<p>In local development, you can define whatever environment variables you want in the <code class="docutils literal notranslate"><span class="pre">.env</span></code> file in the root of your repository. These will override environment variables of the same name defined in the <code class="docutils literal notranslate"><span class="pre">/environment/</span></code> directory. Variables defined in your <code class="docutils literal notranslate"><span class="pre">.env</span></code> file don’t need to be encrypted since they are <code class="docutils literal notranslate"><span class="pre">.gitignore</span></code>d and only exist on your local system. So in general, use <code class="docutils literal notranslate"><span class="pre">.env</span></code> for environment variables defined on your local.</p>
+<p>In staging and/or production environments you’ll define environment variables in the <code class="docutils literal notranslate"><span class="pre">/environment/</span></code> directory. This provides the advantage of keeping them in the repository so you don’t need to configure environment variables separately on the server - however, this presents its own problem as many of these variables should be secret and not stored in plaintext in the repository. To alleviate this concern, Fusion has the ability to decrypt secret variables at “deploy” time when provided the correct key.</p>
+</div>
+<div class="section" id="creating-and-using-environment-variables">
+<h2>Creating and using environment variables<a class="headerlink" href="#creating-and-using-environment-variables" title="Permalink to this headline">¶</a></h2>
+<p>Let’s see how we can actually use environment variables in the sample Fusion app we’ve been building.</p>
+<p>So far, the only environment variable we’ve used was the <code class="docutils literal notranslate"><span class="pre">OMDB_API_KEY</span></code> in our <code class="docutils literal notranslate"><span class="pre">movie-find</span></code> content source, so let’s define that one. The first thing we’ll do is go to our <code class="docutils literal notranslate"><span class="pre">.env</span></code> file and add it there:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#  /.env  #</span>
+
+<span class="n">OMDB_API_KEY</span><span class="o">=</span><span class="n">a1b2c3d4e5</span>
+</pre></div>
+</div>
+<blockquote>
+<div><p><strong>NOTE</strong></p>
+<p>The <code class="docutils literal notranslate"><span class="pre">OMDB_API_KEY</span></code> value used above is fake - you’ll need to get your own from the <a class="reference external" href="https://www.omdbapi.com/">OMDB API</a> and use that instead!</p>
+</div></blockquote>
+<p>We now have everything we need for our content source to work locally!</p>
+<p>To get it working in staging/production environments, we’ll need to first encrypt our secret variable, then create an <code class="docutils literal notranslate"><span class="pre">index.js</span></code> file in our <code class="docutils literal notranslate"><span class="pre">/environment/</span></code> directory.</p>
+<blockquote>
+<div><p><strong>NOTE</strong></p>
+<p>There are a few different formats you can use for naming the environment variables file. You can define it as a top level file called <code class="docutils literal notranslate"><span class="pre">/environment.js</span></code> or <code class="docutils literal notranslate"><span class="pre">/environment.json</span></code>, or alternatively in the <code class="docutils literal notranslate"><span class="pre">/environment/</span></code> directory as <code class="docutils literal notranslate"><span class="pre">/environment/index.js</span></code> or <code class="docutils literal notranslate"><span class="pre">/environment/index.json</span></code>. Just make sure you only have one of these!</p>
+<p><strong>NOTE</strong></p>
+<p>You can also create environment-specific files such as <code class="docutils literal notranslate"><span class="pre">/environment/bonnier.js</span></code> or <code class="docutils literal notranslate"><span class="pre">/environment/bonnier-sandbox.yml</span></code> that will only be used when deployed to that specific environment. The values from these files will be merged with (and take precedence over) those in the generic file above.</p>
+</div></blockquote>
+<div class="section" id="encrypting-your-secrets">
+<h3>Encrypting your secrets<a class="headerlink" href="#encrypting-your-secrets" title="Permalink to this headline">¶</a></h3>
+<p>To enable secret encryption for your Arc environment, PageBuilder’s deployment tool Maestro comes with a simple application to encrypt and decrypt secrets based on your environment. Because the encryption values are based on a shared key that is provisioned per environment, and because Maestro has access to that key, Maestro is able to securely and statelessly encrypt and decrypt secrets for us - and this makes it the perfect tool for getting our Fusion application secrets ready for external environments.</p>
+<p>To use the tool, simply go to your environment’s <a class="reference external" href="https://redirector.arcpublishing.com/deployments/fusion/secrets">Maestro “Secrets” page</a>. Copy the “secret” value for our <code class="docutils literal notranslate"><span class="pre">OMDB_API_KEY</span></code> and paste it into the “encrypt” text input at the top of the page, then click the “encrypt” button. You should get an encrypted value that looks similar to this:</p>
+<p><code class="docutils literal notranslate"><span class="pre">AQECAHhPwAyPK3nfERyAvmyWOWx9c41uht+ei4Zlv4NgrlmypwAAAMYwgcMGCSqGSIb3DQEHBqCBtTCBsgIBADCBrAYJKoZIhvcNAQcBMB4GCWCGSAFlAwQBLjARBAxwBJdfzqcQUpox1xsCARCAf2aXwBJ3pBUP12HWB3cdBboV1/qN0HFEsjNycADYIq7XSANeDYOlu2/Dwt/52R16hK4dbVOt0ofNKKx0b3vtZRaH9bX1Dkx6TDhmo5g32H0aWpiUW6PQIp72/g2CW1nr26T0zxmkxmX9u8ufoQGBXRd1pOfT2EliUhMKabNeSyk=</span></code></p>
+<p>This encrypted value is now safe to be stored in our git repository and added to our <code class="docutils literal notranslate"><span class="pre">/environment/index.js</span></code> file inside of “percent bracket” control characters, like so:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">/*</span>  <span class="o">/</span><span class="n">environment</span><span class="o">/</span><span class="n">index</span><span class="o">.</span><span class="n">js</span>  <span class="o">*/</span>
+
+<span class="n">export</span> <span class="n">default</span> <span class="p">{</span>
+  <span class="n">OMDB_API_KEY</span><span class="p">:</span> <span class="s2">&quot;%{AQECAHhPwAyPK3nfERyAvmyWOWx9c41uht+ei4Zlv4NgrlmypwAAAMYwgcMGCSqGSIb3DQEHBqCBtTCBsgIBADCBrAYJKoZIhvcNAQcBMB4GCWCGSAFlAwQBLjARBAxwBJdfzqcQUpox1xsCARCAf2aXwBJ3pBUP12HWB3cdBboV1/qN0HFEsjNycADYIq7XSANeDYOlu2/Dwt/52R16hK4dbVOt0ofNKKx0b3vtZRaH9bX1Dkx6TDhmo5g32H0aWpiUW6PQIp72/g2CW1nr26T0zxmkxmX9u8ufoQGBXRd1pOfT2EliUhMKabNeSyk=}&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Since this KMS key is assigned on a per-client, per-region basis, Fusion will automatically decrypt this variable at deploy time so it can be used reliably across different environments (Sandbox, Production, etc.) as long as they are in the same region. And while our app would work locally without the value stored in our <code class="docutils literal notranslate"><span class="pre">/environment/index.js</span></code> file (since its decrypted counterpart is already in our <code class="docutils literal notranslate"><span class="pre">.env</span></code> file), adding it now means we won’t have to do it later when we deploy our application!</p>
+</div>
+</div>
+<div class="section" id="restrictions">
+<h2>Restrictions<a class="headerlink" href="#restrictions" title="Permalink to this headline">¶</a></h2>
+<p>Environment values will only be accessible during server execution, not in the client, as they will be exposed to users. To ensure this, <code class="docutils literal notranslate"><span class="pre">fusion:environment</span></code> will return an empty object in the client.</p>
+<p>Now that we have our content source and credentials set up, we can use them to retrieve and display some content!</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="consumer-hoc.html" class="btn btn-neutral float-right" title="Using the Consumer Higher-Order Function" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="content-source.html" class="btn btn-neutral float-left" title="Defining a Content Source" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Guess Me
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

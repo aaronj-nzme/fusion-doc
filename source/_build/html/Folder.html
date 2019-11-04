@@ -1,0 +1,304 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Examining the Feature Pack &mdash; Fusion-Doc 1.0.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Adding Styling to Components" href="style.html" />
+    <link rel="prev" title="Using Site Properties" href="site-properties.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Fusion-Doc
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Components:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="output.html">Creating and Using Output Types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="feature.html">Creating a Feature Component</a></li>
+<li class="toctree-l1"><a class="reference internal" href="layout.html">Creating a Layout Component</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chain.html">Creating a Chain Component</a></li>
+<li class="toctree-l1"><a class="reference internal" href="event-handling.html">Event Handling and Interaction</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Data:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="content-source.html">Defining a Content Source</a></li>
+<li class="toctree-l1"><a class="reference internal" href="environment.html">Using Environment Variables and “Secrets”</a></li>
+<li class="toctree-l1"><a class="reference internal" href="consumer-hoc.html">Using the Consumer Higher-Order Function</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fetching-content.html">Fetching Content</a></li>
+<li class="toctree-l1"><a class="reference internal" href="configuring-content.html">Dynamically Configuring Content</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content-filtering.html">Content Filtering in Fusion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="site-properties.html">Using Site Properties</a></li>
+</ul>
+<p class="caption"><span class="caption-text">General:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Examining the Feature Pack</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#guidelines">Guidelines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#directory-structure">Directory structure</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="style.html">Adding Styling to Components</a></li>
+<li class="toctree-l1"><a class="reference internal" href="custom-fields.html">Adding Custom Fields to Components</a></li>
+<li class="toctree-l1"><a class="reference internal" href="display-properties.html">Working with Display Properties</a></li>
+<li class="toctree-l1"><a class="reference internal" href="isomorphic-server-spa.html">Isomorphic vs. Server vs. SPA rendering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="messga-between-components.html">Messaging Between Components</a></li>
+<li class="toctree-l1"><a class="reference internal" href="custom-error-page.html">Using Custom Error Pages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="return-non-html-content-type.html">Creating a Web API Returning a Non-HTML Content Type</a></li>
+<li class="toctree-l1"><a class="reference internal" href="service-work.html">Using Service Workers with Fusion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="local-webpack-states-file.html">Locally Generated Webpack Stats File</a></li>
+<li class="toctree-l1"><a class="reference internal" href="static-features-outside-of-fusion.html">Including Static Features Outside of Fusion</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Best Practices:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="bp.html">Best Practices</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Hooks:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="hooks-configuring-content.html">Dynamically Configuring Content</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hooks-fetching-content.html">Fetching Content</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hooks-event-handling.html">Event Handling and Interaction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hooks.html">React Hooks</a></li>
+</ul>
+<p class="caption"><span class="caption-text">API:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="api-output.html">Output Type API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-feature.html">Feature API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-layout.html">Layout API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-chain.html">Chain API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-custom-fields.html">Custom Fields API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-consumer.html">Consumer API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-context.html">Context Component API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-content.html">Content Component API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-static.html">Static Component API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-content-source.html">Content Source API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-plugins.html">Plugins API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-local-development-mock.html">Local Mocks API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-site-properties.html">Site Properties API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-fusion-http.html">Fusion HTTP API</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Fusion-Doc</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Examining the Feature Pack</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/Folder.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="examining-the-feature-pack">
+<h1>Examining the Feature Pack<a class="headerlink" href="#examining-the-feature-pack" title="Permalink to this headline">¶</a></h1>
+<p>Now that we’ve created a Feature Pack skeleton, let’s look inside to see what was created.</p>
+<div class="section" id="guidelines">
+<h2>Guidelines<a class="headerlink" href="#guidelines" title="Permalink to this headline">¶</a></h2>
+<p>While you probably don’t want to remove or rename any files or directories in the Feature Pack that are listed here (Fusion expects them to be there), it’s ok to add more files or directories as needed (for example, maybe a <code class="docutils literal notranslate"><span class="pre">/utils/</span></code> directory for utility functions).</p>
+</div>
+<div class="section" id="directory-structure">
+<h2>Directory structure<a class="headerlink" href="#directory-structure" title="Permalink to this headline">¶</a></h2>
+<p>The guide below will walk you through the structure of each directory and (most) files in the generated Feature Pack skeleton, and their purpose.</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">/components/</span></code>: This is where the actual React components that make up your Feature Pack’s structure will exist. They are subdivided by component type.<ul>
+<li><code class="docutils literal notranslate"><span class="pre">chains/</span></code>: Code for chain components.</li>
+<li><code class="docutils literal notranslate"><span class="pre">features/</span></code>: Code for feature</li>
+<li><code class="docutils literal notranslate"><span class="pre">layouts/</span></code>: Code for layout components.</li>
+<li><code class="docutils literal notranslate"><span class="pre">output-types/</span></code>: Code for output-type components.</li>
+</ul>
+</li>
+<li><code class="docutils literal notranslate"><span class="pre">/content/</span></code>: This directory is for defining the sources and shape of data that Feature Pack components will consume data from.<ul>
+<li><code class="docutils literal notranslate"><span class="pre">schemas/</span></code>: This directory holds GraphQL query objects that content sources can use to request specific data shapes.</li>
+<li><code class="docutils literal notranslate"><span class="pre">sources/</span></code>: This directory holds code used to define content sources used by your Feature Pack.</li>
+</ul>
+</li>
+<li><code class="docutils literal notranslate"><span class="pre">/data/</span></code>: This directory is for any database related artifacts.<ul>
+<li><code class="docutils literal notranslate"><span class="pre">dumps/</span></code>: Directory where database dumps can be exported.</li>
+<li><code class="docutils literal notranslate"><span class="pre">restore/</span></code>: Allows you to manually restore your database from a tarball</li>
+</ul>
+</li>
+<li><code class="docutils literal notranslate"><span class="pre">/environment/</span></code>: Directory for defining environment values available on the <em>server only</em>. These values can be encrypted at rest and used for secret values like credentials.</li>
+<li><code class="docutils literal notranslate"><span class="pre">/node_modules/</span></code>: This is the directory where your local Node modules are installed, just like every other Node app you’ve ever developed. You shouldn’t have to edit this directory manually, and it is <code class="docutils literal notranslate"><span class="pre">gitignore</span></code>d.</li>
+<li><code class="docutils literal notranslate"><span class="pre">/properties/</span></code>: This directory is meant for <em>non-secret</em> “site” properties whose values can differ on a per-site basis. They are available in components.<ul>
+<li><code class="docutils literal notranslate"><span class="pre">sites/</span></code>: This directory holds the site-specific overrides of the default site properties.</li>
+<li><code class="docutils literal notranslate"><span class="pre">index.js{on}</span></code>: This file holds the default site properties. It can either export a JavaScript object or be a simple JSON file.</li>
+</ul>
+</li>
+<li><code class="docutils literal notranslate"><span class="pre">/resources/</span></code>: This directory is for static resources like images, CSS, fonts and more that don’t need processing.</li>
+<li><code class="docutils literal notranslate"><span class="pre">/.dockerignore</span></code>: <a class="reference external" href="https://docs.docker.com/engine/reference/builder/#dockerignore-file">Reference</a>. Consider this read-only.</li>
+<li><code class="docutils literal notranslate"><span class="pre">/.env</span></code>: This file is git-ignored and development environment specific.</li>
+<li><code class="docutils literal notranslate"><span class="pre">/.gitignore</span></code>: <a class="reference external" href="https://git-scm.com/docs/gitignore">Reference</a></li>
+<li><code class="docutils literal notranslate"><span class="pre">/package-lock.json</span></code>: A lockfile derived from installing the dependencies in <code class="docutils literal notranslate"><span class="pre">package.json</span></code>. <a class="reference external" href="https://docs.npmjs.com/files/package-lock.json">Reference</a>. Consider this read-only.</li>
+<li><code class="docutils literal notranslate"><span class="pre">/package.json</span></code>: Manifest file where you can declare <code class="docutils literal notranslate"><span class="pre">dependencies</span></code> or <code class="docutils literal notranslate"><span class="pre">devDependencies</span></code> you wish to use in your application, as well as for handy <code class="docutils literal notranslate"><span class="pre">scripts</span></code>. <a class="reference external" href="https://docs.npmjs.com/files/package.json">Reference</a>.</li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="style.html" class="btn btn-neutral float-right" title="Adding Styling to Components" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="site-properties.html" class="btn btn-neutral float-left" title="Using Site Properties" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Guess Me
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

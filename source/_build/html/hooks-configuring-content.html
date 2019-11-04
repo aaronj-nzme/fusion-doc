@@ -1,0 +1,427 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Dynamically Configuring Content &mdash; Fusion-Doc 1.0.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Fetching Content" href="hooks-fetching-content.html" />
+    <link rel="prev" title="Best Practices" href="bp.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Fusion-Doc
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Components:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="output.html">Creating and Using Output Types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="feature.html">Creating a Feature Component</a></li>
+<li class="toctree-l1"><a class="reference internal" href="layout.html">Creating a Layout Component</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chain.html">Creating a Chain Component</a></li>
+<li class="toctree-l1"><a class="reference internal" href="event-handling.html">Event Handling and Interaction</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Data:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="content-source.html">Defining a Content Source</a></li>
+<li class="toctree-l1"><a class="reference internal" href="environment.html">Using Environment Variables and “Secrets”</a></li>
+<li class="toctree-l1"><a class="reference internal" href="consumer-hoc.html">Using the Consumer Higher-Order Function</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fetching-content.html">Fetching Content</a></li>
+<li class="toctree-l1"><a class="reference internal" href="configuring-content.html">Dynamically Configuring Content</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content-filtering.html">Content Filtering in Fusion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="site-properties.html">Using Site Properties</a></li>
+</ul>
+<p class="caption"><span class="caption-text">General:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Folder.html">Examining the Feature Pack</a></li>
+<li class="toctree-l1"><a class="reference internal" href="style.html">Adding Styling to Components</a></li>
+<li class="toctree-l1"><a class="reference internal" href="custom-fields.html">Adding Custom Fields to Components</a></li>
+<li class="toctree-l1"><a class="reference internal" href="display-properties.html">Working with Display Properties</a></li>
+<li class="toctree-l1"><a class="reference internal" href="isomorphic-server-spa.html">Isomorphic vs. Server vs. SPA rendering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="messga-between-components.html">Messaging Between Components</a></li>
+<li class="toctree-l1"><a class="reference internal" href="custom-error-page.html">Using Custom Error Pages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="return-non-html-content-type.html">Creating a Web API Returning a Non-HTML Content Type</a></li>
+<li class="toctree-l1"><a class="reference internal" href="service-work.html">Using Service Workers with Fusion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="local-webpack-states-file.html">Locally Generated Webpack Stats File</a></li>
+<li class="toctree-l1"><a class="reference internal" href="static-features-outside-of-fusion.html">Including Static Features Outside of Fusion</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Best Practices:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="bp.html">Best Practices</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Hooks:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Dynamically Configuring Content</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#setting-the-contentconfig-custom-field-proptype">Setting the contentConfig Custom Field PropType</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#using-the-contentconfig-values-from-pagebuilder-admin">Using the contentConfig values from PageBuilder Admin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#multiple-content-sources">Multiple content sources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#wrapping-up">Wrapping up</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="hooks-fetching-content.html">Fetching Content</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hooks-event-handling.html">Event Handling and Interaction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hooks.html">React Hooks</a></li>
+</ul>
+<p class="caption"><span class="caption-text">API:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="api-output.html">Output Type API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-feature.html">Feature API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-layout.html">Layout API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-chain.html">Chain API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-custom-fields.html">Custom Fields API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-consumer.html">Consumer API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-context.html">Context Component API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-content.html">Content Component API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-static.html">Static Component API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-content-source.html">Content Source API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-plugins.html">Plugins API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-local-development-mock.html">Local Mocks API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-site-properties.html">Site Properties API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-fusion-http.html">Fusion HTTP API</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Fusion-Doc</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Dynamically Configuring Content</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/hooks-configuring-content.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="dynamically-configuring-content">
+<h1>Dynamically Configuring Content<a class="headerlink" href="#dynamically-configuring-content" title="Permalink to this headline">¶</a></h1>
+<p>Now we’re really cooking with gas! We’ve written and rendered components, we’ve set up content sources, we’ve defined schemas, and we’ve used both “global” content and fetched new content ourselves. Give yourself a high five!</p>
+<p>But believe it or not, we can make our content fetching <em>even more</em> dynamic. Currently inside our <code class="docutils literal notranslate"><span class="pre">MovieList</span></code> component, we’re hardcoding the name of our content source and the values it is using to query for content. Here’s the relevant snippet in our <code class="docutils literal notranslate"><span class="pre">MovieList</span></code> component:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">/*</span>  <span class="o">/</span><span class="n">components</span><span class="o">/</span><span class="n">features</span><span class="o">/</span><span class="n">movies</span><span class="o">/</span><span class="n">movie</span><span class="o">-</span><span class="nb">list</span><span class="o">.</span><span class="n">jsx</span>  <span class="o">*/</span>
+
+  <span class="o">...</span>
+  <span class="n">const</span> <span class="n">movies</span> <span class="o">=</span> <span class="n">useContent</span><span class="p">({</span>
+    <span class="n">source</span><span class="p">:</span> <span class="s1">&#39;movie-search&#39;</span><span class="p">,</span> 
+    <span class="n">query</span><span class="p">:</span> <span class="p">{</span> <span class="n">movieQuery</span><span class="p">:</span> <span class="s1">&#39;Jurassic&#39;</span> <span class="p">},</span> 
+    <span class="nb">filter</span><span class="p">:</span> <span class="s1">&#39;{ totalResults Search { Title Year Poster } }&#39;</span><span class="p">,</span>
+    <span class="n">transform</span> <span class="p">(</span><span class="n">data</span><span class="p">)</span> <span class="p">{</span>
+      <span class="o">//</span> <span class="n">Check</span> <span class="k">if</span> <span class="n">data</span> <span class="ow">is</span> <span class="n">being</span> <span class="n">returned</span>
+      <span class="k">if</span><span class="p">(</span><span class="n">data</span> <span class="o">&amp;&amp;</span> <span class="n">data</span><span class="o">.</span><span class="n">Search</span><span class="p">){</span>
+        <span class="k">return</span> <span class="p">{</span> <span class="nb">list</span><span class="p">:</span> <span class="p">[</span><span class="o">...</span><span class="n">data</span><span class="o">.</span><span class="n">Search</span><span class="p">]</span> <span class="p">};</span>
+      <span class="p">}</span>
+
+      <span class="o">//</span> <span class="n">Otherwise</span> <span class="n">just</span> <span class="n">keep</span> <span class="n">the</span> <span class="n">current</span> <span class="nb">list</span> <span class="n">of</span> <span class="n">movies</span>
+      <span class="k">else</span>
+        <span class="k">return</span> <span class="n">movies</span><span class="p">;</span>
+    <span class="p">}</span>
+  <span class="p">})</span>
+  <span class="o">...</span>
+</pre></div>
+</div>
+<p>See how <code class="docutils literal notranslate"><span class="pre">movie-search</span></code> is hardcoded as the name of our content source, and we’ll always be searching based on the <code class="docutils literal notranslate"><span class="pre">movieQuery</span></code> parameter set to <code class="docutils literal notranslate"><span class="pre">Jurassic</span></code>? What if later on we add a different movie API, or we want to search for movies that <em>aren’t</em> Jurassic Park? Wouldn’t it be great if <em>all</em> of those values were configurable in the PageBuilder Admin? Say no more!</p>
+<div class="section" id="setting-the-contentconfig-custom-field-proptype">
+<h2>Setting the contentConfig Custom Field PropType<a class="headerlink" href="#setting-the-contentconfig-custom-field-proptype" title="Permalink to this headline">¶</a></h2>
+<p>One important use of Custom Fields is to allow PageBuilder editors to configure how individual Features fetch content. Because Features are simply React components that rely on content, they are largely agnostic of <em>where</em> the content they receive comes from as long as it has the correct keys and values (i.e. data “shape”).</p>
+<p>With this in mind, Fusion gives you the ability to specify a <code class="docutils literal notranslate"><span class="pre">contentConfig</span></code> propType that is essentially a list of acceptable schemas that this feature could work with. Then in PageBuilder Admin, an editor will be given a list of content sources that match that schema which they can select from.</p>
+<p>Let’s see how that works:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>/*  /components/features/movies/movie-list.jsx  */
+
+// We have to import the `PropTypes` module so we can use it later
+import Content, { useContent } from &#39;fusion:content&#39;;
+import PropTypes from &#39;prop-types&#39;
+import React, { Fragment } from &#39;react&#39;;
+
+const MovieList = (props) =&gt; {
+  ...
+}
+
+MovieList.propTypes = {
+  customFields: PropTypes.shape({
+    // We&#39;re using the Fusion-specific PropType `contentConfig` and passing it the name(s) of the GraphQL schemas this component will work with
+    movieListConfig: PropTypes.contentConfig(&#39;movies&#39;)
+  })
+}
+
+export default MovieList
+</pre></div>
+</div>
+<p>As you can see above, we’re defining a set of Custom Fields for our <code class="docutils literal notranslate"><span class="pre">MovieList</span></code> component, then creating a single Custom Field named <code class="docutils literal notranslate"><span class="pre">movieListConfig</span></code>. The interesting part here is the <code class="docutils literal notranslate"><span class="pre">PropTypes.contentConfig</span></code> type that we’re using - this is a Fusion-specific PropType that takes in a list of GraphQL schemas that we’ve defined that should work with this component.</p>
+<p>If we refresh our PageBuilder Admin at this point and look in the Custom Fields panel for the <code class="docutils literal notranslate"><span class="pre">MovieList</span></code> component, we should see the Custom Fields with a <code class="docutils literal notranslate"><span class="pre">movieListConfig</span></code> dropdown option available in the Admin populated with a list of content sources (in our case there is just 1, <code class="docutils literal notranslate"><span class="pre">movie-search</span></code>). These content sources are the ones that match the GraphQL schema we specified in the <code class="docutils literal notranslate"><span class="pre">PropTypes.contentConfig()</span></code> call (in this case, the schema name is <code class="docutils literal notranslate"><span class="pre">movies</span></code>).</p>
+<p>While we only have one content source that matches the <code class="docutils literal notranslate"><span class="pre">movies</span></code> schema right now, in the future we may have multiple content sources that match, and we could then select from any of them as the content source of this component!</p>
+</div>
+<div class="section" id="using-the-contentconfig-values-from-pagebuilder-admin">
+<h2>Using the contentConfig values from PageBuilder Admin<a class="headerlink" href="#using-the-contentconfig-values-from-pagebuilder-admin" title="Permalink to this headline">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">contentConfig</span></code> propType should return us an object with 2 properties.</p>
+<p>The first is a <code class="docutils literal notranslate"><span class="pre">contentService</span></code> key, whose value is a string representing the name of the content source (in this case, <code class="docutils literal notranslate"><span class="pre">movie-search</span></code>).</p>
+<p>The second key is <code class="docutils literal notranslate"><span class="pre">contentConfigValues</span></code>, whose value is an object containing the key/value pairs representing the data we need to query our content source. The key names of this object are the param names defined in our content source, and their values are whatever were entered by the editor in PageBuilder Admin.</p>
+<p>Armed with this knowledge, let’s see how we can use the <code class="docutils literal notranslate"><span class="pre">movieListConfig</span></code> prop in our <code class="docutils literal notranslate"><span class="pre">fetch</span></code> method to make things more dynamic:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>/*  /components/features/movies/movie-list.jsx  */
+
+  ...
+  fetch () {
+    // We&#39;re destructuring the `contentService` and `contentConfigValues` keys out of the `movieListConfig` prop inside `this.props.customFields`...
+    const { contentService, contentConfigValues } = props.customFields.movieListConfig;
+
+    // ...then we can use these values to replace our hardcoded content source name with `contentService` and our query object with `contentConfigValues` (merged with the `page` param)
+    const movies = useContent({
+      source: contentService, 
+      query: contentConfigValues,
+      filter: &#39;{ totalResults Search { Title Year Poster } }&#39;,
+      transform (data) {
+        // Check if data is being returned
+        if(data &amp;&amp; data.Search){
+          return { list: [...data.Search] };
+        }
+
+        // Otherwise just keep the current list of movies
+        else
+          return movies;
+      }
+    })
+  ...
+</pre></div>
+</div>
+<p>We’ve made 2 small, but important, changes.</p>
+<p>First, we replaced the source to the movies object in <code class="docutils literal notranslate"><span class="pre">fetchContent</span></code> (the hardcoded <code class="docutils literal notranslate"><span class="pre">movie-search</span></code> value) with the key <code class="docutils literal notranslate"><span class="pre">contentService</span></code> that we extracted from <code class="docutils literal notranslate"><span class="pre">this.props.customFields.movieListConfig</span></code>.</p>
+<p>Then, we replaced the static <code class="docutils literal notranslate"><span class="pre">{</span> <span class="pre">movieQuery:</span> <span class="pre">'Jurassic'}</span></code> query object with <code class="docutils literal notranslate"><span class="pre">Object.assign(contentConfigValues,</span> <span class="pre">{</span> <span class="pre">page:</span> <span class="pre">page</span> <span class="pre">+</span> <span class="pre">1})</span></code>, which merges the <code class="docutils literal notranslate"><span class="pre">contentConfigValues</span></code> object with the <code class="docutils literal notranslate"><span class="pre">page</span></code> param that we already had, and sends the whole thing as the new query object to our <code class="docutils literal notranslate"><span class="pre">resolve</span></code> function.</p>
+</div>
+<div class="section" id="multiple-content-sources">
+<h2>Multiple content sources<a class="headerlink" href="#multiple-content-sources" title="Permalink to this headline">¶</a></h2>
+<p>At this point, you might be thinking to yourself:</p>
+<blockquote>
+<div>“Man, this dynamic content fetching is so fun, I want to add even more content sources to this feature. But how?”.</div></blockquote>
+<p>Glad you asked!</p>
+<p>Since we are able to fetch content as many times as we want in a Feature, <em>and</em> since we can add as many <code class="docutils literal notranslate"><span class="pre">contentConfig</span></code> custom fields as we want, there is nothing stopping us from adding multiple content sources to a single feature. For example, let’s imagine we had defined another content source (call it <code class="docutils literal notranslate"><span class="pre">theater-search.js</span></code>) and schema (call it <code class="docutils literal notranslate"><span class="pre">theaters.js</span></code>) for finding movie theaters, and we wanted to list local movie theaters alongside our list of movies; we could do something like this:</p>
+<blockquote>
+<div><p><strong>NOTE</strong></p>
+<p>We won’t actually add the following code to our <code class="docutils literal notranslate"><span class="pre">movie-list</span></code> component since we didn’t really define the corresponding content source and schema - this is just an example.</p>
+</div></blockquote>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>/*  /components/features/movies/movie-list.jsx  */
+
+// We have to import the `PropTypes` module so we can use it later
+import PropTypes from &#39;prop-types&#39;
+import Consumer from &#39;fusion:consumer&#39;
+import React, { Fragment, Component } from &#39;react&#39;
+
+const MovieList = (props) =&gt; {
+  ...
+  const movies = useContent({
+    ...
+  })
+  ...
+
+  // Extract the `contentService` and `contentConfigValues` from the `theaterConfig` custom field, just like before
+  // Let&#39;s reassign the names so that it doesn&#39;t overlap with the movies values
+  const { 
+    contentService = contentServiceTheaters, 
+    contentConfigValues = contentConfigValuesTheaters 
+  } = props.customFields.theaterConfig;
+
+  // Here, we&#39;re using the `fetchContent` API to fetch our list of theaters and set them into component state
+  const theaters = useContent({
+    source: contentService, 
+    query: contentConfigValues,
+    filter: &#39;{ totalResults Search { Title Year Poster } }&#39;,
+    transform (data) {
+      // Check if data is being returned
+      if(data &amp;&amp; data.Search){
+        return { list: [...data.Search] };
+      }
+
+      // Otherwise just keep the current list of movies
+      else
+        return theaters;
+    }
+  })
+  ...
+  const {list: theaterList = []} = theaters;
+  ...
+}
+
+MovieList.propTypes = {
+  customFields: PropTypes.shape({
+    movieListConfig: PropTypes.contentConfig(&#39;movies&#39;),
+    // Adding a new `contentConfig` for fetching movie theaters
+    theaterConfig: PropTypes.contentConfig(&#39;theaters&#39;)
+  })
+}
+
+export default MovieList
+</pre></div>
+</div>
+<p>As you can see above, it’s entirely possible to have a single component with multiple content configurations (in this case <code class="docutils literal notranslate"><span class="pre">movieListConfig</span></code> and <code class="docutils literal notranslate"><span class="pre">theaterConfig</span></code>) that we can then use to fetch and render content.</p>
+<p>It should be noted that you may not want to bloat your components by adding too much fetching and rendering code into a single component; instead, you may find it useful to have one component responsible for content fetching from multiple sources (similar to a <a class="reference external" href="https://medium.com/&#64;dan_abramov/smart-and-dumb-components-7ca2f9a7c7d0">“Container” component in Redux</a>), and then delegate the rendering logic to stateless child components (similar to “Presentational” components).</p>
+</div>
+<div class="section" id="wrapping-up">
+<h2>Wrapping up<a class="headerlink" href="#wrapping-up" title="Permalink to this headline">¶</a></h2>
+<p>It may not seem like a huge change, but what we’ve done is completely decoupled our component code from the content source it relies on. As long as we have a content source that supplies data matching our <code class="docutils literal notranslate"><span class="pre">movies</span></code> schema, we can let the PageBuilder editors select the source of our content and which data is needed to query it.</p>
+<p>For the purposes of our <code class="docutils literal notranslate"><span class="pre">MovieList</span></code> component, the resulting output is the same - but this is a very common use case when working with Arc’s Content API, when multiple content sources may return similarly structured data.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="hooks-fetching-content.html" class="btn btn-neutral float-right" title="Fetching Content" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="bp.html" class="btn btn-neutral float-left" title="Best Practices" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Guess Me
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

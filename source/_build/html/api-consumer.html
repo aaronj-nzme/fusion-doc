@@ -1,0 +1,725 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Consumer API &mdash; Fusion-Doc 1.0.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Context Component API" href="api-context.html" />
+    <link rel="prev" title="Custom Fields API" href="api-custom-fields.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Fusion-Doc
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Components:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="output.html">Creating and Using Output Types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="feature.html">Creating a Feature Component</a></li>
+<li class="toctree-l1"><a class="reference internal" href="layout.html">Creating a Layout Component</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chain.html">Creating a Chain Component</a></li>
+<li class="toctree-l1"><a class="reference internal" href="event-handling.html">Event Handling and Interaction</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Data:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="content-source.html">Defining a Content Source</a></li>
+<li class="toctree-l1"><a class="reference internal" href="environment.html">Using Environment Variables and “Secrets”</a></li>
+<li class="toctree-l1"><a class="reference internal" href="consumer-hoc.html">Using the Consumer Higher-Order Function</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fetching-content.html">Fetching Content</a></li>
+<li class="toctree-l1"><a class="reference internal" href="configuring-content.html">Dynamically Configuring Content</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content-filtering.html">Content Filtering in Fusion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="site-properties.html">Using Site Properties</a></li>
+</ul>
+<p class="caption"><span class="caption-text">General:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Folder.html">Examining the Feature Pack</a></li>
+<li class="toctree-l1"><a class="reference internal" href="style.html">Adding Styling to Components</a></li>
+<li class="toctree-l1"><a class="reference internal" href="custom-fields.html">Adding Custom Fields to Components</a></li>
+<li class="toctree-l1"><a class="reference internal" href="display-properties.html">Working with Display Properties</a></li>
+<li class="toctree-l1"><a class="reference internal" href="isomorphic-server-spa.html">Isomorphic vs. Server vs. SPA rendering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="messga-between-components.html">Messaging Between Components</a></li>
+<li class="toctree-l1"><a class="reference internal" href="custom-error-page.html">Using Custom Error Pages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="return-non-html-content-type.html">Creating a Web API Returning a Non-HTML Content Type</a></li>
+<li class="toctree-l1"><a class="reference internal" href="service-work.html">Using Service Workers with Fusion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="local-webpack-states-file.html">Locally Generated Webpack Stats File</a></li>
+<li class="toctree-l1"><a class="reference internal" href="static-features-outside-of-fusion.html">Including Static Features Outside of Fusion</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Best Practices:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="bp.html">Best Practices</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Hooks:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="hooks-configuring-content.html">Dynamically Configuring Content</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hooks-fetching-content.html">Fetching Content</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hooks-event-handling.html">Event Handling and Interaction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hooks.html">React Hooks</a></li>
+</ul>
+<p class="caption"><span class="caption-text">API:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="api-output.html">Output Type API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-feature.html">Feature API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-layout.html">Layout API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-chain.html">Chain API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-custom-fields.html">Custom Fields API</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Consumer API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#implementation">Implementation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#example">Example</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#props">Props</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#editablecontent-function">editableContent() (Function)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#description">Description</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#parameters">Parameters</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#return">Return</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id1">Example</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#instance-methods">Instance Methods</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#addeventlistener-function">addEventListener() - (Function)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id2">Description</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id3">Parameters</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id4">Return</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id5">Example</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#dispatchevent-function">dispatchEvent() - (Function)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id6">Description</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id7">Parameters</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id8">Return</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id9">Example</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#fetchcontent-function">fetchContent() - (Function)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id10">Description</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id11">Parameters</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id12">Return</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id13">Example</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#getcontent-function">getContent() - (Function)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id14">Description</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id15">Parameters</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id16">Return</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id17">Example</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#removeeventlistener-function">removeEventListener() - (Function)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id18">Description</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id19">Parameters</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id20">Return</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id21">Example</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api-context.html">Context Component API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-content.html">Content Component API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-static.html">Static Component API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-content-source.html">Content Source API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-plugins.html">Plugins API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-local-development-mock.html">Local Mocks API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-site-properties.html">Site Properties API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-fusion-http.html">Fusion HTTP API</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Fusion-Doc</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Consumer API</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/api-consumer.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="consumer-api">
+<h1>Consumer API<a class="headerlink" href="#consumer-api" title="Permalink to this headline">¶</a></h1>
+<p>The <code class="docutils literal notranslate"><span class="pre">Consumer</span></code> is a higher-order function that can be used to <a class="reference external" href="https://www.sitepoint.com/javascript-decorators-what-they-are/">“decorate”</a> Fusion components and provide them with useful <a class="reference external" href="#props">props</a> and <a class="reference external" href="#instance-methods">instance methods</a> via React’s <a class="reference external" href="https://reactjs.org/docs/context.html">Context API</a>. The <code class="docutils literal notranslate"><span class="pre">Consumer</span></code> function can wrap any component type, although it is most typically used for <a class="reference internal" href="feature.html"><span class="doc">Features</span></a>. It can be used for both class-based components and functional components to provide <code class="docutils literal notranslate"><span class="pre">props</span></code>, however functional components will be unable to use the <a class="reference external" href="#instance-methods">instance methods</a> provided by <code class="docutils literal notranslate"><span class="pre">Consumer</span></code>.</p>
+<div class="section" id="implementation">
+<h2>Implementation<a class="headerlink" href="#implementation" title="Permalink to this headline">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">Consumer</span></code> function is imported from the <code class="docutils literal notranslate"><span class="pre">fusion:consumer</span></code> namespace. It can be invoked as a function or using decorator syntax; both produce the same result.</p>
+<div class="section" id="example">
+<h3>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h3>
+<p><em>Decorator Syntax</em></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">Consumer</span> <span class="kn">from</span> <span class="s1">&#39;fusion:consumer&#39;</span>
+<span class="kn">import</span> <span class="nn">React</span><span class="o">,</span> <span class="p">{</span> <span class="n">Component</span> <span class="p">}</span> <span class="kn">from</span> <span class="s1">&#39;react&#39;</span>
+
+<span class="nd">@Consumer</span>
+<span class="k">class</span> <span class="nc">MyComponent</span> <span class="n">extends</span> <span class="n">Component</span> <span class="p">{</span>
+  <span class="o">...</span>
+<span class="p">}</span>
+
+<span class="n">export</span> <span class="n">default</span> <span class="n">MyComponent</span>
+</pre></div>
+</div>
+<p><em>Function Syntax</em></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">Consumer</span> <span class="kn">from</span> <span class="s1">&#39;fusion:consumer&#39;</span>
+<span class="kn">import</span> <span class="nn">React</span><span class="o">,</span> <span class="p">{</span> <span class="n">Component</span> <span class="p">}</span> <span class="kn">from</span> <span class="s1">&#39;react&#39;</span>
+
+<span class="k">class</span> <span class="nc">MyComponent</span> <span class="n">extends</span> <span class="n">Component</span> <span class="p">{</span>
+  <span class="o">...</span>
+<span class="p">}</span>
+
+<span class="n">export</span> <span class="n">default</span> <span class="n">Consumer</span><span class="p">(</span><span class="n">MyComponent</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="props">
+<h2>Props<a class="headerlink" href="#props" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">Consumer</span></code> components will be provided with all <a class="reference external" href="./context.md#Props"><code>Context</code> props</a>, along with the following:</p>
+<div class="section" id="editablecontent-function">
+<h3>editableContent() (Function)<a class="headerlink" href="#editablecontent-function" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="description">
+<h4>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h4>
+<p>A function that adds the necessary attributes to make the element’s content “editable”. Use this method to allow PageBuilder editors to change individual ANS content nodes before rendering. This function can be run on a single content node, or on multiple labeled content nodes.</p>
+</div>
+<div class="section" id="parameters">
+<h4>Parameters<a class="headerlink" href="#parameters" title="Permalink to this headline">¶</a></h4>
+<p><em>Single Node Syntax</em></p>
+<p><code class="docutils literal notranslate"><span class="pre">editableContent(contentObj,</span> <span class="pre">contentKeyPath)</span></code></p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">contentObj</span></code> (<em>ANS Object</em>): The root ANS content object that the <code class="docutils literal notranslate"><span class="pre">contentKeyPath</span></code> should pull from.</li>
+<li><code class="docutils literal notranslate"><span class="pre">contentKeyPath</span></code> (<em>String</em>): The ‘key path’ within the ANS object to find the content node that should be editable.</li>
+</ul>
+<p><em>Multi-Node Syntax</em></p>
+<p><code class="docutils literal notranslate"><span class="pre">editableContent(contentObj,</span> <span class="pre">contentNodeMap)</span></code></p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">contentObj</span></code> (<em>ANS Object</em>): The root ANS content object that the <code class="docutils literal notranslate"><span class="pre">contentKeyPath</span></code> should pull from.</li>
+<li><code class="docutils literal notranslate"><span class="pre">contentNodeMap</span></code> (<em>Object</em>): A map of labels (acting as keys) to their corresponding <code class="docutils literal notranslate"><span class="pre">contentKeyPath</span></code> values.<ul>
+<li><code class="docutils literal notranslate"><span class="pre">contentNodeMap.{contentLabel}</span></code> (<em>String</em>): Here, <code class="docutils literal notranslate"><span class="pre">{contentLabel}</span></code> represents the name of the property this content node represents. This label will be capitalized and displayed to an editor in the UI. The value of the key is a <code class="docutils literal notranslate"><span class="pre">contentKeyPath</span></code> string, as in the “single node” syntax above.</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="return">
+<h4>Return<a class="headerlink" href="#return" title="Permalink to this headline">¶</a></h4>
+<p>This function returns 3 attributes to be added to the target element. Fusion uses these attributes to identify the element and apply the content edits.</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">contentEditable</span></code>: An HTML attribute denoting that this element is editable in the browser.</li>
+<li><code class="docutils literal notranslate"><span class="pre">data-content-editable</span></code>: An attribute representing the ID of the piece of content and property to be mapped in the ANS document.</li>
+<li><code class="docutils literal notranslate"><span class="pre">data-feature</span></code>: Returns the Feature ID of the feature this method is added to.</li>
+</ul>
+</div>
+<div class="section" id="id1">
+<h4>Example<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h4>
+<p><em>Single Node Content Editable</em></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>/*  /components/features/global/editable_headline.jsx  */
+
+import Consumer from &#39;fusion:consumer&#39;
+import React, { Component } from &#39;react&#39;
+
+@Consumer
+class EditableHeadline extends Component {
+  ...
+  render() {
+    // This `content` would come from a content fetch performed elsewhere in this component
+    const { content } = this.state
+
+    return (
+      &lt;h1 {...this.props.editableContent(content, &#39;headlines.basic&#39;)}&gt;
+        {content.headlines.basic}
+      &lt;/h1&gt;
+    )
+  }
+}
+
+export default EditableHeadline
+</pre></div>
+</div>
+<p><em>Multi-Node Content Editables</em></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>/*  /components/features/global/editable_headline.jsx  */
+
+import Consumer from &#39;fusion:consumer&#39;
+import React, { Component } from &#39;react&#39;
+
+@Consumer
+class EditableHeadline extends Component {
+  ...
+  render() {
+    // This `content` would come from a content fetch performed elsewhere in this component
+    const { content } = this.state
+
+    return (
+      &lt;&gt;
+        &lt;h1 {...this.props.editableContent(content, {
+          headline: &#39;headlines.basic&#39;,
+          subheadlines: &#39;subheadlines.basic&#39;,
+          description: &#39;description.basic&#39;,
+        })}
+        &gt;
+          {content &amp;&amp; content.headlines ? content.headlines.basic : &#39;&#39;}
+        &lt;/h1&gt;
+        &lt;h3&gt;
+          {content &amp;&amp; content.subheadlines ? content.subheadlines.basic : &#39;&#39;}
+        &lt;/h3&gt;
+        &lt;p&gt;
+          {content &amp;&amp; content.description ? content.description.basic : &#39;&#39;}
+        &lt;/p&gt;
+      &lt;/&gt;
+    )
+  }
+}
+
+export default EditableHeadline
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="instance-methods">
+<h2>Instance Methods<a class="headerlink" href="#instance-methods" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="addeventlistener-function">
+<h3>addEventListener() - (Function)<a class="headerlink" href="#addeventlistener-function" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id2">
+<h4>Description<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h4>
+<p>This method adds an event listener to a Fusion component that will respond to events of the specified <code class="docutils literal notranslate"><span class="pre">eventName</span></code> by invoking the specified <code class="docutils literal notranslate"><span class="pre">eventHandler</span></code>. Events are dispatched by invoking <a class="reference external" href="#dispatchEvent"><code>dispatchEvent</code></a> in other Fusion components. Listeners can be removed by the <a class="reference external" href="#removeEventListener"><code>removeEventListener</code></a> method.</p>
+</div>
+<div class="section" id="id3">
+<h4>Parameters<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h4>
+<p><code class="docutils literal notranslate"><span class="pre">addEventListener(eventName,</span> <span class="pre">eventHandler)</span></code></p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">eventName</span></code> (<em>String</em>): The name of the event to subscribe to.</li>
+<li><code class="docutils literal notranslate"><span class="pre">eventHandler(payload)</span></code> (<em>Function</em>): The function that will handle the event when it is triggered. This function receives the event’s payload as its only argument.</li>
+</ul>
+</div>
+<div class="section" id="id4">
+<h4>Return<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h4>
+<p>This method returns <code class="docutils literal notranslate"><span class="pre">undefined</span></code>; its effect is to ‘subscribe’ the event handler to the appropriate event.</p>
+</div>
+<div class="section" id="id5">
+<h4>Example<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>/*  /components/features/utils/error-message.jsx  */
+
+import Consumer from &#39;fusion:consumer&#39;
+import React, { Component } from &#39;react&#39;
+
+@Consumer
+class ErrorMessage extends Component {
+  ...
+  componentDidMount () {
+    this.addEventListener(&#39;errorOccurred&#39;, (error) =&gt; {
+      const errorMsg = error &amp;&amp; error.message ? error.message : &#39;Something went wrong&#39;
+      this.setState({ message: errorMsg })
+    })
+  }
+  ...
+}
+
+export default ErrorMessage
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="dispatchevent-function">
+<h3>dispatchEvent() - (Function)<a class="headerlink" href="#dispatchevent-function" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id6">
+<h4>Description<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h4>
+<p>This method dispatches an event from a Fusion component of the specified <code class="docutils literal notranslate"><span class="pre">eventName</span></code> with an arbitrary <code class="docutils literal notranslate"><span class="pre">payload</span></code> to be received by another component’s event handling function (which gets subscribed via the <a class="reference external" href="#addEventListener"><code>addEventListener</code></a> method).</p>
+</div>
+<div class="section" id="id7">
+<h4>Parameters<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h4>
+<p><code class="docutils literal notranslate"><span class="pre">dispatchEvent(eventName,</span> <span class="pre">payload)</span></code></p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">eventName</span></code> (<em>String</em>): The name of the event to dispatch, which listeners can subscribe to.</li>
+<li>[<code class="docutils literal notranslate"><span class="pre">payload</span></code>] (<em>?</em>): An arbitrary payload attached to the event, for the handler to use in processing.</li>
+</ul>
+</div>
+<div class="section" id="id8">
+<h4>Return<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h4>
+<p>This method returns <code class="docutils literal notranslate"><span class="pre">undefined</span></code>; its effect is to dispatch the event to each subscriber.</p>
+</div>
+<div class="section" id="id9">
+<h4>Example<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>/*  /components/features/weather/weather-lookup.jsx  */
+
+import Consumer from &#39;fusion:consumer&#39;
+import React, { Component } from &#39;react&#39;
+
+@Consumer
+class WeatherLookup extends Component {
+  ...
+  handleFormInput(value) {
+    if (!value || value.length &lt; 5) {
+      this.dispatchEvent(&#39;errorOccurred&#39;, {
+        val: value,
+        message: &#39;Zip code must be at least 5 characters long.&#39;
+      })
+    }
+    ...
+  }
+  ...
+}
+
+export default WeatherLookup
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="fetchcontent-function">
+<h3>fetchContent() - (Function)<a class="headerlink" href="#fetchcontent-function" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id10">
+<h4>Description<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h4>
+<p>The <code class="docutils literal notranslate"><span class="pre">fetchContent</span></code> method is second-level syntactic sugar for using both <a class="reference external" href="#getContent">getContent</a> and React’s <code class="docutils literal notranslate"><span class="pre">setState</span></code> together. It takes a map whose keys are the names of content to be stored in the component’s <code class="docutils literal notranslate"><span class="pre">state</span></code> (using <code class="docutils literal notranslate"><span class="pre">setState</span></code>), and the values are configuration options used to fetch content from a content source (using <code class="docutils literal notranslate"><span class="pre">getContent</span></code>). <code class="docutils literal notranslate"><span class="pre">fetchContent</span></code> will then fetch the content using the content configuration and set it on the component’s <code class="docutils literal notranslate"><span class="pre">state</span></code> using the key names in <code class="docutils literal notranslate"><span class="pre">contentConfigMap</span></code>.</p>
+</div>
+<div class="section" id="id11">
+<h4>Parameters<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h4>
+<p><code class="docutils literal notranslate"><span class="pre">fetchContent(contentConfigMap)</span></code></p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">contentConfigMap</span></code> (<em>Object</em>): An object whose keys are the names of content to be stored in the component’s <code class="docutils literal notranslate"><span class="pre">state</span></code>, and the values are configuration objects idential to those of the <a class="reference external" href="#getContent"><code>getContent</code></a> parameters.<ul>
+<li><code class="docutils literal notranslate"><span class="pre">contentConfigMap.{contentKey}</span></code> (<em>Object</em>): Here, <code class="docutils literal notranslate"><span class="pre">{contentKey}</span></code> represents the name of a property the developer chooses to set on the component’s <code class="docutils literal notranslate"><span class="pre">state</span></code> object. Multiple <code class="docutils literal notranslate"><span class="pre">{contentKey}</span></code> objects can exist on the same <code class="docutils literal notranslate"><span class="pre">contentConfigMap</span></code> object.<ul>
+<li><code class="docutils literal notranslate"><span class="pre">contentConfigMap.{contentKey}.source</span></code> (<em>String</em>): See <code class="docutils literal notranslate"><span class="pre">source</span></code> parameter in <a class="reference external" href="#getContent"><code>getContent</code></a> method.</li>
+<li><code class="docutils literal notranslate"><span class="pre">contentConfigMap.{contentKey}.query</span></code> (<em>Object</em>): See <code class="docutils literal notranslate"><span class="pre">query</span></code> parameter in <a class="reference external" href="#getContent"><code>getContent</code></a> method.</li>
+<li>[<code class="docutils literal notranslate"><span class="pre">contentConfigMap.{contentKey}.filter</span></code>] (<em>String</em>): See <code class="docutils literal notranslate"><span class="pre">filter</span></code> parameter in <a class="reference external" href="#getContent"><code>getContent</code></a> method.</li>
+<li>[<code class="docutils literal notranslate"><span class="pre">contentConfigMap.{contentKey}.inherit</span></code>] (<em>Boolean</em>): See <code class="docutils literal notranslate"><span class="pre">inherit</span></code> parameter in <a class="reference external" href="#getContent"><code>getContent</code></a> method.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="id12">
+<h4>Return<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h4>
+<p>This method returns <code class="docutils literal notranslate"><span class="pre">undefined</span></code>; its effect is to set the <code class="docutils literal notranslate"><span class="pre">state</span></code> properties listed in the <code class="docutils literal notranslate"><span class="pre">contentConfigMap</span></code> with the approprite values.</p>
+</div>
+<div class="section" id="id13">
+<h4>Example<a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">/*</span> <span class="o">/</span><span class="n">components</span><span class="o">/</span><span class="n">features</span><span class="o">/</span><span class="n">homepage</span><span class="o">/</span><span class="n">topics</span><span class="o">.</span><span class="n">jsx</span>  <span class="o">*/</span>
+
+<span class="kn">import</span> <span class="nn">Consumer</span> <span class="kn">from</span> <span class="s1">&#39;fusion:consumer&#39;</span>
+<span class="kn">import</span> <span class="nn">React</span><span class="o">,</span> <span class="p">{</span> <span class="n">Component</span> <span class="p">}</span> <span class="kn">from</span> <span class="s1">&#39;react&#39;</span>
+
+<span class="nd">@Consumer</span>
+<span class="k">class</span> <span class="nc">Topics</span> <span class="n">extends</span> <span class="n">React</span><span class="o">.</span><span class="n">Component</span> <span class="p">{</span>
+  <span class="n">constructor</span> <span class="p">(</span><span class="n">props</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nb">super</span><span class="p">(</span><span class="n">props</span><span class="p">)</span>
+
+    <span class="n">this</span><span class="o">.</span><span class="n">fetchContent</span><span class="p">({</span>
+      <span class="n">topics</span><span class="p">:</span> <span class="p">{</span>
+        <span class="n">source</span><span class="p">:</span> <span class="s1">&#39;content-feed&#39;</span><span class="p">,</span>
+        <span class="n">query</span><span class="p">:</span> <span class="p">{</span> <span class="n">feedType</span><span class="p">:</span> <span class="s1">&#39;taxonomy.tags.slug&#39;</span><span class="p">,</span> <span class="n">feedParam</span><span class="p">:</span> <span class="s1">&#39;*&#39;</span><span class="p">,</span> <span class="n">limit</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span> <span class="n">offset</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="n">order</span><span class="p">:</span> <span class="s1">&#39;display_date:desc&#39;</span> <span class="p">},</span>
+        <span class="nb">filter</span><span class="p">:</span> <span class="s1">&#39;{ headline }&#39;</span>
+      <span class="p">}</span>
+    <span class="p">})</span>
+  <span class="p">}</span>
+
+  <span class="n">render</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="p">(</span>
+      <span class="o">&lt;</span><span class="n">ul</span><span class="o">&gt;</span>
+        <span class="p">{</span><span class="n">this</span><span class="o">.</span><span class="n">state</span><span class="o">.</span><span class="n">topics</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">topic</span> <span class="o">=&gt;</span>
+          <span class="o">&lt;</span><span class="n">li</span><span class="o">&gt;</span><span class="p">{</span><span class="n">topic</span><span class="o">.</span><span class="n">headline</span><span class="p">}</span><span class="o">&lt;/</span><span class="n">li</span><span class="o">&gt;</span>
+        <span class="p">)}</span>
+      <span class="o">&lt;/</span><span class="n">ul</span><span class="o">&gt;</span>
+    <span class="p">)</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="n">export</span> <span class="n">default</span> <span class="n">Topics</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="getcontent-function">
+<h3>getContent() - (Function)<a class="headerlink" href="#getcontent-function" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id14">
+<h4>Description<a class="headerlink" href="#id14" title="Permalink to this headline">¶</a></h4>
+<p>The <code class="docutils literal notranslate"><span class="pre">getContent</span></code> method will fetch content, both on the server and the client, from a content source (identified by the <code class="docutils literal notranslate"><span class="pre">sourceName</span></code> argument) defined in the bundle.</p>
+</div>
+<div class="section" id="id15">
+<h4>Parameters<a class="headerlink" href="#id15" title="Permalink to this headline">¶</a></h4>
+<p>For syntactic sugar, there are 2 ways to invoke the <code class="docutils literal notranslate"><span class="pre">getContent</span></code> method: with the arguments expanded and passed individually, or as keys of an object.</p>
+<p><em>Expanded Syntax</em></p>
+<p><code class="docutils literal notranslate"><span class="pre">getContent(sourceName,</span> <span class="pre">query,</span> <span class="pre">[filter],</span> <span class="pre">[inherit])</span></code></p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">sourceName</span></code> (<em>String</em>): The name of the content source from which you want to fetch. This content source must be configured in your bundle.</li>
+<li><code class="docutils literal notranslate"><span class="pre">query</span></code> (<em>Object</em>): This will depend on the definition of the content source, but will be an object containing key/value pairs used to uniquely identify the piece of content you want to fetch.</li>
+<li>[<code class="docutils literal notranslate"><span class="pre">filter</span></code>] (<em>String</em>): A GraphQL query string that will be applied to the resultant data to minimize the payload size. This is beneficial for both client-side and server-side fetching, as server-side fetched data must be included in the final HTML rendering to prevent content flashing.</li>
+<li>[<code class="docutils literal notranslate"><span class="pre">inherit</span></code>] (<em>Boolean</em>): A dynamic boolean to determine if <code class="docutils literal notranslate"><span class="pre">globalContent</span></code> should be used to override the config settings provided. If this value is <code class="docutils literal notranslate"><span class="pre">true</span></code>, the <code class="docutils literal notranslate"><span class="pre">globalContent</span></code> will be returned in both the <code class="docutils literal notranslate"><span class="pre">cached</span></code> property and as the resolution of <code class="docutils literal notranslate"><span class="pre">fetched</span></code>.</li>
+</ul>
+<p><em>Object Syntax</em></p>
+<p><code class="docutils literal notranslate"><span class="pre">getContent(options)</span></code></p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">options</span></code> (<em>Object</em>): An object containing the following properties:<ul>
+<li><code class="docutils literal notranslate"><span class="pre">options.sourceName</span></code> (<em>String</em>): See <code class="docutils literal notranslate"><span class="pre">sourceName</span></code> parameter above.</li>
+<li><code class="docutils literal notranslate"><span class="pre">options.query</span></code> (<em>Object</em>): See <code class="docutils literal notranslate"><span class="pre">query</span></code> parameter above.</li>
+<li>[<code class="docutils literal notranslate"><span class="pre">options.filter</span></code>] (<em>String</em>): See <code class="docutils literal notranslate"><span class="pre">filter</span></code> parameter above.</li>
+<li>[<code class="docutils literal notranslate"><span class="pre">options.inherit</span></code>] (<em>Boolean</em>): See <code class="docutils literal notranslate"><span class="pre">inherit</span></code> parameter above.</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="id16">
+<h4>Return<a class="headerlink" href="#id16" title="Permalink to this headline">¶</a></h4>
+<p>An object with 2 keys: <code class="docutils literal notranslate"><span class="pre">{</span> <span class="pre">cached,</span> <span class="pre">fetched</span> <span class="pre">}</span></code>. <code class="docutils literal notranslate"><span class="pre">cached</span></code> will be an object containing data already pre-fetched synchronously on the server from the content source. <code class="docutils literal notranslate"><span class="pre">fetched</span></code> will be a Promise that resolves to an object containing newly fetched data from the content source.</p>
+</div>
+<div class="section" id="id17">
+<h4>Example<a class="headerlink" href="#id17" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>/*  /components/features/weather/forecast.jsx  */
+
+import Consumer from &#39;fusion:consumer&#39;
+import React, { Component } from &#39;react&#39;
+
+@Consumer
+class WeatherForecast extends Component {
+
+  constructor() {
+    super(props)
+    this.state = { forecast: null }
+  }
+
+  componentDidMount () {
+    navigator.geolocation.getCurrentPosition((location) =&gt; {
+      // If we get the user&#39;s location, call getContent to fetch data from the DarkSky API
+      const { fetched } = this.getContent({
+        // Specifying the `dark-sky` content source
+        sourceName: &#39;dark-sky&#39;,
+        // `query` object needs `lat` and `lng` arguments to query the DarkSky API
+        query: { lat: location.coords.latitude, lng: location.coords.longitude },
+        // GraphQL filter so we get only the data we need
+        filter: &#39;{ daily { summary }}&#39;
+      })
+
+      // Use the `fetched` Promise to get our response and set the forecast info in the component&#39;s state
+      fetched.then(response =&gt; {
+        this.setState({ forecast: response.daily.summary })
+      })
+    })
+  }
+
+  render() {
+    const { forecast } = this.state
+    return forecast ? (&lt;p&gt;{forecast}&lt;/p&gt;) : null
+  }
+}
+
+export default WeatherForecast
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="removeeventlistener-function">
+<h3>removeEventListener() - (Function)<a class="headerlink" href="#removeeventlistener-function" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id18">
+<h4>Description<a class="headerlink" href="#id18" title="Permalink to this headline">¶</a></h4>
+<p>This method ‘unsubscribes’ the specified event handling function (<code class="docutils literal notranslate"><span class="pre">eventHandler</span></code>) from the <code class="docutils literal notranslate"><span class="pre">eventName</span></code> specified. The <code class="docutils literal notranslate"><span class="pre">eventHandler</span></code> must be a reference to the exact function instance that was added via <a class="reference external" href="#addEventListener"><code>addEventListener</code></a>, not a copy.</p>
+</div>
+<div class="section" id="id19">
+<h4>Parameters<a class="headerlink" href="#id19" title="Permalink to this headline">¶</a></h4>
+<p><code class="docutils literal notranslate"><span class="pre">removeEventListener(eventName,</span> <span class="pre">eventHandler)</span></code></p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">eventName</span></code> (<em>String</em>): The name of the event to unsubscribe the handler from.</li>
+<li><code class="docutils literal notranslate"><span class="pre">eventHandler</span></code> (<em>Function</em>): A reference to the exact instance of the handler function that was previously added.</li>
+</ul>
+</div>
+<div class="section" id="id20">
+<h4>Return<a class="headerlink" href="#id20" title="Permalink to this headline">¶</a></h4>
+<p>This method returns <code class="docutils literal notranslate"><span class="pre">undefined</span></code>; its effect is to ‘unsubscribe’ the event handler from the appropriate event.</p>
+</div>
+<div class="section" id="id21">
+<h4>Example<a class="headerlink" href="#id21" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>/*  /components/features/utils/error-message.jsx  */
+
+import Consumer from &#39;fusion:consumer&#39;
+import React, { Component } from &#39;react&#39;
+
+@Consumer
+class ErrorMessage extends Component {
+  handleErrorMsg (error) {
+    const errorMsg = error &amp;&amp; error.message ? error.message : &#39;Something went wrong&#39;
+      this.setState({ message: errorMsg })
+    })
+  }
+
+  componentDidMount () {
+    this.addEventListener(&#39;errorOccurred&#39;, this.handleErrorMsg.bind(this))
+  }
+
+  componentWillUnmount () {
+    this.removeEventListener(&#39;errorOccurred&#39;, this.handleErrorMsg)
+  }
+  ...
+}
+
+export default ErrorMessage
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="api-context.html" class="btn btn-neutral float-right" title="Context Component API" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="api-custom-fields.html" class="btn btn-neutral float-left" title="Custom Fields API" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Guess Me
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

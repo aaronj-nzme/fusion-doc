@@ -1,0 +1,323 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Working with Display Properties &mdash; Fusion-Doc 1.0.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Isomorphic vs. Server vs. SPA rendering" href="isomorphic-server-spa.html" />
+    <link rel="prev" title="Adding Custom Fields to Components" href="custom-fields.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Fusion-Doc
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Components:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="output.html">Creating and Using Output Types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="feature.html">Creating a Feature Component</a></li>
+<li class="toctree-l1"><a class="reference internal" href="layout.html">Creating a Layout Component</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chain.html">Creating a Chain Component</a></li>
+<li class="toctree-l1"><a class="reference internal" href="event-handling.html">Event Handling and Interaction</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Data:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="content-source.html">Defining a Content Source</a></li>
+<li class="toctree-l1"><a class="reference internal" href="environment.html">Using Environment Variables and “Secrets”</a></li>
+<li class="toctree-l1"><a class="reference internal" href="consumer-hoc.html">Using the Consumer Higher-Order Function</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fetching-content.html">Fetching Content</a></li>
+<li class="toctree-l1"><a class="reference internal" href="configuring-content.html">Dynamically Configuring Content</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content-filtering.html">Content Filtering in Fusion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="site-properties.html">Using Site Properties</a></li>
+</ul>
+<p class="caption"><span class="caption-text">General:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Folder.html">Examining the Feature Pack</a></li>
+<li class="toctree-l1"><a class="reference internal" href="style.html">Adding Styling to Components</a></li>
+<li class="toctree-l1"><a class="reference internal" href="custom-fields.html">Adding Custom Fields to Components</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Working with Display Properties</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#what-are-display-properties">What are display properties?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#defining-in-the-output-type">Defining in the Output Type</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#using-display-properties-in-a-component">Using display properties in a component</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="isomorphic-server-spa.html">Isomorphic vs. Server vs. SPA rendering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="messga-between-components.html">Messaging Between Components</a></li>
+<li class="toctree-l1"><a class="reference internal" href="custom-error-page.html">Using Custom Error Pages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="return-non-html-content-type.html">Creating a Web API Returning a Non-HTML Content Type</a></li>
+<li class="toctree-l1"><a class="reference internal" href="service-work.html">Using Service Workers with Fusion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="local-webpack-states-file.html">Locally Generated Webpack Stats File</a></li>
+<li class="toctree-l1"><a class="reference internal" href="static-features-outside-of-fusion.html">Including Static Features Outside of Fusion</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Best Practices:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="bp.html">Best Practices</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Hooks:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="hooks-configuring-content.html">Dynamically Configuring Content</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hooks-fetching-content.html">Fetching Content</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hooks-event-handling.html">Event Handling and Interaction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hooks.html">React Hooks</a></li>
+</ul>
+<p class="caption"><span class="caption-text">API:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="api-output.html">Output Type API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-feature.html">Feature API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-layout.html">Layout API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-chain.html">Chain API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-custom-fields.html">Custom Fields API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-consumer.html">Consumer API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-context.html">Context Component API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-content.html">Content Component API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-static.html">Static Component API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-content-source.html">Content Source API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-plugins.html">Plugins API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-local-development-mock.html">Local Mocks API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-site-properties.html">Site Properties API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-fusion-http.html">Fusion HTTP API</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Fusion-Doc</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Working with Display Properties</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/display-properties.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="working-with-display-properties">
+<h1>Working with Display Properties<a class="headerlink" href="#working-with-display-properties" title="Permalink to this headline">¶</a></h1>
+<p>One of the things that makes PageBuilder and the Fusion Engine unique is how it can be adapted to serve multiple different Output Types. Output Types allow us to display content in a variety of different formats without refactoring all of the components included within them (for clarity, in this document “components” will mean Features, Chains and Layouts). Common use cases for different Output Types include a standard desktop Output Type, a separate “mobile web” Output Type, and different Output Types for proprietary platforms such as <a class="reference external" href="https://www.ampproject.org/">Google Amp</a>, <a class="reference external" href="https://instantarticles.fb.com/">Facebook Instant Articles</a> and more.</p>
+<p>While Output Types are useful, they do present a challenge: how can we write components that are generic enough to work in <em>every</em> Output Type, but also able to be rendered differently in <em>each</em> Output Type depending on our needs? The answer, as you may have guessed, is “Display Properties”.</p>
+<div class="section" id="what-are-display-properties">
+<h2>What are display properties?<a class="headerlink" href="#what-are-display-properties" title="Permalink to this headline">¶</a></h2>
+<p>Display Properties are a set of keys defined in the Output Type whose values are set on a per-component basis in the PageBuilder Admin. Another way to think of Display Properties is “custom fields, but defined per Output Type”. Using this pattern, we can write our components generically and then define any qualities that are specific to an Output Type with a Display Property.</p>
+</div>
+<div class="section" id="defining-in-the-output-type">
+<h2>Defining in the Output Type<a class="headerlink" href="#defining-in-the-output-type" title="Permalink to this headline">¶</a></h2>
+<p>For example, let’s say in addition to our <code class="docutils literal notranslate"><span class="pre">default</span></code> Output Type, we also want to create a <code class="docutils literal notranslate"><span class="pre">mobile</span></code> Output Type that (among other things) selectively hides or shows which content should fit in a mobile view. We can create that new Output Type by adding a <code class="docutils literal notranslate"><span class="pre">mobile.jsx</span></code> file to the <code class="docutils literal notranslate"><span class="pre">/components/output-types/</span></code> directory. Since the JSX definition of our <code class="docutils literal notranslate"><span class="pre">mobile</span></code> Output Type doesn’t actually differ from that of our <code class="docutils literal notranslate"><span class="pre">default</span></code> Output Type, we can simply <code class="docutils literal notranslate"><span class="pre">import</span></code> the default Output Type into our <code class="docutils literal notranslate"><span class="pre">mobile</span></code> one for now, and extend it later.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">/*</span>  <span class="o">/</span><span class="n">components</span><span class="o">/</span><span class="n">output</span><span class="o">-</span><span class="n">types</span><span class="o">/</span><span class="n">mobile</span><span class="o">.</span><span class="n">jsx</span>  <span class="o">*/</span>
+
+<span class="kn">import</span> <span class="nn">OutputType</span> <span class="kn">from</span> <span class="s1">&#39;./default.jsx&#39;</span>
+</pre></div>
+</div>
+<p>However, we also want to add some <code class="docutils literal notranslate"><span class="pre">displayPropTypes</span></code> to our Output Type before actually exporting it. <code class="docutils literal notranslate"><span class="pre">displayPropTypes</span></code> are the way we define the “keys” of our Display Properties, which become form items that can be set on a per-component basis in PageBuilder. We can add our <code class="docutils literal notranslate"><span class="pre">displayPropTypes</span></code> by importing the <code class="docutils literal notranslate"><span class="pre">PropTypes</span></code> library and defining the property that we care about inside a static property called <code class="docutils literal notranslate"><span class="pre">displayPropTypes</span></code>, which is an object:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">/*</span>  <span class="o">/</span><span class="n">components</span><span class="o">/</span><span class="n">output</span><span class="o">-</span><span class="n">types</span><span class="o">/</span><span class="n">mobile</span><span class="o">.</span><span class="n">jsx</span>  <span class="o">*/</span>
+<span class="kn">import</span> <span class="nn">PropTypes</span> <span class="kn">from</span> <span class="s1">&#39;prop-types&#39;</span>
+<span class="kn">import</span> <span class="nn">OutputType</span> <span class="kn">from</span> <span class="s1">&#39;./default.jsx&#39;</span>
+
+<span class="n">OutputType</span><span class="o">.</span><span class="n">displayPropTypes</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="n">hideOnMobile</span><span class="p">:</span> <span class="n">PropTypes</span><span class="o">.</span><span class="n">bool</span><span class="o">.</span><span class="n">tag</span><span class="p">({</span>
+    <span class="n">name</span><span class="p">:</span> <span class="s1">&#39;Hide on Mobile?&#39;</span>
+  <span class="p">})</span>
+<span class="p">}</span>
+
+<span class="n">export</span> <span class="n">default</span> <span class="n">OutputType</span>
+</pre></div>
+</div>
+<p>Above, we’ve defined a boolean property named <code class="docutils literal notranslate"><span class="pre">hideOnMobile</span></code> which we can use to determine whether each of our components should be hidden in a mobile Output Type. Since <code class="docutils literal notranslate"><span class="pre">displayPropTypes</span></code> use the same Fusion-specific version of the PropTypes library as Custom Fields do, we can also chain the <a class="reference external" href="../api/feature-pack/components/custom-fields.md#tag"><code>.tag</code> method</a> to our property. We pass an object containing a <code class="docutils literal notranslate"><span class="pre">name</span></code> property as the argument, which is the human-readable version of the key; this will be the label that editors see in PageBuilder.</p>
+</div>
+<div class="section" id="using-display-properties-in-a-component">
+<h2>Using display properties in a component<a class="headerlink" href="#using-display-properties-in-a-component" title="Permalink to this headline">¶</a></h2>
+<p>Now that we’ve defined the property we care about in our Output Type, we can see the option in our PageBuilder instance. When we open the editor view of our “homepage” and select the <code class="docutils literal notranslate"><span class="pre">MovieList</span></code> component in the sidebar, and then select the “Display” tab in the sidebar, we will see our “Hide on Mobile?” checkbox is displayed! Why don’t we set this to <code class="docutils literal notranslate"><span class="pre">true</span></code> for now by selecting the checkbox on the <code class="docutils literal notranslate"><span class="pre">MovieList</span></code> component, so it won’t be shown in the mobile view.</p>
+<p>Even though we can now set this value for each of our components, we aren’t actually using it yet. That’s because we need to write some code in each of our components that consumes the <code class="docutils literal notranslate"><span class="pre">displayProperties</span></code> prop, which will contain the value set in PageBuilder.</p>
+<p>That’s easy enough to do - we just have to use the <code class="docutils literal notranslate"><span class="pre">props.displayProperties</span></code> object in a <code class="docutils literal notranslate"><span class="pre">Consumer</span></code> wrapped component, and we’ll have access to the value we need. Let’s see how we can use that in our <code class="docutils literal notranslate"><span class="pre">MovieList</span></code> component:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>import Consumer from &#39;fusion:consumer&#39;
+import React, { Component } from &#39;react&#39;
+
+@Consumer
+class MovieList extends Component {
+
+  ...
+
+  render () {
+    // Extract the `hideOnMobile` value from props.displayProperties, which we default to an empty object
+    const { hideOnMobile } = this.props.displayProperties || {}
+    // Before anything else, if hideOnMobile is true, we return null so nothing else gets rendered
+    if (hideOnMobile) return null
+
+    ...
+  }
+}
+
+export default MovieList
+</pre></div>
+</div>
+<p>Since <code class="docutils literal notranslate"><span class="pre">hideOnMobile</span></code> is a boolean, we simply need to extract it from the <code class="docutils literal notranslate"><span class="pre">displayProperties</span></code> object and check for its existence; if it’s <code class="docutils literal notranslate"><span class="pre">true</span></code>, we want to return <code class="docutils literal notranslate"><span class="pre">null</span></code> from this component so nothing gets rendered.</p>
+<p>Despite the simplicity of this example, hopefully you can see how Display Properties can be used to provide differentiated logic between multiple Output Types in a single component.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="isomorphic-server-spa.html" class="btn btn-neutral float-right" title="Isomorphic vs. Server vs. SPA rendering" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="custom-fields.html" class="btn btn-neutral float-left" title="Adding Custom Fields to Components" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Guess Me
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

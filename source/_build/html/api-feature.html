@@ -1,0 +1,441 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Feature API &mdash; Fusion-Doc 1.0.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Layout API" href="api-layout.html" />
+    <link rel="prev" title="Output Type API" href="api-output.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Fusion-Doc
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Components:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="output.html">Creating and Using Output Types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="feature.html">Creating a Feature Component</a></li>
+<li class="toctree-l1"><a class="reference internal" href="layout.html">Creating a Layout Component</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chain.html">Creating a Chain Component</a></li>
+<li class="toctree-l1"><a class="reference internal" href="event-handling.html">Event Handling and Interaction</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Data:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="content-source.html">Defining a Content Source</a></li>
+<li class="toctree-l1"><a class="reference internal" href="environment.html">Using Environment Variables and “Secrets”</a></li>
+<li class="toctree-l1"><a class="reference internal" href="consumer-hoc.html">Using the Consumer Higher-Order Function</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fetching-content.html">Fetching Content</a></li>
+<li class="toctree-l1"><a class="reference internal" href="configuring-content.html">Dynamically Configuring Content</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content-filtering.html">Content Filtering in Fusion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="site-properties.html">Using Site Properties</a></li>
+</ul>
+<p class="caption"><span class="caption-text">General:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Folder.html">Examining the Feature Pack</a></li>
+<li class="toctree-l1"><a class="reference internal" href="style.html">Adding Styling to Components</a></li>
+<li class="toctree-l1"><a class="reference internal" href="custom-fields.html">Adding Custom Fields to Components</a></li>
+<li class="toctree-l1"><a class="reference internal" href="display-properties.html">Working with Display Properties</a></li>
+<li class="toctree-l1"><a class="reference internal" href="isomorphic-server-spa.html">Isomorphic vs. Server vs. SPA rendering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="messga-between-components.html">Messaging Between Components</a></li>
+<li class="toctree-l1"><a class="reference internal" href="custom-error-page.html">Using Custom Error Pages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="return-non-html-content-type.html">Creating a Web API Returning a Non-HTML Content Type</a></li>
+<li class="toctree-l1"><a class="reference internal" href="service-work.html">Using Service Workers with Fusion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="local-webpack-states-file.html">Locally Generated Webpack Stats File</a></li>
+<li class="toctree-l1"><a class="reference internal" href="static-features-outside-of-fusion.html">Including Static Features Outside of Fusion</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Best Practices:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="bp.html">Best Practices</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Hooks:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="hooks-configuring-content.html">Dynamically Configuring Content</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hooks-fetching-content.html">Fetching Content</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hooks-event-handling.html">Event Handling and Interaction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hooks.html">React Hooks</a></li>
+</ul>
+<p class="caption"><span class="caption-text">API:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="api-output.html">Output Type API</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Feature API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#implementation">Implementation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#naming">Naming</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#example">Example</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#props">Props</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#displayproperties-object">displayProperties (Object)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#description">Description</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id1">Example</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#static-values">Static Values</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#label-object-or-string">label (Object or String)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id2">Description</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id3">Example</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#custom-fields">Custom Fields</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api-layout.html">Layout API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-chain.html">Chain API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-custom-fields.html">Custom Fields API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-consumer.html">Consumer API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-context.html">Context Component API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-content.html">Content Component API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-static.html">Static Component API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-content-source.html">Content Source API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-plugins.html">Plugins API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-local-development-mock.html">Local Mocks API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-site-properties.html">Site Properties API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-fusion-http.html">Fusion HTTP API</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Fusion-Doc</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Feature API</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/api-feature.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="feature-api">
+<h1>Feature API<a class="headerlink" href="#feature-api" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="implementation">
+<h2>Implementation<a class="headerlink" href="#implementation" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="naming">
+<h3>Naming<a class="headerlink" href="#naming" title="Permalink to this headline">¶</a></h3>
+<p>A Feature is expected to be stored and named in one of the following formats:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">/components/features/{featureGroup}/{featureName}.(js|jsx)</span></code></li>
+</ul>
+<blockquote>
+<div>This will build one version of this component that is rendered for all Output Types, where the <code class="docutils literal notranslate"><span class="pre">{featureCategory}</span></code> portion of the filepath represents a namespace of related Features, and <code class="docutils literal notranslate"><span class="pre">{featureName}</span></code> represents the name of this Feature.</div></blockquote>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">/components/features/{featureGroup}/{featureName}/{outputTypeName}.(js|jsx)</span></code></li>
+</ul>
+<blockquote>
+<div>This will build a version of this component that corresponds to the name of the Output Type in the <code class="docutils literal notranslate"><span class="pre">{outputTypeName}</span></code> portion of the filename. The <code class="docutils literal notranslate"><span class="pre">{featureCategory}</span></code> portion of the filepath represents a namespace of related Features, and <code class="docutils literal notranslate"><span class="pre">{featureName}</span></code> represents the name of this Feature. If there is a component named <code class="docutils literal notranslate"><span class="pre">default.(js|jsx)</span></code>, that component will be rendered as a fallback if no file with the name of the relevant Output Type is found.</div></blockquote>
+</div>
+<div class="section" id="example">
+<h3>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">/*</span>  <span class="o">/</span><span class="n">components</span><span class="o">/</span><span class="n">features</span><span class="o">/</span><span class="n">article</span><span class="o">/</span><span class="n">headline</span><span class="o">.</span><span class="n">jsx</span>  <span class="o">*/</span>
+
+<span class="kn">import</span> <span class="nn">Consumer</span> <span class="kn">from</span> <span class="s1">&#39;fusion:consumer&#39;</span>
+<span class="kn">import</span> <span class="nn">PropTypes</span> <span class="kn">from</span> <span class="s1">&#39;prop-types&#39;</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">React</span> <span class="kn">from</span> <span class="s1">&#39;react&#39;</span>
+
+<span class="nd">@Consumer</span>
+<span class="n">const</span> <span class="n">Headline</span> <span class="o">=</span> <span class="p">(</span><span class="n">props</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="n">const</span> <span class="p">{</span> <span class="n">headline</span><span class="p">,</span> <span class="n">byline</span> <span class="p">}</span> <span class="n">props</span><span class="o">.</span><span class="n">globalContent</span>
+  <span class="n">const</span> <span class="p">{</span> <span class="n">showByline</span> <span class="p">}</span>
+  <span class="k">return</span> <span class="p">(</span>
+    <span class="o">&lt;</span><span class="n">h1</span><span class="o">&gt;</span><span class="p">{</span><span class="n">headline</span><span class="p">}</span><span class="o">&lt;/</span><span class="n">h1</span><span class="o">&gt;</span>
+    <span class="p">{</span><span class="n">showByline</span> <span class="o">&amp;&amp;</span>
+      <span class="o">&lt;</span><span class="n">h3</span><span class="o">&gt;</span><span class="p">{</span><span class="n">byline</span><span class="p">}</span><span class="o">&lt;/</span><span class="n">h3</span><span class="o">&gt;</span>
+    <span class="p">}</span>
+  <span class="p">)</span>
+<span class="p">}</span>
+
+<span class="n">Headline</span><span class="o">.</span><span class="n">propTypes</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="n">customFields</span><span class="p">:</span> <span class="n">PropTypes</span><span class="o">.</span><span class="n">shape</span><span class="p">({</span>
+    <span class="n">showByline</span><span class="p">:</span> <span class="n">PropTypes</span><span class="o">.</span><span class="n">bool</span><span class="o">.</span><span class="n">isRequired</span>
+  <span class="p">})</span>
+<span class="p">}</span>
+
+<span class="n">export</span> <span class="n">default</span> <span class="n">Headline</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="props">
+<h2>Props<a class="headerlink" href="#props" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="displayproperties-object">
+<h3>displayProperties (Object)<a class="headerlink" href="#displayproperties-object" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="description">
+<h4>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h4>
+<p><code class="docutils literal notranslate"><span class="pre">displayProperties</span></code> is an object whose names and types are defined per-Output-Type by the <a class="reference external" href="./output-type.md#displayPropTypes"><code>displayPropTypes</code></a> , and whose values are then set in PageBuilder. The <code class="docutils literal notranslate"><span class="pre">displayProperties</span></code> object is intended to be used for display-related properties such as column sizes, hide/show logic and more that may be specific to the Output Type this component is rendering in.</p>
+</div>
+<div class="section" id="id1">
+<h4>Example<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>/*  /components/features/global/footer/amp.jsx  */
+
+import React from &#39;react&#39;
+
+export default (props) =&gt; {
+  const { fullWidth } = props.displayProperties
+
+  return (
+    &lt;footer className={fullWidth ? &#39;col-sm-12&#39; : null}&gt;
+      &lt;p&gt;&amp;copy; 2018 Acme Corp.&lt;/p&gt;
+    &lt;/footer&gt;
+  )
+}
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="static-values">
+<h2>Static Values<a class="headerlink" href="#static-values" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="label-object-or-string">
+<h3>label (Object or String)<a class="headerlink" href="#label-object-or-string" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id2">
+<h4>Description<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h4>
+<p>The <code class="docutils literal notranslate"><span class="pre">label</span></code> field is used in the PageBuilder Editor instead of the actual component filename. The primary purpose of this value is to enable internationalization (i18n) for your Feature. If this Feature component will be used by publications in multiple languages, a <code class="docutils literal notranslate"><span class="pre">label</span></code> allows the PageBuilder Editor to use the translation provided for each locale.</p>
+</div>
+<div class="section" id="id3">
+<h4>Example<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h4>
+<p>Providing a <code class="docutils literal notranslate"><span class="pre">label</span></code> as an Object is the preferred approach as it enables internationalization for any locales that are provided in the component implementation.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">/*</span>  <span class="o">/</span><span class="n">components</span><span class="o">/</span><span class="n">features</span><span class="o">/</span><span class="n">article</span><span class="o">/</span><span class="n">headline</span><span class="o">.</span><span class="n">jsx</span>  <span class="o">*/</span>
+
+<span class="kn">import</span> <span class="nn">Consumer</span> <span class="kn">from</span> <span class="s1">&#39;fusion:consumer&#39;</span>
+<span class="kn">import</span> <span class="nn">PropTypes</span> <span class="kn">from</span> <span class="s1">&#39;prop-types&#39;</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">React</span> <span class="kn">from</span> <span class="s1">&#39;react&#39;</span>
+
+<span class="nd">@Consumer</span>
+<span class="n">const</span> <span class="n">Headline</span> <span class="o">=</span> <span class="p">(</span><span class="n">props</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="n">const</span> <span class="p">{</span> <span class="n">headline</span><span class="p">,</span> <span class="n">byline</span> <span class="p">}</span> <span class="n">props</span><span class="o">.</span><span class="n">globalContent</span>
+  <span class="n">const</span> <span class="p">{</span> <span class="n">showByline</span> <span class="p">}</span>
+  <span class="k">return</span> <span class="p">(</span>
+    <span class="o">&lt;</span><span class="n">h1</span><span class="o">&gt;</span><span class="p">{</span><span class="n">headline</span><span class="p">}</span><span class="o">&lt;/</span><span class="n">h1</span><span class="o">&gt;</span>
+    <span class="p">{</span><span class="n">showByline</span> <span class="o">&amp;&amp;</span>
+      <span class="o">&lt;</span><span class="n">h3</span><span class="o">&gt;</span><span class="p">{</span><span class="n">byline</span><span class="p">}</span><span class="o">&lt;/</span><span class="n">h3</span><span class="o">&gt;</span>
+    <span class="p">}</span>
+  <span class="p">)</span>
+<span class="p">}</span>
+
+<span class="n">Headline</span><span class="o">.</span><span class="n">label</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="n">en</span><span class="p">:</span> <span class="s2">&quot;Headline&quot;</span><span class="p">,</span>
+  <span class="n">fr</span><span class="p">:</span> <span class="s2">&quot;Le titre&quot;</span>
+<span class="p">}</span>
+
+<span class="n">Headline</span><span class="o">.</span><span class="n">propTypes</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="n">customFields</span><span class="p">:</span> <span class="n">PropTypes</span><span class="o">.</span><span class="n">shape</span><span class="p">({</span>
+    <span class="n">showByline</span><span class="p">:</span> <span class="n">PropTypes</span><span class="o">.</span><span class="n">bool</span><span class="o">.</span><span class="n">tag</span><span class="p">({</span> <span class="n">label</span><span class="p">:</span> <span class="p">{</span>
+      <span class="n">en</span><span class="p">:</span> <span class="s2">&quot;Show byline&quot;</span><span class="p">,</span>
+      <span class="n">fr</span><span class="p">:</span> <span class="s2">&quot;Montrer à l&#39;auteur&quot;</span>
+    <span class="p">}})</span><span class="o">.</span><span class="n">isRequired</span>
+  <span class="p">})</span>
+<span class="p">}</span>
+
+<span class="n">export</span> <span class="n">default</span> <span class="n">Headline</span>
+</pre></div>
+</div>
+<p>Providing a <code class="docutils literal notranslate"><span class="pre">label</span></code> as a String is also supported for Features that should always have the same label in the PageBuilder Editor. If a <code class="docutils literal notranslate"><span class="pre">label</span></code> is provided as a String, then the value will always be used even if the user is in a different locale.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>/*  /components/features/article/headline.jsx  */
+
+import Consumer from &#39;fusion:consumer&#39;
+import PropTypes from &#39;prop-types&#39;;
+import React from &#39;react&#39;
+
+@Consumer
+const Headline = (props) =&gt; {
+  const { headline, byline } props.globalContent
+  const { showByline }
+  return (
+    &lt;h1&gt;{headline}&lt;/h1&gt;
+    {showByline &amp;&amp;
+      &lt;h3&gt;{byline}&lt;/h3&gt;
+    }
+  )
+}
+
+Headline.label = `Le titre de l&#39;article`
+
+Headline.propTypes = {
+  customFields: PropTypes.shape({
+    showByline: PropTypes.bool.tag({ label: `Montrer à l&#39;auteur` }).isRequired
+  })
+}
+
+export default Headline
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="custom-fields">
+<h2>Custom Fields<a class="headerlink" href="#custom-fields" title="Permalink to this headline">¶</a></h2>
+<p>See the <a class="reference internal" href="custom-fields.html"><span class="doc">Custom Fields documentation</span></a></p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="api-layout.html" class="btn btn-neutral float-right" title="Layout API" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="api-output.html" class="btn btn-neutral float-left" title="Output Type API" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Guess Me
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

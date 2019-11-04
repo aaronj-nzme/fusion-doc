@@ -1,0 +1,329 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Content Filtering in Fusion &mdash; Fusion-Doc 1.0.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Using Site Properties" href="site-properties.html" />
+    <link rel="prev" title="Dynamically Configuring Content" href="configuring-content.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Fusion-Doc
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Components:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="output.html">Creating and Using Output Types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="feature.html">Creating a Feature Component</a></li>
+<li class="toctree-l1"><a class="reference internal" href="layout.html">Creating a Layout Component</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chain.html">Creating a Chain Component</a></li>
+<li class="toctree-l1"><a class="reference internal" href="event-handling.html">Event Handling and Interaction</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Data:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="content-source.html">Defining a Content Source</a></li>
+<li class="toctree-l1"><a class="reference internal" href="environment.html">Using Environment Variables and “Secrets”</a></li>
+<li class="toctree-l1"><a class="reference internal" href="consumer-hoc.html">Using the Consumer Higher-Order Function</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fetching-content.html">Fetching Content</a></li>
+<li class="toctree-l1"><a class="reference internal" href="configuring-content.html">Dynamically Configuring Content</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Content Filtering in Fusion</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#feature-level-content-filtering">Feature-level content filtering</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#content-source-level-content-filtering">Content source-level content filtering</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#order-of-operations-what-happens-in-what-order-where-does-it-happen">Order of operations (What happens in what order? Where does it happen?)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="site-properties.html">Using Site Properties</a></li>
+</ul>
+<p class="caption"><span class="caption-text">General:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Folder.html">Examining the Feature Pack</a></li>
+<li class="toctree-l1"><a class="reference internal" href="style.html">Adding Styling to Components</a></li>
+<li class="toctree-l1"><a class="reference internal" href="custom-fields.html">Adding Custom Fields to Components</a></li>
+<li class="toctree-l1"><a class="reference internal" href="display-properties.html">Working with Display Properties</a></li>
+<li class="toctree-l1"><a class="reference internal" href="isomorphic-server-spa.html">Isomorphic vs. Server vs. SPA rendering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="messga-between-components.html">Messaging Between Components</a></li>
+<li class="toctree-l1"><a class="reference internal" href="custom-error-page.html">Using Custom Error Pages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="return-non-html-content-type.html">Creating a Web API Returning a Non-HTML Content Type</a></li>
+<li class="toctree-l1"><a class="reference internal" href="service-work.html">Using Service Workers with Fusion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="local-webpack-states-file.html">Locally Generated Webpack Stats File</a></li>
+<li class="toctree-l1"><a class="reference internal" href="static-features-outside-of-fusion.html">Including Static Features Outside of Fusion</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Best Practices:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="bp.html">Best Practices</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Hooks:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="hooks-configuring-content.html">Dynamically Configuring Content</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hooks-fetching-content.html">Fetching Content</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hooks-event-handling.html">Event Handling and Interaction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hooks.html">React Hooks</a></li>
+</ul>
+<p class="caption"><span class="caption-text">API:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="api-output.html">Output Type API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-feature.html">Feature API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-layout.html">Layout API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-chain.html">Chain API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-custom-fields.html">Custom Fields API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-consumer.html">Consumer API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-context.html">Context Component API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-content.html">Content Component API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-static.html">Static Component API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-content-source.html">Content Source API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-plugins.html">Plugins API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-local-development-mock.html">Local Mocks API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-site-properties.html">Site Properties API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-fusion-http.html">Fusion HTTP API</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Fusion-Doc</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Content Filtering in Fusion</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/content-filtering.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="content-filtering-in-fusion">
+<h1>Content Filtering in Fusion<a class="headerlink" href="#content-filtering-in-fusion" title="Permalink to this headline">¶</a></h1>
+<p>Content filtering in Fusion is optional much in the same way schemas are optional. You could always create a content source that returns the entirety of an ANS-compliant document or any other external data format with no filtering or refinement at all if you so desire. However, you will likely run into a scenario in which you will not want the entirety of an API repsonse or document delivered to the front-end for a feature to use.</p>
+<p>Content filtering uses a subset of <a class="reference external" href="https://graphql.org/learn/queries/">GraphQL’s query format</a>. More specifically, Fusion only supports <a class="reference external" href="https://graphql.org/learn/queries/#fields">fields</a>. Arguments, aliases, fragments, etc. will not work and will in fact cause errors when we attempt to use them.</p>
+<p>Provided you are working with a data structure that is consistent enough that this kind of GraphQL field filtering is applicable, then this filtering functionality is an option you can certainly consider for mitigating any issues you might have with especially large data payloads.</p>
+<p>However, there are multiple places in Fusion where you can do this kind of filtering: At the feature level with the Consumer API, at feature level using using the Fusion-provided React hooks, or at the content source level.</p>
+<div class="section" id="feature-level-content-filtering">
+<h2>Feature-level content filtering<a class="headerlink" href="#feature-level-content-filtering" title="Permalink to this headline">¶</a></h2>
+<p>If an individual feature is pulling in data for rendering in class component using the Consumer API, we typically use content filtering by passing in a <code class="docutils literal notranslate"><span class="pre">filter</span></code> field in the appropriate function provided by that decorator: Either <code class="docutils literal notranslate"><span class="pre">getContent()</span></code> or <code class="docutils literal notranslate"><span class="pre">fetchContent()</span></code>. Similarly, if one is using a React hook to fetch content such as <code class="docutils literal notranslate"><span class="pre">useContent</span></code> you’ll pass in the filter string in the content config that gets passed in that hook function.</p>
+<p>Borrowing from the example for <code class="docutils literal notranslate"><span class="pre">getContent()</span></code></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">componentDidMount</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="n">const</span> <span class="p">{</span> <span class="n">fetched</span> <span class="p">}</span> <span class="o">=</span> <span class="n">this</span><span class="o">.</span><span class="n">getContent</span><span class="p">({</span>
+        <span class="n">sourceName</span><span class="p">:</span> <span class="s1">&#39;dark-sky&#39;</span><span class="p">,</span>
+        <span class="n">query</span><span class="p">:</span> <span class="p">{</span> <span class="n">lat</span><span class="p">:</span> <span class="mf">29.977327</span><span class="p">,</span> <span class="n">lng</span><span class="p">:</span> <span class="mf">31.133426</span> <span class="p">},</span>
+    <span class="p">})</span>
+
+    <span class="n">fetched</span><span class="o">.</span><span class="n">then</span><span class="p">(</span><span class="n">response</span> <span class="o">=&gt;</span> <span class="p">{</span>
+        <span class="n">this</span><span class="o">.</span><span class="n">setState</span><span class="p">({</span> <span class="n">forecast</span><span class="p">:</span> <span class="n">response</span><span class="o">.</span><span class="n">daily</span><span class="o">.</span><span class="n">summary</span> <span class="p">})</span>
+    <span class="p">})</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Here the filter field in the object passed into <code class="docutils literal notranslate"><span class="pre">getContent</span></code> is <code class="docutils literal notranslate"><span class="pre">'{</span> <span class="pre">daily</span> <span class="pre">{</span> <span class="pre">summary</span> <span class="pre">}}'</span></code> which refines the response structure returning from our content source down to something that will look like this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;daily&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;summary&quot;</span> <span class="p">:</span> <span class="s2">&quot;No precipitation throughout the week, with high temperatures rising to 110°F on Tuesday.&quot;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="content-source-level-content-filtering">
+<h2>Content source-level content filtering<a class="headerlink" href="#content-source-level-content-filtering" title="Permalink to this headline">¶</a></h2>
+<p>It’s very possible you may also see a need to filter content at the content source level to apply a set of filtering rules without needing to do it through the Consumer API at the feature level.</p>
+<p>There are two main reasons you may see a need to do this:</p>
+<ul class="simple">
+<li>You want to filter content fetched for <code class="docutils literal notranslate"><span class="pre">globalContent</span></code>.</li>
+<li>You want to apply the same filtering for all queries made to a content source.</li>
+</ul>
+<p>Luckily, filters are applied in content sources very similarly to how feature-level content filtering is applied.</p>
+<p>Here’s an example of our <code class="docutils literal notranslate"><span class="pre">dark-sky</span></code> content source from before but with same filtering applied at the content source level:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>export default {
+    resolve: query =&gt; `https://api.darksky.net/forecast/YOUR_API_KEY/${query.lat},${query.long}`,
+    params: {
+        lat: &#39;number&#39;,
+        long: &#39;number&#39;
+    },
+    filter: &#39;{ daily { summary }}&#39;
+}
+</pre></div>
+</div>
+<p>Now any fetches for this content source, whether it be for feature-scoped content or for global content, will apply that filter and return data refined in the same way as in our feature-level filtering example.</p>
+</div>
+<div class="section" id="order-of-operations-what-happens-in-what-order-where-does-it-happen">
+<h2>Order of operations (What happens in what order? Where does it happen?)<a class="headerlink" href="#order-of-operations-what-happens-in-what-order-where-does-it-happen" title="Permalink to this headline">¶</a></h2>
+<p>You may be wondering if you could do filtering in both the content source and the feature content requests. The answer is yes, but you’ll need to be conscious of the order in which each of those filters happens.</p>
+<p>Additionally, if you’re using data transforms in addition to content filtering, you’ll want to keep in mind the order of operations for how transforms and filters get applied and where they are used, i.e. server, client, or both.</p>
+<p>In the following list number 1 is applied first and number 4 is applied last:</p>
+<ol class="simple">
+<li>Content source transform <strong>(Server)</strong></li>
+<li>Content source filter <strong>(Server)</strong></li>
+<li>Feature content request filter <strong>(Server)</strong></li>
+<li>Feature content request transform <strong>(Server AND Client)</strong></li>
+</ol>
+<p>Notice that that the transform happens before the filter within content sources but for feature content. This is different from how it happens in features content requests, where the filtering is applied before the transform.</p>
+<p>This order of operations is important to consider in the event you’re conscious of payload size or preventing secret/encrypted data from being delivered to the client. Essentially, if you’re relying on a feature content request transform to prevent that data from being available to the client, that is to say it will not work as expected. All other data manipulation points in that list should function adequately for that purpose, though.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="site-properties.html" class="btn btn-neutral float-right" title="Using Site Properties" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="configuring-content.html" class="btn btn-neutral float-left" title="Dynamically Configuring Content" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Guess Me
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

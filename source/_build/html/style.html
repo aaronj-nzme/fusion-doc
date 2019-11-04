@@ -1,0 +1,422 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Adding Styling to Components &mdash; Fusion-Doc 1.0.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Adding Custom Fields to Components" href="custom-fields.html" />
+    <link rel="prev" title="Examining the Feature Pack" href="Folder.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Fusion-Doc
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Components:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="output.html">Creating and Using Output Types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="feature.html">Creating a Feature Component</a></li>
+<li class="toctree-l1"><a class="reference internal" href="layout.html">Creating a Layout Component</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chain.html">Creating a Chain Component</a></li>
+<li class="toctree-l1"><a class="reference internal" href="event-handling.html">Event Handling and Interaction</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Data:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="content-source.html">Defining a Content Source</a></li>
+<li class="toctree-l1"><a class="reference internal" href="environment.html">Using Environment Variables and “Secrets”</a></li>
+<li class="toctree-l1"><a class="reference internal" href="consumer-hoc.html">Using the Consumer Higher-Order Function</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fetching-content.html">Fetching Content</a></li>
+<li class="toctree-l1"><a class="reference internal" href="configuring-content.html">Dynamically Configuring Content</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content-filtering.html">Content Filtering in Fusion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="site-properties.html">Using Site Properties</a></li>
+</ul>
+<p class="caption"><span class="caption-text">General:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Folder.html">Examining the Feature Pack</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Adding Styling to Components</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#using-static-tags">Using static  tags</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#importing-into-components">Importing into components</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="custom-fields.html">Adding Custom Fields to Components</a></li>
+<li class="toctree-l1"><a class="reference internal" href="display-properties.html">Working with Display Properties</a></li>
+<li class="toctree-l1"><a class="reference internal" href="isomorphic-server-spa.html">Isomorphic vs. Server vs. SPA rendering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="messga-between-components.html">Messaging Between Components</a></li>
+<li class="toctree-l1"><a class="reference internal" href="custom-error-page.html">Using Custom Error Pages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="return-non-html-content-type.html">Creating a Web API Returning a Non-HTML Content Type</a></li>
+<li class="toctree-l1"><a class="reference internal" href="service-work.html">Using Service Workers with Fusion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="local-webpack-states-file.html">Locally Generated Webpack Stats File</a></li>
+<li class="toctree-l1"><a class="reference internal" href="static-features-outside-of-fusion.html">Including Static Features Outside of Fusion</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Best Practices:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="bp.html">Best Practices</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Hooks:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="hooks-configuring-content.html">Dynamically Configuring Content</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hooks-fetching-content.html">Fetching Content</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hooks-event-handling.html">Event Handling and Interaction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hooks.html">React Hooks</a></li>
+</ul>
+<p class="caption"><span class="caption-text">API:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="api-output.html">Output Type API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-feature.html">Feature API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-layout.html">Layout API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-chain.html">Chain API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-custom-fields.html">Custom Fields API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-consumer.html">Consumer API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-context.html">Context Component API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-content.html">Content Component API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-static.html">Static Component API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-content-source.html">Content Source API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-plugins.html">Plugins API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-local-development-mock.html">Local Mocks API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-site-properties.html">Site Properties API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-fusion-http.html">Fusion HTTP API</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Fusion-Doc</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Adding Styling to Components</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/style.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="adding-styling-to-components">
+<h1>Adding Styling to Components<a class="headerlink" href="#adding-styling-to-components" title="Permalink to this headline">¶</a></h1>
+<p>Unfortunately, modern internet users will not abide webpages without frivolities like colors, fonts that aren’t Times New Roman, and layouts with more than 1 column. In order to satisfy the evolving demands of readers, you may be forced to add styling to your website with CSS.</p>
+<p>There are two different approaches to adding styling to a Fusion site: adding global, static CSS in <code class="docutils literal notranslate"><span class="pre">&lt;link&gt;</span></code> tags, and importing styling directly into components.</p>
+<div class="section" id="using-static-tags">
+<h2>Using static  tags<a class="headerlink" href="#using-static-tags" title="Permalink to this headline">¶</a></h2>
+<p>By far the easiest way to add styling to your Fusion site is to write static CSS and include it via <code class="docutils literal notranslate"><span class="pre">&lt;link&gt;</span></code> tags in the head of your document, defined in the Output Type. This approach has the advantage of being easy to implement and understand.</p>
+<p>Let’s say we wanted to add some simple CSS to add common heights and classes to certain classes of images. To do so, let’s create a directory called <code class="docutils literal notranslate"><span class="pre">css/</span></code> in our <code class="docutils literal notranslate"><span class="pre">/resources/</span></code> directory and a file called <code class="docutils literal notranslate"><span class="pre">main.css</span></code> within it.</p>
+<blockquote>
+<div><p><strong>NOTE</strong></p>
+<p>The <code class="docutils literal notranslate"><span class="pre">/resources/</span></code> directory is where Fusion expects static assets to be kept - things like images, fonts, CSS, and static JavaScript that can be served directly to the browser without being processed.</p>
+</div></blockquote>
+<p>Here’s some simple CSS for our site:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">/*</span>  <span class="o">/</span><span class="n">resources</span><span class="o">/</span><span class="n">css</span><span class="o">/</span><span class="n">main</span><span class="o">.</span><span class="n">css</span>  <span class="o">*/</span>
+
+<span class="o">.</span><span class="n">image</span><span class="o">-</span><span class="n">sm</span> <span class="p">{</span>
+  <span class="n">height</span><span class="p">:</span> <span class="mi">250</span><span class="n">px</span><span class="p">;</span>
+  <span class="n">width</span><span class="p">:</span> <span class="mi">250</span><span class="n">px</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Now in our <code class="docutils literal notranslate"><span class="pre">default.jsx</span></code> Output Type, we can add a <code class="docutils literal notranslate"><span class="pre">&lt;link&gt;</span></code> tag to our new CSS file.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>/*  /components/output-types/default.jsx  */
+
+export default (props) =&gt; {
+  return (
+    &lt;html&gt;
+      &lt;head&gt;
+        &lt;title&gt;{props.metaValue(&#39;title&#39;) || &#39;Default Title&#39;}&lt;/title&gt;
+        {props.metaTag}
+        {props.libs}
+        {props.cssLinks}
+        &lt;link rel=&#39;icon&#39; type=&#39;image/x-icon&#39; href={`${props.contextPath}/resources/img/favicon.ico`} /&gt;
+        &lt;link rel=&#39;stylesheet&#39; href=&#39;https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css&#39; /&gt;
+
+        {/*  Adding a link to our new CSS file  */}
+        &lt;link rel=&#39;stylesheet&#39; href={`${props.contextPath}/resources/css/main.css`} /&gt;
+      &lt;/head&gt;
+      &lt;body&gt;
+        &lt;div className=&#39;container&#39;&gt;
+          &lt;div id=&#39;fusion-app&#39;&gt;
+            {props.children}
+          &lt;/div&gt;
+        &lt;/div&gt;
+        {props.fusion}
+      &lt;/body&gt;
+    &lt;/html&gt;
+  )
+}
+</pre></div>
+</div>
+<p>We’re using the <code class="docutils literal notranslate"><span class="pre">props.contextPath</span></code> helper above to prefix our path based on the environment we’re in (e.g. in the “staging” environment, paths are prefixed with <code class="docutils literal notranslate"><span class="pre">/pf/</span></code>, which <code class="docutils literal notranslate"><span class="pre">contextPath</span></code> handles for us). But other than that, this is a normal <code class="docutils literal notranslate"><span class="pre">&lt;link&gt;</span></code> tag.</p>
+<p>All that’s left is to actually apply our class to the images we want to resize:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>/*  /components/features/movies/movie-list.jsx  */
+
+...
+class MovieList extends Component {
+  ...
+  render () {
+    const { movies } = this.state
+    return (
+      &lt;Fragment&gt;
+        &lt;h2&gt;Movies&lt;/h2&gt;
+        &lt;div&gt;
+          {movies &amp;&amp; movies.map((movie, idx) =&gt;
+            &lt;div key={`movie-${idx}`}&gt;
+              &lt;h4&gt;{movie.Title}&lt;/h4&gt;
+              &lt;p&gt;&lt;strong&gt;Year:&lt;/strong&gt; {movie.Year}&lt;/p&gt;
+
+              {/*  Adding our class on the image below  */}
+              &lt;img src={movie.Poster} className=&#39;image-sm&#39; /&gt;
+            &lt;/div&gt;
+          )}
+          &lt;button onClick={ this.fetch }&gt;More&lt;/button&gt;
+        &lt;/div&gt;
+      &lt;/Fragment&gt;
+    )
+  }
+}
+
+export default MovieList
+</pre></div>
+</div>
+<p>Now the poster images in our <code class="docutils literal notranslate"><span class="pre">MovieList</span></code> component should all be a standard size!</p>
+</div>
+<div class="section" id="importing-into-components">
+<h2>Importing into components<a class="headerlink" href="#importing-into-components" title="Permalink to this headline">¶</a></h2>
+<p>While including <code class="docutils literal notranslate"><span class="pre">&lt;link&gt;</span></code> tags is a dead simple way to add CSS, it doesn’t offer the benefits of modern tooling like CSS preprocessing or module bundling to reduce CSS payload size. An alternative approach is to import CSS or SCSS files directly into our React components. This gives us the following benefits:</p>
+<ul class="simple">
+<li>provides all the capabilities of SCSS (variables, importing, mixins, etc.)</li>
+<li>prevents extraneous HTTP requests, since all our CSS will be bundled into a single file</li>
+<li>removes any CSS from components not included on the page, reducing payload size</li>
+<li>allows us to write CSS on a modular, per-component basis for easy re-use</li>
+</ul>
+<p>Because Fusion uses <a class="reference external" href="https://webpack.js.org/">Webpack</a> under-the-hood to bundle module dependencies, it’s possible for us to import CSS or SCSS directly into any of our components - features, chains, layouts, and output types - and they will be included on the page automatically.</p>
+<p>The more specific the styling is to a certain component, the more targeted we can be about where we import it. In other words, if a style is used across many components on the page, it may be best to import it at the Output Type level; however, styles that are specific to a certain Feature can be imported into that Feature alone, so they won’t be included unnecessarily.</p>
+<p>Let’s re-implement the same image resizing we did above, but this time by importing the styling into the relevant Feature.</p>
+<p>Since we’re going to create a new file related to our <code class="docutils literal notranslate"><span class="pre">MovieList</span></code> component, let’s create a directory for both the component definition and the style to live in, instead of just having our top-level component definition.</p>
+<ul class="simple">
+<li>create a directory inside <code class="docutils literal notranslate"><span class="pre">/components/features/movies/</span></code> named <code class="docutils literal notranslate"><span class="pre">movie-list/</span></code></li>
+<li>then, move what used to be our <code class="docutils literal notranslate"><span class="pre">movie-list.jsx</span></code> file into the new directory and rename it <code class="docutils literal notranslate"><span class="pre">default.jsx</span></code> (it’s important that it’s named <code class="docutils literal notranslate"><span class="pre">default</span></code>, so Fusion knows what output type to use!)</li>
+<li>finally, create a <code class="docutils literal notranslate"><span class="pre">style.scss</span></code> inside the new <code class="docutils literal notranslate"><span class="pre">movie-list/</span></code> directory</li>
+</ul>
+<p>The resulting structure should now be:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">components</span><span class="o">/</span>
+  <span class="n">features</span><span class="o">/</span>
+    <span class="n">movies</span><span class="o">/</span>
+      <span class="n">movie</span><span class="o">-</span><span class="nb">list</span><span class="o">/</span>
+        <span class="n">default</span><span class="o">.</span><span class="n">jsx</span>
+        <span class="n">style</span><span class="o">.</span><span class="n">scss</span>
+</pre></div>
+</div>
+<p>You’ll notice that <code class="docutils literal notranslate"><span class="pre">style.scss</span></code> is a SCSS file instead of plain CSS, and that we’re creating it directly in the relevant component’s directory, rather than in the <code class="docutils literal notranslate"><span class="pre">/resources/</span></code> directory.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>/*  /components/features/movies/movie-list/style.scss  */
+
+$image-size: 250px;
+
+.image-sm {
+  height: $image-size;
+  width: $image-size;
+}
+</pre></div>
+</div>
+<p>In this very simple example, we’re creating exactly the same styles as we did in the first example - except here you can see we’re using SCSS variables to <a class="reference external" href="https://en.wikipedia.org/wiki/Don%27t_repeat_yourself">DRY</a> up some of our code.</p>
+<p>Now, in our <code class="docutils literal notranslate"><span class="pre">MovieList</span></code> component we can simply import the relevant file and use it as we did before:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>/*  /components/features/movies/movie-list/default.jsx  */
+
+// We import the style here...
+import &#39;./style.scss&#39;
+
+...
+class MovieList extends Component {
+  ...
+  render () {
+    const { movies } = this.state
+    return (
+      &lt;Fragment&gt;
+        &lt;h2&gt;Movies&lt;/h2&gt;
+        &lt;div&gt;
+          {movies &amp;&amp; movies.map((movie, idx) =&gt;
+            &lt;div key={`movie-${idx}`}&gt;
+              &lt;h4&gt;{movie.Title}&lt;/h4&gt;
+              &lt;p&gt;&lt;strong&gt;Year:&lt;/strong&gt; {movie.Year}&lt;/p&gt;
+
+              {/*  ...and add our class on the image below, just as before  */}
+              &lt;img src={movie.Poster} className=&#39;image-sm&#39; /&gt;
+            &lt;/div&gt;
+          )}
+          &lt;button onClick={ this.fetch }&gt;More&lt;/button&gt;
+        &lt;/div&gt;
+      &lt;/Fragment&gt;
+    )
+  }
+}
+
+export default MovieList
+</pre></div>
+</div>
+<p>Our style should now be applied, just as it was in the first example - except in this case, this CSS <strong>won’t</strong> be included on any page that doesn’t contain this Feature, reducing our payload size and keeping our code modular.</p>
+<p>It’s important to note that this only works because of the <code class="docutils literal notranslate"><span class="pre">{props.cssLinks}</span></code> line that we have in our Output Type - this code is responsible for injecting the compiled CSS code from Webpack into each page. Without it, our CSS would not have been added to the page at all!</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="custom-fields.html" class="btn btn-neutral float-right" title="Adding Custom Fields to Components" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="Folder.html" class="btn btn-neutral float-left" title="Examining the Feature Pack" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Guess Me
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

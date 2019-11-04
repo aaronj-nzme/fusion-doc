@@ -1,0 +1,373 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>React Hooks &mdash; Fusion-Doc 1.0.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Output Type API" href="api-output.html" />
+    <link rel="prev" title="Event Handling and Interaction" href="hooks-event-handling.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Fusion-Doc
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Components:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="output.html">Creating and Using Output Types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="feature.html">Creating a Feature Component</a></li>
+<li class="toctree-l1"><a class="reference internal" href="layout.html">Creating a Layout Component</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chain.html">Creating a Chain Component</a></li>
+<li class="toctree-l1"><a class="reference internal" href="event-handling.html">Event Handling and Interaction</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Data:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="content-source.html">Defining a Content Source</a></li>
+<li class="toctree-l1"><a class="reference internal" href="environment.html">Using Environment Variables and “Secrets”</a></li>
+<li class="toctree-l1"><a class="reference internal" href="consumer-hoc.html">Using the Consumer Higher-Order Function</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fetching-content.html">Fetching Content</a></li>
+<li class="toctree-l1"><a class="reference internal" href="configuring-content.html">Dynamically Configuring Content</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content-filtering.html">Content Filtering in Fusion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="site-properties.html">Using Site Properties</a></li>
+</ul>
+<p class="caption"><span class="caption-text">General:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Folder.html">Examining the Feature Pack</a></li>
+<li class="toctree-l1"><a class="reference internal" href="style.html">Adding Styling to Components</a></li>
+<li class="toctree-l1"><a class="reference internal" href="custom-fields.html">Adding Custom Fields to Components</a></li>
+<li class="toctree-l1"><a class="reference internal" href="display-properties.html">Working with Display Properties</a></li>
+<li class="toctree-l1"><a class="reference internal" href="isomorphic-server-spa.html">Isomorphic vs. Server vs. SPA rendering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="messga-between-components.html">Messaging Between Components</a></li>
+<li class="toctree-l1"><a class="reference internal" href="custom-error-page.html">Using Custom Error Pages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="return-non-html-content-type.html">Creating a Web API Returning a Non-HTML Content Type</a></li>
+<li class="toctree-l1"><a class="reference internal" href="service-work.html">Using Service Workers with Fusion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="local-webpack-states-file.html">Locally Generated Webpack Stats File</a></li>
+<li class="toctree-l1"><a class="reference internal" href="static-features-outside-of-fusion.html">Including Static Features Outside of Fusion</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Best Practices:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="bp.html">Best Practices</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Hooks:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="hooks-configuring-content.html">Dynamically Configuring Content</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hooks-fetching-content.html">Fetching Content</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hooks-event-handling.html">Event Handling and Interaction</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">React Hooks</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#usecomponentcontext">useComponentContext</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#useappcontext">useAppContext</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#usefusioncontext-added-on-fusion-2-2">useFusionContext (added on Fusion 2.2)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#usecontent">useContent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#useeditablecontent">useEditableContent</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">API:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="api-output.html">Output Type API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-feature.html">Feature API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-layout.html">Layout API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-chain.html">Chain API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-custom-fields.html">Custom Fields API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-consumer.html">Consumer API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-context.html">Context Component API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-content.html">Content Component API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-static.html">Static Component API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-content-source.html">Content Source API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-plugins.html">Plugins API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-local-development-mock.html">Local Mocks API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-site-properties.html">Site Properties API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-fusion-http.html">Fusion HTTP API</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Fusion-Doc</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>React Hooks</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/hooks.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="react-hooks">
+<h1>React Hooks<a class="headerlink" href="#react-hooks" title="Permalink to this headline">¶</a></h1>
+<p>Starting from 2.1, Fusion began supporting React’s hooks, as well as implementing its own. Currently, as of Fusion 2.2 there are four custom hooks:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">useContent</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">useComponentContext</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">useAppContext</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">useFusionContext</span></code></li>
+</ul>
+<div class="section" id="usecomponentcontext">
+<h2>useComponentContext<a class="headerlink" href="#usecomponentcontext" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">Context</span><span class="o">,</span> <span class="p">{</span> <span class="n">useComponentContext</span> <span class="p">}</span> <span class="kn">from</span> <span class="s1">&#39;fusion:context&#39;</span><span class="p">;</span>
+<span class="o">...</span>
+    <span class="n">const</span> <span class="n">componentContext</span> <span class="o">=</span> <span class="n">useComponentContext</span><span class="p">();</span>
+<span class="o">...</span>
+</pre></div>
+</div>
+<p>Returns an object that contains data from the parent component’s context. You’ll be able to get the global content that is hydrated with the local edits simply by getting <code class="docutils literal notranslate"><span class="pre">.globalContent</span></code> on the returned object.</p>
+<p>This function retrieves both the global contents from the fusion app itself as well as the component context. Both are called using React’s useContext hook. A regular call to <code class="docutils literal notranslate"><span class="pre">useComponentContext</span></code> will return the component context as if calling <code class="docutils literal notranslate"><span class="pre">useContext(&lt;Component</span> <span class="pre">Context&gt;)</span></code> directly.</p>
+<p>You can also call <code class="docutils literal notranslate"><span class="pre">globalContent</span></code> from the returned object to retrieve the global content after the local edits are applied. Because multiple child components could be calling the global content, it will memoize the parent component’s context by id so it doesn’t have to re-hydrate with local edits each time.</p>
+</div>
+<div class="section" id="useappcontext">
+<h2>useAppContext<a class="headerlink" href="#useappcontext" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">Context</span><span class="o">,</span> <span class="p">{</span> <span class="n">useAppContext</span> <span class="p">}</span> <span class="kn">from</span> <span class="s1">&#39;fusion:context&#39;</span><span class="p">;</span>
+<span class="o">...</span>
+    <span class="n">const</span> <span class="n">appContext</span> <span class="o">=</span> <span class="n">useAppContext</span><span class="p">();</span>
+<span class="o">...</span>
+</pre></div>
+</div>
+<p>Returns an object that contains data from the application-level context. It works similarly to <code class="docutils literal notranslate"><span class="pre">useComponentContext</span></code>, where the you can get the local edit-hydrated global content by getting <code class="docutils literal notranslate"><span class="pre">.globalContent</span></code> on the returned object.</p>
+</div>
+<div class="section" id="usefusioncontext-added-on-fusion-2-2">
+<h2>useFusionContext (added on Fusion 2.2)<a class="headerlink" href="#usefusioncontext-added-on-fusion-2-2" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">Context</span><span class="o">,</span> <span class="p">{</span> <span class="n">useFusionContext</span> <span class="p">}</span> <span class="kn">from</span> <span class="s1">&#39;fusion:context&#39;</span><span class="p">;</span>
+<span class="o">...</span>
+    <span class="n">const</span> <span class="n">fusionContext</span> <span class="o">=</span> <span class="n">useFusionContext</span><span class="p">();</span>
+<span class="o">...</span>
+</pre></div>
+</div>
+<p>Returns an object containing data from both <code class="docutils literal notranslate"><span class="pre">useComponentContext</span></code> and <code class="docutils literal notranslate"><span class="pre">useAppContext</span></code>. It is just a convenience method that merges the two functions and returns the combined object.</p>
+</div>
+<div class="section" id="usecontent">
+<h2>useContent<a class="headerlink" href="#usecontent" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">Content</span><span class="o">,</span> <span class="p">{</span> <span class="n">useContent</span> <span class="p">}</span> <span class="kn">from</span> <span class="s1">&#39;fusion:content&#39;</span><span class="p">;</span>
+<span class="o">...</span>
+    <span class="n">const</span> <span class="n">content</span> <span class="o">=</span> <span class="n">useContent</span><span class="p">({</span>
+        <span class="n">source</span><span class="p">:</span> <span class="s1">&#39;source-name&#39;</span><span class="p">,</span>
+        <span class="n">query</span><span class="p">:</span>  <span class="p">{</span> <span class="n">dataQuery</span><span class="p">:</span> <span class="s1">&#39;query&#39;</span> <span class="p">},</span>
+        <span class="nb">filter</span><span class="p">:</span> <span class="s1">&#39;{ Filter }&#39;</span><span class="p">,</span>
+    <span class="p">});</span>
+<span class="o">...</span>
+</pre></div>
+</div>
+<p>Takes in the content source config object (<code class="docutils literal notranslate"><span class="pre">{source,</span> <span class="pre">query,</span> <span class="pre">filter,</span> <span class="pre">inherit}</span></code>) and fetches the data. For all intents and purposes, it works identically to the Consumer’s <code class="docutils literal notranslate"><span class="pre">fetchContent</span></code> function in both terms of input and output - it will return the data fetched from the content source.</p>
+</div>
+<div class="section" id="useeditablecontent">
+<h2>useEditableContent<a class="headerlink" href="#useeditablecontent" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>import { useEditableContent } from &#39;fusion:content&#39;;
+import { useComponentContext } from &#39;fusion:context&#39;;
+
+export default () =&gt; {
+    // Receive global content
+    const { globalContent: content } = useComponentContext();
+
+    // Retrieve two functions from the useEditableContent hook
+    const { editableContent, editableField } = useEditableContent();
+
+    return (
+        &lt;h1 {...editableContent(content, &#39;headlines.basic&#39;)}&gt;
+            {/*Check that both the content and the headline exists before rendering the inline edited headline*/}
+            {content &amp;&amp; content.headlines ? content.headlines.basic : &#39;&#39;}
+        &lt;/h1&gt;
+    );
+};
+</pre></div>
+</div>
+<p>This hook will return two functions - editableContent and editableField (for editableField, please consult the linked page as to how that function might be used). The child components can then receive the content of the function’s results, which the editor will then check to see if it’s a contentEditable tag. Once you make an inline change, then the editor will remember the next time you render it as well.</p>
+<p>You can also set up a multi-nodal editableContent like so:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>import { useEditableContent } from &#39;fusion:content&#39;;
+import { useComponentContext } from &#39;fusion:context&#39;;
+
+export default () =&gt; {
+    const { globalContent: content } = useComponentContext();
+    const { editableContent } = useEditableContent();
+
+    return (
+        &lt;&gt;
+            &lt;h1 {...editableContent(content, {
+                headline: &#39;headlines.basic&#39;,
+                subheadlines: &#39;subheadlines.basic&#39;,
+                description: &#39;description.basic&#39;,
+            })}
+            &gt;
+                {content &amp;&amp; content.headlines ? content.headlines.basic : &#39;&#39;}
+            &lt;/h1&gt;
+            &lt;h3&gt;
+                {content &amp;&amp; content.subheadlines ? content.subheadlines.basic : &#39;&#39;}
+            &lt;/h3&gt;
+            &lt;p&gt;
+                {content &amp;&amp; content.description ? content.description.basic : &#39;&#39;}
+            &lt;/p&gt;
+        &lt;/&gt;
+    );
+};
+</pre></div>
+</div>
+<p>Once the editableContent receives an object with multiple keys as the second param, it will create a multi-nodal component. Now, if you click on the headline, Editor will display a window on which you can make updates for the next two texts as well. Refresh after making the update and the texts should be updated accordingly.</p>
+<p>Note that this will also trigger the “A component is <code class="docutils literal notranslate"><span class="pre">contentEditable</span></code> and contains <code class="docutils literal notranslate"><span class="pre">children</span></code> managed by React…” warning, just to let you know that the component is now inline-editable.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="api-output.html" class="btn btn-neutral float-right" title="Output Type API" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="hooks-event-handling.html" class="btn btn-neutral float-left" title="Event Handling and Interaction" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Guess Me
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,330 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Using Site Properties &mdash; Fusion-Doc 1.0.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Examining the Feature Pack" href="Folder.html" />
+    <link rel="prev" title="Content Filtering in Fusion" href="content-filtering.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Fusion-Doc
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Components:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="output.html">Creating and Using Output Types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="feature.html">Creating a Feature Component</a></li>
+<li class="toctree-l1"><a class="reference internal" href="layout.html">Creating a Layout Component</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chain.html">Creating a Chain Component</a></li>
+<li class="toctree-l1"><a class="reference internal" href="event-handling.html">Event Handling and Interaction</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Data:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="content-source.html">Defining a Content Source</a></li>
+<li class="toctree-l1"><a class="reference internal" href="environment.html">Using Environment Variables and “Secrets”</a></li>
+<li class="toctree-l1"><a class="reference internal" href="consumer-hoc.html">Using the Consumer Higher-Order Function</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fetching-content.html">Fetching Content</a></li>
+<li class="toctree-l1"><a class="reference internal" href="configuring-content.html">Dynamically Configuring Content</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content-filtering.html">Content Filtering in Fusion</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Using Site Properties</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#site-properties-vs-environment-variables">Site properties vs. environment variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#global-values">Global values</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#site-specific-values">Site specific values</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#using-properties">Using properties</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">General:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Folder.html">Examining the Feature Pack</a></li>
+<li class="toctree-l1"><a class="reference internal" href="style.html">Adding Styling to Components</a></li>
+<li class="toctree-l1"><a class="reference internal" href="custom-fields.html">Adding Custom Fields to Components</a></li>
+<li class="toctree-l1"><a class="reference internal" href="display-properties.html">Working with Display Properties</a></li>
+<li class="toctree-l1"><a class="reference internal" href="isomorphic-server-spa.html">Isomorphic vs. Server vs. SPA rendering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="messga-between-components.html">Messaging Between Components</a></li>
+<li class="toctree-l1"><a class="reference internal" href="custom-error-page.html">Using Custom Error Pages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="return-non-html-content-type.html">Creating a Web API Returning a Non-HTML Content Type</a></li>
+<li class="toctree-l1"><a class="reference internal" href="service-work.html">Using Service Workers with Fusion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="local-webpack-states-file.html">Locally Generated Webpack Stats File</a></li>
+<li class="toctree-l1"><a class="reference internal" href="static-features-outside-of-fusion.html">Including Static Features Outside of Fusion</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Best Practices:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="bp.html">Best Practices</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Hooks:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="hooks-configuring-content.html">Dynamically Configuring Content</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hooks-fetching-content.html">Fetching Content</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hooks-event-handling.html">Event Handling and Interaction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hooks.html">React Hooks</a></li>
+</ul>
+<p class="caption"><span class="caption-text">API:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="api-output.html">Output Type API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-feature.html">Feature API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-layout.html">Layout API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-chain.html">Chain API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-custom-fields.html">Custom Fields API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-consumer.html">Consumer API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-context.html">Context Component API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-content.html">Content Component API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-static.html">Static Component API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-content-source.html">Content Source API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-plugins.html">Plugins API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-local-development-mock.html">Local Mocks API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-site-properties.html">Site Properties API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-fusion-http.html">Fusion HTTP API</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Fusion-Doc</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Using Site Properties</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/site-properties.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="using-site-properties">
+<h1>Using Site Properties<a class="headerlink" href="#using-site-properties" title="Permalink to this headline">¶</a></h1>
+<p>Since Fusion applications can support multiple websites with the same Feature Pack, it’s often necessary for different sites in the application to have different values for certain pieces of data - and for that, we have site properties. Site properties are site-specific values that may be accessed anywhere in your bundle, and can hold any data type. Good use cases for site properties might include Twitter handles, mailto addresses for contact info, or even just the human-readable name of the site itself.</p>
+<div class="section" id="site-properties-vs-environment-variables">
+<h2>Site properties vs. environment variables<a class="headerlink" href="#site-properties-vs-environment-variables" title="Permalink to this headline">¶</a></h2>
+<p>Site properties and environment variables serve similar purposes, so it can be easy to get confused between which one you want to use in a given situation. But there are a few key distinctions between the two that can help determine which is the right tool for the job:</p>
+<ul class="simple">
+<li>Environment variables can be encrypted locally and decrypted on the server. For this reason, they are ideal for “secret” variables like API credentials that you don’t want to be exposed in plain text in your code repository. Site properties do not have this capability.</li>
+<li>Site properties can be set on a “per-site” basis in multisite Fusion applications, meaning each site can have its own unique value for a given property. Environment variables, on the other hand, are universal across sites (not to be confused with environments).</li>
+</ul>
+</div>
+<div class="section" id="global-values">
+<h2>Global values<a class="headerlink" href="#global-values" title="Permalink to this headline">¶</a></h2>
+<p>Site properties have “global” values that will exist until they are overriden by more specific “site” values - this way, if a “site” value does not exist for a given piece of data, it can fall back to the “global” value. Global values should be defined in <code class="docutils literal notranslate"><span class="pre">/properties/index.js</span></code> (or <code class="docutils literal notranslate"><span class="pre">/properties/index.json</span></code> if you don’t need to compute any values). These values will be the defaults and will be included for all sites, unless explicitly overridden.</p>
+<p>Let’s define a “global” property here for a fake media conglomerate with many holdings, Acme Media Group:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">/*</span>  <span class="o">/</span><span class="n">properties</span><span class="o">/</span><span class="n">index</span><span class="o">.</span><span class="n">js</span>  <span class="o">*/</span>
+
+<span class="n">export</span> <span class="n">default</span> <span class="p">{</span>
+  <span class="n">contactEmail</span><span class="p">:</span> <span class="s1">&#39;contact@acmemedia.com&#39;</span><span class="p">,</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>In this case, the only “global” value we want is a contact email address; no other value (like Twitter handle or site name) makes sense to set on a global scale, since we’d rather show nothing at all than inaccurate data for those fields.</p>
+</div>
+<div class="section" id="site-specific-values">
+<h2>Site specific values<a class="headerlink" href="#site-specific-values" title="Permalink to this headline">¶</a></h2>
+<p>Site-specific values should be defined in <code class="docutils literal notranslate"><span class="pre">properties/sites/${site}.js</span></code> (or <code class="docutils literal notranslate"><span class="pre">properties/sites/${site}.json</span></code>), where <code class="docutils literal notranslate"><span class="pre">${site}</span></code> is the “slug” of the website the reader is making a request to. The site “slug” will be determined by whatever the value of the <code class="docutils literal notranslate"><span class="pre">_website</span></code> query parameter is on the URI of the page that was requested; you’ll probably use some proxy server to redirect requests and append that query param (but that’s outside the scope of these docs).</p>
+<p>These values will override any global values when the site is loaded. So let’s define some for a specific site owned by Acme Media Group, AcmeFeed (a listicle site for millenials).</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">/*</span>  <span class="o">/</span><span class="n">properties</span><span class="o">/</span><span class="n">sites</span><span class="o">/</span><span class="n">acmefeed</span><span class="o">.</span><span class="n">js</span>  <span class="o">*/</span>
+
+<span class="n">export</span> <span class="n">default</span> <span class="p">{</span>
+  <span class="n">siteName</span><span class="p">:</span> <span class="s2">&quot;AcmeFeed: You&#39;re Here for the Puppies&quot;</span><span class="p">,</span>
+  <span class="n">twitter</span><span class="p">:</span> <span class="s1">&#39;acmefeed&#39;</span><span class="p">,</span>
+  <span class="n">contactEmail</span><span class="p">:</span> <span class="s1">&#39;editor@acmefeed.com&#39;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Here, <code class="docutils literal notranslate"><span class="pre">siteName</span></code> and <code class="docutils literal notranslate"><span class="pre">twitter</span></code> are properties that only exist for AcmeFeed, and <code class="docutils literal notranslate"><span class="pre">contactEmail</span></code> will override the “global” <code class="docutils literal notranslate"><span class="pre">contactEmail</span></code> property when the <code class="docutils literal notranslate"><span class="pre">acmefeed</span></code> site is being requested.</p>
+</div>
+<div class="section" id="using-properties">
+<h2>Using properties<a class="headerlink" href="#using-properties" title="Permalink to this headline">¶</a></h2>
+<p>Now, we’re able to use our site properties in a component by using the <code class="docutils literal notranslate"><span class="pre">getProperties</span></code> method provided to us by <code class="docutils literal notranslate"><span class="pre">fusion:properties</span></code>. We just pass in the site name that we get from props like so:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>/*  /components/features/my-group/my-component.jsx  */
+
+import React, { Component } from &#39;react&#39;
+import Consumer from &#39;fusion:consumer&#39;
+import getProperties from &#39;fusion:properties&#39;
+
+@Consumer
+class MyComponent extends Component {
+  render() {
+    const siteVars = getProperties(props.arcSite)
+
+    return (
+      &lt;div&gt;
+        {siteVars.twitter &amp;&amp; &lt;a href={`https://twitter.com/${siteVars.twitter}`}&gt;Twitter&lt;/a&gt;}
+        {siteVars.contactEmail &amp;&amp; &lt;a href={`mailto:${siteVars.contactEmail}`}&gt;Contact&lt;/a&gt;}
+      &lt;/div&gt;
+    )
+  }
+}
+
+export default MyComponent
+</pre></div>
+</div>
+<p>Now, when a user requests a webpage on AcmeFeed’s website that contains this component, they’ll see links to AcmeFeed’s Twitter handle (<code class="docutils literal notranslate"><span class="pre">acmefeed</span></code>) and their contact email address (<code class="docutils literal notranslate"><span class="pre">editor&#64;acmefeed.com</span></code>). If AcmeFeed hadn’t had a specific contact email address, that value would have fallen back to the “global” value <code class="docutils literal notranslate"><span class="pre">contact&#64;acmemedia.com</span></code>.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="Folder.html" class="btn btn-neutral float-right" title="Examining the Feature Pack" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="content-filtering.html" class="btn btn-neutral float-left" title="Content Filtering in Fusion" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Guess Me
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,320 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Creating a Chain Component &mdash; Fusion-Doc 1.0.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Event Handling and Interaction" href="event-handling.html" />
+    <link rel="prev" title="Creating a Layout Component" href="layout.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Fusion-Doc
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Components:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="output.html">Creating and Using Output Types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="feature.html">Creating a Feature Component</a></li>
+<li class="toctree-l1"><a class="reference internal" href="layout.html">Creating a Layout Component</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Creating a Chain Component</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#what-are-chains">What are Chains?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#creating-a-chain">Creating a Chain</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="event-handling.html">Event Handling and Interaction</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Data:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="content-source.html">Defining a Content Source</a></li>
+<li class="toctree-l1"><a class="reference internal" href="environment.html">Using Environment Variables and “Secrets”</a></li>
+<li class="toctree-l1"><a class="reference internal" href="consumer-hoc.html">Using the Consumer Higher-Order Function</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fetching-content.html">Fetching Content</a></li>
+<li class="toctree-l1"><a class="reference internal" href="configuring-content.html">Dynamically Configuring Content</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content-filtering.html">Content Filtering in Fusion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="site-properties.html">Using Site Properties</a></li>
+</ul>
+<p class="caption"><span class="caption-text">General:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Folder.html">Examining the Feature Pack</a></li>
+<li class="toctree-l1"><a class="reference internal" href="style.html">Adding Styling to Components</a></li>
+<li class="toctree-l1"><a class="reference internal" href="custom-fields.html">Adding Custom Fields to Components</a></li>
+<li class="toctree-l1"><a class="reference internal" href="display-properties.html">Working with Display Properties</a></li>
+<li class="toctree-l1"><a class="reference internal" href="isomorphic-server-spa.html">Isomorphic vs. Server vs. SPA rendering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="messga-between-components.html">Messaging Between Components</a></li>
+<li class="toctree-l1"><a class="reference internal" href="custom-error-page.html">Using Custom Error Pages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="return-non-html-content-type.html">Creating a Web API Returning a Non-HTML Content Type</a></li>
+<li class="toctree-l1"><a class="reference internal" href="service-work.html">Using Service Workers with Fusion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="local-webpack-states-file.html">Locally Generated Webpack Stats File</a></li>
+<li class="toctree-l1"><a class="reference internal" href="static-features-outside-of-fusion.html">Including Static Features Outside of Fusion</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Best Practices:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="bp.html">Best Practices</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Hooks:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="hooks-configuring-content.html">Dynamically Configuring Content</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hooks-fetching-content.html">Fetching Content</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hooks-event-handling.html">Event Handling and Interaction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hooks.html">React Hooks</a></li>
+</ul>
+<p class="caption"><span class="caption-text">API:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="api-output.html">Output Type API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-feature.html">Feature API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-layout.html">Layout API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-chain.html">Chain API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-custom-fields.html">Custom Fields API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-consumer.html">Consumer API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-context.html">Context Component API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-content.html">Content Component API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-static.html">Static Component API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-content-source.html">Content Source API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-plugins.html">Plugins API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-local-development-mock.html">Local Mocks API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-site-properties.html">Site Properties API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-fusion-http.html">Fusion HTTP API</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Fusion-Doc</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Creating a Chain Component</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/chain.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="creating-a-chain-component">
+<h1>Creating a Chain Component<a class="headerlink" href="#creating-a-chain-component" title="Permalink to this headline">¶</a></h1>
+<p>The final type of component we’ll deal with is Chains. While Chains aren’t strictly necessary to building your Feature Pack, they can be a useful way to organize Features while providing structure and style.</p>
+<div class="section" id="what-are-chains">
+<h2>What are Chains?<a class="headerlink" href="#what-are-chains" title="Permalink to this headline">¶</a></h2>
+<p>Chain components are meant to be simple wrapper elements surrounding a single group of Features. Like every other component, they are defined as React components in JSX. They are most commonly used for things like sidebars, or on Feature-rich standalone pages (like a homepage) with multiple sections of content. Chains are similar to Layouts in that they contain multiple components within them, but are different in a few important ways:</p>
+<ul class="simple">
+<li>Layouts have multiple named groups, or “sections” of Features - Chains only have a single group of Features, and thus aren’t named</li>
+<li>Layouts can contain both Features and Chains - Chains can only contain Features (not other nested Chains)</li>
+<li>Only one Layout can be applied per page/template, whereas multiple Chains can exist on one page/template</li>
+<li>Chains, like Features, can have custom fields defined on them.</li>
+</ul>
+</div>
+<div class="section" id="creating-a-chain">
+<h2>Creating a Chain<a class="headerlink" href="#creating-a-chain" title="Permalink to this headline">¶</a></h2>
+<p>Let’s say we want to create a simple “sidebar” chain for our Feature Pack. In the <code class="docutils literal notranslate"><span class="pre">/components/chains/</span></code> directory we would create a file called <code class="docutils literal notranslate"><span class="pre">sidebar.jsx</span></code> that looks like this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>/*  /components/chains/sidebar.jsx  */
+
+import PropTypes from &#39;prop-types&#39;
+import React from &#39;react&#39;
+
+const Sidebar = (props) =&gt; {
+  const { hasBorder, heading } = props.customFields
+
+  let classNames = &#39;col-xs-12 col-md-4&#39;
+  classNames = hasBorder ? `${classNames} border-left` : classNames
+
+  return (
+    &lt;section className={classNames}&gt;
+      {heading &amp;&amp;
+        &lt;h3&gt;{heading}&lt;/h3&gt;
+      }
+      &lt;div&gt;
+        {props.children}
+      &lt;/div&gt;
+    &lt;/section&gt;
+  )
+}
+
+Sidebar.propTypes = {
+  customFields: PropTypes.shape({
+    heading: PropTypes.string,
+    hasBorder: PropTypes.bool
+  })
+}
+
+export default Sidebar
+</pre></div>
+</div>
+<p>As usual, let’s examine what’s going on:</p>
+<ul class="simple">
+<li>We’re defining a functional component and assigning it to <code class="docutils literal notranslate"><span class="pre">const</span> <span class="pre">Sidebar</span></code></li>
+<li>We use the <code class="docutils literal notranslate"><span class="pre">hasBorder</span></code> custom field (that we define at the bottom of the file) to determine whether or not to add <code class="docutils literal notranslate"><span class="pre">border-left</span></code> to the list of classNames for our <code class="docutils literal notranslate"><span class="pre">&lt;section&gt;</span></code> container</li>
+<li>We return the <code class="docutils literal notranslate"><span class="pre">&lt;section&gt;</span></code> container with a custom <code class="docutils literal notranslate"><span class="pre">heading</span></code> (if one exists), and a div with <code class="docutils literal notranslate"><span class="pre">props.children</span></code> inside of it, which represents the Features that will be added to this Chain in the Admin</li>
+</ul>
+<p>There’s nothing particularly remarkable about this Chain - we could do a lot more with it, like split the list of <code class="docutils literal notranslate"><span class="pre">children</span></code> into two list and display them in separate elements, but this will serve our purposes for now. The most important thing to remember about Chains is that <code class="docutils literal notranslate"><span class="pre">props.children</span></code> is the property you need to actually render the Features that should be contained in the Chain.</p>
+<p>We haven’t talked much about Custom Fields yet, but as you can see here they are simply values passed to the component that were defined for this Chain in the Admin. So an editor can decide in PageBuilder whether this specific instance of the Sidebar chain should have a heading (and what it should be), as well as whether or not our Sidebar should have a border.</p>
+<p>If we go into PageBuilder Admin and refresh our page editor, we should see the “Sidebar” chain show up in the Layout panel now. We can add this Chain to the page (either inside a Layout or on its own), and then drop whatever Features we want into it!</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="event-handling.html" class="btn btn-neutral float-right" title="Event Handling and Interaction" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="layout.html" class="btn btn-neutral float-left" title="Creating a Layout Component" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Guess Me
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

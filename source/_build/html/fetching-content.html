@@ -1,0 +1,525 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Fetching Content &mdash; Fusion-Doc 1.0.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Dynamically Configuring Content" href="configuring-content.html" />
+    <link rel="prev" title="Using the Consumer Higher-Order Function" href="consumer-hoc.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Fusion-Doc
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Components:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="output.html">Creating and Using Output Types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="feature.html">Creating a Feature Component</a></li>
+<li class="toctree-l1"><a class="reference internal" href="layout.html">Creating a Layout Component</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chain.html">Creating a Chain Component</a></li>
+<li class="toctree-l1"><a class="reference internal" href="event-handling.html">Event Handling and Interaction</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Data:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="content-source.html">Defining a Content Source</a></li>
+<li class="toctree-l1"><a class="reference internal" href="environment.html">Using Environment Variables and “Secrets”</a></li>
+<li class="toctree-l1"><a class="reference internal" href="consumer-hoc.html">Using the Consumer Higher-Order Function</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Fetching Content</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#using-global-content-vs-fetched-content">Using “global” content vs. fetched content</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#fetching-content-and-setting-state">Fetching content and setting state</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#adding-pagination">Adding pagination</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="configuring-content.html">Dynamically Configuring Content</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content-filtering.html">Content Filtering in Fusion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="site-properties.html">Using Site Properties</a></li>
+</ul>
+<p class="caption"><span class="caption-text">General:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Folder.html">Examining the Feature Pack</a></li>
+<li class="toctree-l1"><a class="reference internal" href="style.html">Adding Styling to Components</a></li>
+<li class="toctree-l1"><a class="reference internal" href="custom-fields.html">Adding Custom Fields to Components</a></li>
+<li class="toctree-l1"><a class="reference internal" href="display-properties.html">Working with Display Properties</a></li>
+<li class="toctree-l1"><a class="reference internal" href="isomorphic-server-spa.html">Isomorphic vs. Server vs. SPA rendering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="messga-between-components.html">Messaging Between Components</a></li>
+<li class="toctree-l1"><a class="reference internal" href="custom-error-page.html">Using Custom Error Pages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="return-non-html-content-type.html">Creating a Web API Returning a Non-HTML Content Type</a></li>
+<li class="toctree-l1"><a class="reference internal" href="service-work.html">Using Service Workers with Fusion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="local-webpack-states-file.html">Locally Generated Webpack Stats File</a></li>
+<li class="toctree-l1"><a class="reference internal" href="static-features-outside-of-fusion.html">Including Static Features Outside of Fusion</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Best Practices:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="bp.html">Best Practices</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Hooks:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="hooks-configuring-content.html">Dynamically Configuring Content</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hooks-fetching-content.html">Fetching Content</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hooks-event-handling.html">Event Handling and Interaction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hooks.html">React Hooks</a></li>
+</ul>
+<p class="caption"><span class="caption-text">API:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="api-output.html">Output Type API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-feature.html">Feature API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-layout.html">Layout API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-chain.html">Chain API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-custom-fields.html">Custom Fields API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-consumer.html">Consumer API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-context.html">Context Component API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-content.html">Content Component API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-static.html">Static Component API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-content-source.html">Content Source API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-plugins.html">Plugins API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-local-development-mock.html">Local Mocks API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-site-properties.html">Site Properties API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-fusion-http.html">Fusion HTTP API</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Fusion-Doc</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Fetching Content</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/fetching-content.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="fetching-content">
+<h1>Fetching Content<a class="headerlink" href="#fetching-content" title="Permalink to this headline">¶</a></h1>
+<p>The whole point of defining a content source, a GraphQL schema, and putting our API credentials in environment variables was so we can use them to retrieve content - and now we’re finally ready to do so!</p>
+<div class="section" id="using-global-content-vs-fetched-content">
+<h2>Using “global” content vs. fetched content<a class="headerlink" href="#using-global-content-vs-fetched-content" title="Permalink to this headline">¶</a></h2>
+<p>It’s important to remember that you only need to fetch content if the content you need has not already been provided to you by <code class="docutils literal notranslate"><span class="pre">globalContent</span></code>, or if you want to retrieve some content client-side. If the content you need in your feature is part of the “global” content of the page, meaning it is semantically identified by the URL the user requested, then you probably don’t need to fetch at all.</p>
+<p>A quick example: if you have a feature called <code class="docutils literal notranslate"><span class="pre">authors</span></code> whose purpose is to list the authors of the main story on the page, then you will want to use <code class="docutils literal notranslate"><span class="pre">props.globalContent</span></code> - since the information in the <code class="docutils literal notranslate"><span class="pre">authors</span></code> component is semantically tied to the main story. If, however, you are building an unrelated <code class="docutils literal notranslate"><span class="pre">sports_scores</span></code> component that shows the most recent scores from local sports games, that content will almost certainly <em>not</em> exist as part of your main story - so you’ll need to fetch it separately.</p>
+<blockquote>
+<div>NOTE Even though you may not need to fetch “feature specific” content in your Feature Pack, you still need to define content sources so resolvers can use them to fetch “global” content. Without content sources you can’t get “global” content or “feature specific” content.</div></blockquote>
+</div>
+<div class="section" id="fetching-content-and-setting-state">
+<h2>Fetching content and setting state<a class="headerlink" href="#fetching-content-and-setting-state" title="Permalink to this headline">¶</a></h2>
+<p>Once we’ve determined we need to fetch content, we need some more information:</p>
+<ul class="simple">
+<li>when do we want to fetch the content (on the server only, the client only, or both?)</li>
+<li>what content source do we want to fetch from?</li>
+<li>what arguments do we need to pass to get the content we want?</li>
+<li>what pieces of data from the returned content do we actually need?</li>
+</ul>
+<p>Let’s define a simple component called <code class="docutils literal notranslate"><span class="pre">MovieList</span></code> for this purpose:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>/*  /components/features/movies/movie-list.jsx  */
+
+import Consumer from &#39;fusion:consumer&#39;
+import React, { Component } from &#39;react&#39;
+
+@Consumer
+class MovieList extends Component {
+  constructor (props) {
+    super(props)
+    this.state = { movies: [] }
+  }
+
+  render () {
+    const { movies } = this.state
+    return (
+      &lt;div className=&#39;movie-list col-sm-12 col-md-4&#39;&gt;
+        &lt;h2&gt;Movies&lt;/h2&gt;
+        &lt;div className=&#39;movie row&#39;&gt;
+          {movies &amp;&amp; movies.map((movie, idx) =&gt;
+            &lt;div className=&#39;col-sm-12 border&#39; key={`movie-${idx}`}&gt;
+              {/* display movie info here */}
+            &lt;/div&gt;
+          )}
+        &lt;/div&gt;
+      &lt;/div&gt;
+    )
+  }
+}
+
+export default MovieList
+</pre></div>
+</div>
+<p>Right now, our component doesn’t do much - we are initializing an empty <code class="docutils literal notranslate"><span class="pre">movies</span></code> array in our <code class="docutils literal notranslate"><span class="pre">state</span></code> object that the <code class="docutils literal notranslate"><span class="pre">render</span></code> method loops over, but the loop just outputs an empty <code class="docutils literal notranslate"><span class="pre">&lt;div&gt;</span></code> right now. So we need to 1) fetch some movies and add them to our <code class="docutils literal notranslate"><span class="pre">state</span></code>, and 2) output some content inside our movies loop. Let’s add a method to the class to do the fetching:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>  <span class="n">fetch</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="n">const</span> <span class="p">{</span> <span class="n">movies</span> <span class="p">}</span> <span class="o">=</span> <span class="n">this</span><span class="o">.</span><span class="n">state</span><span class="p">;</span>
+    <span class="n">this</span><span class="o">.</span><span class="n">fetchContent</span><span class="p">({</span>
+        <span class="n">movies</span><span class="p">:</span> <span class="p">{</span>
+          <span class="n">source</span><span class="p">:</span> <span class="s1">&#39;movie-search&#39;</span><span class="p">,</span> 
+          <span class="n">query</span><span class="p">:</span> <span class="p">{</span> <span class="n">movieQuery</span><span class="p">:</span> <span class="s1">&#39;Jurassic&#39;</span> <span class="p">},</span> 
+          <span class="nb">filter</span><span class="p">:</span> <span class="s1">&#39;{ totalResults Search { Title Year Poster } }&#39;</span><span class="p">,</span>
+          <span class="n">transform</span> <span class="p">(</span><span class="n">data</span><span class="p">)</span> <span class="p">{</span>
+            <span class="o">//</span> <span class="n">Check</span> <span class="k">if</span> <span class="n">data</span> <span class="ow">is</span> <span class="n">being</span> <span class="n">returned</span>
+            <span class="k">if</span><span class="p">(</span><span class="n">data</span> <span class="o">&amp;&amp;</span> <span class="n">data</span><span class="o">.</span><span class="n">Search</span><span class="p">)</span>
+              <span class="k">return</span> <span class="p">{</span> <span class="nb">list</span><span class="p">:</span> <span class="p">[</span><span class="o">...</span><span class="n">movies</span><span class="o">.</span><span class="n">list</span><span class="p">,</span> <span class="o">...</span><span class="n">data</span><span class="o">.</span><span class="n">Search</span><span class="p">]</span> <span class="p">};</span>
+
+            <span class="o">//</span> <span class="n">Otherwise</span> <span class="n">just</span> <span class="n">keep</span> <span class="n">the</span> <span class="n">current</span> <span class="nb">list</span> <span class="n">of</span> <span class="n">movies</span>
+            <span class="k">else</span>
+              <span class="k">return</span> <span class="n">movies</span>
+          <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">})</span>
+  <span class="p">}</span>
+</pre></div>
+</div>
+<p>Here, we’re utilizing Fusion’s fetchContent method to fetch some content and then set some state. The function takes in one object variable key we call <code class="docutils literal notranslate"><span class="pre">contentConfigMap</span></code>, with the key that you would like to use to retrieve in the state.</p>
+<p>For our purpose, we will be putting three parameters in the <code class="docutils literal notranslate"><span class="pre">contentConfigMap</span></code> object:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">source</span></code>: The name of the content source (<code class="docutils literal notranslate"><span class="pre">movie-search</span></code> for now)</li>
+<li><code class="docutils literal notranslate"><span class="pre">query</span></code>: Object that contains the values we actually want to query on - in this case, a <code class="docutils literal notranslate"><span class="pre">movieQuery</span></code> param searching for movies with the word ‘Jurassic’ in them (this object will be the only argument passed to the <code class="docutils literal notranslate"><span class="pre">resolve</span></code> method in our content source).</li>
+<li><code class="docutils literal notranslate"><span class="pre">filter</span></code>: A string containing a GraphQL query object, which will filter the results of our JSON down to just the data we need for this component</li>
+<li><code class="docutils literal notranslate"><span class="pre">transform</span></code>: the function that will destructure the result of the query to cleanly insert them into the state.</li>
+</ul>
+<p>This method should work great - except we haven’t invoked it anywhere! Let’s change that in our <code class="docutils literal notranslate"><span class="pre">constructor</span></code> method:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>  <span class="n">constructor</span> <span class="p">(</span><span class="n">props</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nb">super</span><span class="p">(</span><span class="n">props</span><span class="p">)</span>
+    <span class="n">this</span><span class="o">.</span><span class="n">state</span> <span class="o">=</span> <span class="p">{</span> <span class="n">movies</span><span class="p">:</span> <span class="p">{</span> <span class="nb">list</span><span class="p">:</span> <span class="p">[]</span> <span class="p">}}</span>
+    <span class="n">this</span><span class="o">.</span><span class="n">fetch</span> <span class="o">=</span> <span class="n">this</span><span class="o">.</span><span class="n">fetch</span><span class="o">.</span><span class="n">bind</span><span class="p">(</span><span class="n">this</span><span class="p">)</span>
+    <span class="n">this</span><span class="o">.</span><span class="n">fetch</span><span class="p">();</span>
+  <span class="p">}</span>
+</pre></div>
+</div>
+<blockquote>
+<div><p><strong>NOTE</strong></p>
+<p>Because we’re invoking the <code class="docutils literal notranslate"><span class="pre">fetch</span></code> method in the <code class="docutils literal notranslate"><span class="pre">constructor</span></code>, our fetch will occur on both the server <em>and</em> the client side when we’re rendering. If we had just wanted to invoke client side, we could have put the <code class="docutils literal notranslate"><span class="pre">fetch</span></code> call inside of <code class="docutils literal notranslate"><span class="pre">componentDidMount</span></code> instead of the <code class="docutils literal notranslate"><span class="pre">constructor</span></code>, since <code class="docutils literal notranslate"><span class="pre">componentDidMount</span></code> only occurs client side.</p>
+</div></blockquote>
+<p>At this point our fetch should be working! The last problem is we aren’t displaying any data. Let’s fix that too:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>  render () {
+    const { list: movies } = this.state.movies
+    return (
+      &lt;Fragment&gt;
+        &lt;h2&gt;Movies&lt;/h2&gt;
+        &lt;div&gt;
+          {movies &amp;&amp; movies.map((movie, idx) =&gt;
+            &lt;div key={`movie-${idx}`}&gt;
+              &lt;h4&gt;{movie.Title}&lt;/h4&gt;
+              &lt;p&gt;&lt;strong&gt;Year:&lt;/strong&gt; {movie.Year}&lt;/p&gt;
+              &lt;img src={movie.Poster} /&gt;
+            &lt;/div&gt;
+          )}
+        &lt;/div&gt;
+      &lt;/Fragment&gt;
+    )
+  }
+</pre></div>
+</div>
+<p>Because React will re-render automatically whenever there is a change to the <code class="docutils literal notranslate"><span class="pre">state</span></code> or <code class="docutils literal notranslate"><span class="pre">props</span></code> of our component, and we’re triggering a state change when we fetch our new movies, we can simply iterate over the <code class="docutils literal notranslate"><span class="pre">movies</span></code> array in our state and output the information we want (<code class="docutils literal notranslate"><span class="pre">Title</span></code>, <code class="docutils literal notranslate"><span class="pre">Year</span></code>, <code class="docutils literal notranslate"><span class="pre">Poster</span></code>) for each movie as if they’d always been there. This should result in a working component that fetches and displays data about movies with the word ‘Jurassic’ in the title! Let’s see the entire component together:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>/*  /components/features/movies/movie-list.jsx  */
+
+import Consumer from &#39;fusion:consumer&#39;
+import React, { Fragment, Component } from &#39;react&#39;
+
+@Consumer
+class MovieList extends Component {
+  constructor (props) {
+    super(props);
+    this.state = { movies: { list: [] }};
+    this.fetch = this.fetch.bind(this)
+    this.fetch();
+  }
+
+  fetch () {
+    const { movies } = this.state;
+    this.fetchContent({
+        movies: {
+          source: &#39;movie-search&#39;, 
+          query: { movieQuery: &#39;Jurassic&#39; }, 
+          filter: &#39;{ totalResults Search { Title Year Poster } }&#39;,
+          transform (data) {
+            // Check if data is being returned
+            if(data &amp;&amp; data.Search)
+              return { list: [...movies.list, ...data.Search] }
+
+            // Otherwise just keep the current list of movies
+            else
+              return movies;
+          }
+        }
+    })
+  }
+
+
+  render () {
+    const { list: movies } = this.state.movies
+    return (
+      &lt;Fragment&gt;
+        &lt;h2&gt;Movies&lt;/h2&gt;
+        &lt;div&gt;
+          {movies &amp;&amp; movies.map((movie, idx) =&gt;
+            &lt;div key={`movie-${idx}`}&gt;
+              &lt;h4&gt;{movie.Title}&lt;/h4&gt;
+              &lt;p&gt;&lt;strong&gt;Year:&lt;/strong&gt; {movie.Year}&lt;/p&gt;
+              &lt;img src={movie.Poster} /&gt;
+            &lt;/div&gt;
+          )}
+        &lt;/div&gt;
+      &lt;/Fragment&gt;
+    )
+  }
+}
+
+export default MovieList
+</pre></div>
+</div>
+</div>
+<div class="section" id="adding-pagination">
+<h2>Adding pagination<a class="headerlink" href="#adding-pagination" title="Permalink to this headline">¶</a></h2>
+<p>Unfortunately, this only fetches the <em>first page</em> of movies with “Jurassic” in the title from OMDB. But since OMDB’s API allows us to send a <code class="docutils literal notranslate"><span class="pre">page</span></code> param, and our content source is already set up to accept such a param, it’s easy to add pagination to this feature as such:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>/*  /components/features/movies/movie-list.jsx  */
+
+import Consumer from &#39;fusion:consumer&#39;
+import React, { Fragment, Component } from &#39;react&#39;
+
+@Consumer
+class MovieList extends Component {
+  constructor (props) {
+    super(props)
+    this.state = {
+      movies: {
+        pages: []
+      },
+      page: 0
+    }
+    this.fetch = this.fetch.bind(this)
+    this.fetch()
+  }
+
+  fetch () {
+    const { page } = this.state;
+
+    // Increment the page at each call
+    this.state.page += 1;
+
+    this.fetchContent({
+      movies: {
+        source: &#39;movie-search&#39;,
+        query: {
+          movieQuery: &#39;Jurassic&#39;,
+          page: page + 1
+        },
+        filter: &#39;{ totalResults Search { Title Year Poster } }&#39;,
+        transform: (data) =&gt; {
+          // Check if data is being returned
+          if(data &amp;&amp; data.Search) {
+            // Add the results to the paginated list of movies
+            this.state.movies.pages[page] = data.Search
+            return this.state.movies
+          }
+
+          // Otherwise just keep the current list of movies
+          else{
+            return this.state.movies;
+          }
+        }
+      }
+    })
+  }
+
+  render () {
+    // Concatenate the lists of the movies and filter duplicates - this would ensure that
+    // a multiple clicks on the &#39;More&#39; button wouldn&#39;t cause issues with incomplete and out-of-order fetches from
+    // network issues
+    const movies = [].concat(...this.state.movies.pages).filter(movie =&gt; movie);
+
+    return (
+      &lt;Fragment&gt;
+        &lt;h2&gt;Movies&lt;/h2&gt;
+        &lt;div&gt;
+          {movies &amp;&amp; movies.map((movie, idx) =&gt;
+            &lt;div key={`movie-${idx}`}&gt;
+              &lt;h4&gt;{movie.Title}&lt;/h4&gt;
+              &lt;p&gt;&lt;strong&gt;Year:&lt;/strong&gt; {movie.Year}&lt;/p&gt;
+              &lt;img src={movie.Poster} /&gt;
+            &lt;/div&gt;
+          )}
+          &lt;button onClick={ this.fetch }&gt;More&lt;/button&gt;
+        &lt;/div&gt;
+      &lt;/Fragment&gt;
+    )
+  }
+}
+
+export default MovieList
+</pre></div>
+</div>
+<p>With this, all we had to do to get pagination working was:</p>
+<ul class="simple">
+<li>add a <code class="docutils literal notranslate"><span class="pre">page</span></code> property to our state object and initialize it to <code class="docutils literal notranslate"><span class="pre">0</span></code> - this will be incremented at the first call to the <code class="docutils literal notranslate"><span class="pre">fetch</span></code> function.</li>
+<li>increment the <code class="docutils literal notranslate"><span class="pre">page</span></code> whenever we fetch, so next time we’ll fetch the following page - since it’s not necessary to re-render the component, we can increment it directly.</li>
+<li>include the page variable with 1 added to it (note that we are not passing the state’s incremented page value) - this is so that we can preserve the ordering of the paginated list of the movies and make sure the list starts properly at the index of 0 when we assign the result of the fetch request to the list.</li>
+<li>Add a button at the bottom of the component that allows us to call the <code class="docutils literal notranslate"><span class="pre">fetch</span></code> method, which should get the next page of results, display the new results, and increment the page all at once.</li>
+</ul>
+<p>And that’s how you fetch content in Fusion. Phew!</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="configuring-content.html" class="btn btn-neutral float-right" title="Dynamically Configuring Content" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="consumer-hoc.html" class="btn btn-neutral float-left" title="Using the Consumer Higher-Order Function" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Guess Me
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
